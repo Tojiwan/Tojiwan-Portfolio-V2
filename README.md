@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alex Vance — Neo-Brutalist Portfolio (Placeholder)
 
-## Getting Started
+Single-page developer portfolio. Light neo-brutalism: graph-paper canvas, 2px black borders, hard offset shadows, cyan/blue accents, Plus Jakarta Sans + Courier Prime.
 
-First, run the development server:
+Stack: React + Next.js 16 (App Router) + TypeScript + Tailwind CSS v4 + Motion (`motion/react`) + Lucide + Vercel.
+
+## Run
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Replace before launch
 
-To learn more about Next.js, take a look at the following resources:
+- Copy in `Neo-Brutalist-Portfolio-Design-Guide.md` / `Portfolio-Website-Build-Instructions.md` is the source of truth; `Sample-Website-Outcome.png` is the visual reference.
+- `src/data/projects.ts`, `src/data/skills.ts` — simplified placeholders (Alex Vance / Dev404). Swap in real projects, roles, dates, skills, services. No fake metrics or production claims.
+- `public/files/resume.pdf` — placeholder PDF. Replace with a real, current CV.
+- `src/app/icon.svg`, `src/app/opengraph-image.tsx` — placeholders. Replace with final branding.
+- `src/components/sections/contact-section.tsx` — form is UI-only demo. Connect to Formspree/Resend (or similar) before calling it functional. Never expose API keys client-side.
+- Contact channels (`hello@example.com`, handles) are placeholders.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push to GitHub (`.env*`, `node_modules`, `.next` are ignored).
+2. Import the repo in Vercel with the Next.js preset.
+3. Test preview on desktop + mobile, then add a custom domain if needed.

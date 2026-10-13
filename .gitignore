@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# personal files
+Neo-Brutalist-Portfolio-Design-Guide.md
+Portfolio-Website-Build-Instructions.md
+Sample-Website-Outcome.png
+checklist.md
