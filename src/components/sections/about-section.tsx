@@ -40,12 +40,12 @@ export function AboutSection() {
         <Reveal delay={0.1}>
           <TerminalWindow file="profile.json" status="v1.0">
             <pre className="overflow-x-auto bg-[#f3f4f6] p-3 font-mono text-xs leading-5 text-black">
-{`{
-  "name": "alex_vance",
-  "role": "fullstack",
-  "stack": ["next", "ts", "tailwind"],
-  "coffee": true
-}`}
+            {`{
+              "name": "alex_vance",
+              "role": "fullstack",
+              "stack": ["next", "ts", "tailwind"],
+              "coffee": true
+            }`}
             </pre>
             <p className="mt-3 font-mono text-[11px] tracking-wider text-[#3e4850] uppercase">
               Terminal panel — no fake credentials, replace with real profile

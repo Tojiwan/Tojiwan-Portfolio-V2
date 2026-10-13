@@ -12,22 +12,22 @@ export default function Home() {
       <div className="py-8 sm:py-12">
         <HeroSection />
       </div>
-      <div className="border-t-2 border-black py-10 sm:py-14">
+      <div className="py-10 sm:py-14">
         <AboutSection />
       </div>
-      <div className="border-t-2 border-black py-10 sm:py-14">
+      <div className="py-10 sm:py-14">
         <ProjectsSection />
       </div>
-      <div className="border-t-2 border-black py-10 sm:py-14">
+      <div className="py-10 sm:py-14">
         <TechStackSection />
       </div>
-      <div className="border-t-2 border-black py-10 sm:py-14">
+      <div className="py-10 sm:py-14">
         <ExperienceSection />
       </div>
-      <div className="border-t-2 border-black py-10 sm:py-14">
+      <div className="py-10 sm:py-14">
         <ServicesSection />
       </div>
-      <div className="border-t-2 border-black py-10 sm:py-14">
+      <div className="py-10 sm:py-14">
         <ContactSection />
       </div>
     </main>

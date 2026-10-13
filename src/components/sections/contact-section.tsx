@@ -35,7 +35,7 @@ export function ContactSection() {
                 name="name"
                 required
                 autoComplete="name"
-                placeholder="Ada Lovelace"
+                placeholder="Your Name"
                 className="mt-1 w-full border-2 border-black bg-white px-3 py-2 font-mono text-sm placeholder:text-[#6b7280] focus:shadow-[3px_3px_0_#0ea5e9] focus:outline-none"
               />
             </div>
@@ -78,9 +78,6 @@ export function ContactSection() {
           >
             <Send size={16} aria-hidden="true" /> Transmit message
           </button>
-          <p className="mt-2 font-mono text-[11px] tracking-wider text-[#3e4850] uppercase">
-            No data leaves your browser in this demo.
-          </p>
         </form>
         <div className="border-2 border-black bg-[#0b0f14] p-5 text-[#e6edf3] shadow-[4px_4px_0_#000]">
           <p className="font-mono text-xs font-bold tracking-wider uppercase text-[#7bd0ff]">
@@ -106,9 +103,6 @@ export function ContactSection() {
               <span className="opacity-60">remote-friendly</span>
             </li>
           </ul>
-          <p className="mt-3 font-mono text-[11px] leading-5 text-[#8b98a9]">
-            Replace placeholders with real links before launch. Never expose API keys client-side.
-          </p>
         </div>
       </div>
     </section>

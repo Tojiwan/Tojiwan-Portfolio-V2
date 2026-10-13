@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { RollingLink } from "@/components/ui/rolling-link";
 
 const links = [
   { href: "#about", label: "About" },
@@ -19,27 +20,24 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b-2 border-black bg-white">
       <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="#top" className="flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-black">
-          <span aria-hidden="true" className="flex h-6 w-6 items-center justify-center border-2 border-black bg-[#0ea5e9] font-mono text-xs font-bold">
-            A
-          </span>
           <span className="leading-none">
             <span className="block font-display text-sm font-extrabold tracking-tight text-black">
-              ALEX VANCE
+              Tojiwan
             </span>
             <span className="block font-mono text-[10px] font-bold tracking-[0.12em] text-[#3e4850] uppercase">
-              Engineering // Full-Stack
+              Full-Stack Web Developer
             </span>
           </span>
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-5 lg:flex">
           {links.map((l) => (
-            <Link
+            <RollingLink
               key={l.href}
               href={l.href}
-              className="font-mono text-xs font-bold tracking-wider text-black uppercase hover:bg-[#0ea5e9] hover:px-1 focus-visible:outline-2 focus-visible:outline-black"
+              className="font-mono text-xs font-bold tracking-wider text-black uppercase focus-visible:outline-2 focus-visible:outline-black"
             >
               {l.label}
-            </Link>
+            </RollingLink>
           ))}
         </nav>
         <div className="flex items-center gap-2">
@@ -70,13 +68,13 @@ export function SiteHeader() {
           <ul className="flex flex-col gap-1">
             {links.map((l) => (
               <li key={l.href}>
-                <Link
+                <RollingLink
                   href={l.href}
                   onClick={() => setOpen(false)}
                   className="block border-2 border-transparent px-2 py-2 font-mono text-sm font-bold uppercase hover:border-black hover:bg-[#f3f4f6] focus-visible:outline-2 focus-visible:outline-black"
                 >
                   {l.label}
-                </Link>
+                </RollingLink>
               </li>
             ))}
             <li>

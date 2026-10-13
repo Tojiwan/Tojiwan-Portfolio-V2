@@ -1,11 +1,44 @@
 @import "tailwindcss";
 
+/* Self-hosted fonts (no Google fetch at build time). */
+@font-face {
+  font-family: "Courier Prime";
+  src: url("/fonts/Courier_Prime/CourierPrime-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Courier Prime";
+  src: url("/fonts/Courier_Prime/CourierPrime-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/IBM_Plex_Mono/IBMPlexMono-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-display: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-mono: var(--font-courier-prime), "Courier Prime", ui-monospace, monospace;
+  --font-display: "Courier Prime", "IBM Plex Mono", ui-monospace, monospace;
+  --font-mono: "Courier Prime", "IBM Plex Mono", ui-monospace, monospace;
 
   --color-canvas: #f9f9f9;
-  --color-surface: #ffffff;
+  --color-surface: #e1e1e1;
   --color-muted: #f3f3f3;
   --color-ink: #000000;
   --color-line-muted: #e5e7eb;
@@ -17,7 +50,7 @@
 
 :root {
   --canvas: #f9f9f9;
-  --surface: #ffffff;
+  --surface: #e1e1e1;
   --surface-muted: #f3f3f3;
   --ink: #000000;
   --text: #1b1b1b;
@@ -51,18 +84,35 @@ body {
     linear-gradient(90deg, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
   background-size: 20px 20px;
   color: var(--text);
-  font-family: var(--font-courier-prime), "Courier Prime", ui-monospace, monospace;
+  font-family: "Courier Prime", "IBM Plex Mono", ui-monospace, monospace;
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
+  font-family: "Courier Prime", "IBM Plex Mono", ui-monospace, monospace;
 }
 
 ::selection {
   background: #0ea5e9;
   color: #000;
+}
+
+.label-window {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.label-copy {
+  display: block;
+  white-space: nowrap;
+}
+
+.label-copy--incoming {
+  position: absolute;
+  inset: 0;
 }
 
 :focus-visible {
