@@ -17,8 +17,8 @@ const links = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-black bg-white">
-      <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-4 px-4 sm:px-6">
+    <header className="sticky top-0 z-50 border-b-2 border-black bg-[#dadbdd]">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="#top" className="flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-black">
           <span className="leading-none">
             <span className="block font-display text-sm font-extrabold tracking-tight text-black">
@@ -43,13 +43,13 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             href="#contact"
-            className="hidden border-2 border-black bg-[#0ea5e9] px-3 py-2 font-mono text-xs font-bold uppercase shadow-[3px_3px_0_#000] transition-all hover:bg-[#38bdf8] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black sm:inline-flex"
+            className="hidden border-2 border-black bg-[#0ea5e9] px-3 py-2 font-mono text-xs font-bold uppercase shadow-[3px_3px_0_#000] transition-all hover:bg-[#38bdf8] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black sm:inline-flex"
           >
             Get in touch
           </Link>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_#000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -71,7 +71,7 @@ export function SiteHeader() {
                 <RollingLink
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block border-2 border-transparent px-2 py-2 font-mono text-sm font-bold uppercase hover:border-black hover:bg-[#f3f4f6] focus-visible:outline-2 focus-visible:outline-black"
+                  className="block border-2 border-transparent px-2 py-2 font-mono text-sm font-bold uppercase hover:border-black hover:bg-[#dadbdd] focus-visible:outline-2 focus-visible:outline-black"
                 >
                   {l.label}
                 </RollingLink>

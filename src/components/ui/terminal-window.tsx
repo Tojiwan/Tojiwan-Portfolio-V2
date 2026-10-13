@@ -7,12 +7,14 @@ export function TerminalWindow({
   children,
   dark = false,
   className,
+  bodyClassName,
 }: {
   file: string;
   status?: string;
   children: ReactNode;
   dark?: boolean;
   className?: string;
+  bodyClassName?: string;
 }) {
   return (
     <div
@@ -24,25 +26,25 @@ export function TerminalWindow({
     >
       <div
         className={cn(
-          "flex items-center gap-2 border-b-2 border-black px-3 py-2",
-          dark && "border-black bg-[#11161d]"
+          "flex items-center gap-2 border-b-2 border-black bg-[#dadbdd] px-3 py-2",
+          dark && "text-black"
         )}
       >
-        <span className="flex gap-1.5" aria-hidden="true">
+        <span className="flex shrink-0 gap-1.5" aria-hidden="true">
           <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#ff5f57]" />
           <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#febc2e]" />
           <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#28c840]" />
         </span>
-        <span className="truncate font-mono text-[11px] font-bold tracking-wider uppercase opacity-80">
+        <span className="min-w-0 truncate font-mono text-[11px] font-bold tracking-wider uppercase opacity-80 text-black">
           {file}
         </span>
         {status ? (
-          <span className="ml-auto border border-black bg-[#0ea5e9] px-1.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-black uppercase">
+          <span className="ml-auto shrink-0 text-[#2563eb] px-1.5 py-0.5 font-mono text-[10px] font-bold tracking-wider uppercase">
             {status}
           </span>
         ) : null}
       </div>
-      <div className="p-4">{children}</div>
+      <div className={cn("p-4", bodyClassName)}>{children}</div>
     </div>
   );
 }

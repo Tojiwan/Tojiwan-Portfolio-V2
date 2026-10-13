@@ -10,15 +10,12 @@ export function HeroSection() {
       <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
         <Reveal>
           <div className="flex h-full flex-col justify-center border-2 border-black bg-white p-6 shadow-[6px_6px_0_#000] sm:p-8">
-            <p className="font-mono text-xs font-bold tracking-[0.12em] uppercase">
-              Hi, I&apos;m
-            </p>
             <h1
               id="hero-heading"
               className="mt-2 font-display text-4xl leading-[1.05] font-extrabold tracking-tight text-black sm:text-6xl"
             >
-              CODE BY{" "}
-              <span className="bg-[#0ea5e9] px-2 outline-2 outline-black">DEV404</span>
+              Hi, I&apos;m{" "}
+              <span className="bg-[#0ea5e9] px-2 outline-2 outline-black">TOJIWAN</span>
             </h1>
             <div className="mt-4 flex flex-wrap gap-2">
               <TechBadge label="Fullstack Developer" accent />
@@ -33,14 +30,14 @@ export function HeroSection() {
               <ActionLink href="#projects">
                 <FolderGit2 size={16} aria-hidden="true" /> View Projects
               </ActionLink>
-              <ActionLink href="/files/resume.pdf" variant="secondary" download>
+              <ActionLink href="/files/Peralta, Jake Andrei R. (RESUME).pdf" variant="secondary" download>
                 <ArrowDown size={16} aria-hidden="true" /> Download CV
               </ActionLink>
             </div>
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <TerminalWindow file="dev404_preview.sh" status="LIVE" dark className="h-full">
+          <TerminalWindow file="tojiwan_preview.img" status="LIVE" dark className="h-full">
             <div aria-hidden="true" className="grid grid-cols-12 gap-px border border-[#2a3340] bg-[#2a3340]">
               {Array.from({ length: 96 }).map((_, i) => (
                 <span key={i} className="h-4 bg-[#0f1620]" />
@@ -48,7 +45,7 @@ export function HeroSection() {
             </div>
             <div className="mt-4 border border-[#2a3340] bg-[#0f1620] p-4">
               <p className="font-mono text-xs text-[#7bd0ff]">$ whoami</p>
-              <p className="mt-1 font-mono text-sm text-white">alex_vance — full-stack dev</p>
+              <p className="mt-1 font-mono text-sm text-white">Jake Andrei R. Peralta — full-stack dev</p>
               <p className="mt-3 font-mono text-xs text-[#7bd0ff]">$ stack --list</p>
               <p className="mt-1 font-mono text-xs text-[#e6edf3]">
                 next.js / typescript / tailwind / motion
@@ -59,9 +56,6 @@ export function HeroSection() {
                 <span className="h-2 w-6 bg-white" />
               </div>
             </div>
-            <p className="mt-3 font-mono text-[11px] tracking-wider text-[#8b98a9] uppercase">
-              {"// preview panel — replace with real screenshot"}
-            </p>
           </TerminalWindow>
         </Reveal>
       </div>

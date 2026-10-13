@@ -63,6 +63,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -101,13 +102,21 @@ h3 {
 .label-window {
   position: relative;
   display: inline-block;
+  max-width: 100%;
   overflow: hidden;
   vertical-align: bottom;
 }
 
 .label-copy {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   white-space: nowrap;
+}
+
+.label-copy svg {
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .label-copy--incoming {

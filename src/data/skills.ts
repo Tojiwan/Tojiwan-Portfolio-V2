@@ -47,37 +47,29 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: "Lead Full-Stack Architect",
-    org: "Novae Labs",
-    period: "2022 — Present",
+    role: "Intern & Trainee",
+    org: "Tigernethost OPC",
+    period: "February 2025 - May 2025",
     summary:
-      "Placeholder: own web platform architecture and mentor a small frontend group. Replace with real scope.",
-    tags: ["Next.js", "Design systems", "Mentoring"],
+      'I have developed foundational skills in web development as an intern, working with programming languages such as Nuxt.js, Laravel, and CSS frameworks including Tailwind CSS and Bootstrap. I also have hands-on experience integrating APIs into web applications. These skills have strengthened my ability to build and maintain functional, user-friendly web systems.',
+    tags: ["Nuxt.js", "Laravel", "Tailwind CSS", "Bootstrap", "API Integration", "Web Development", "Postman", "Git"],
   },
   {
-    role: "Senior Software Engineer",
-    org: "Syntra Cloud",
-    period: "2019 — 2022",
+    role: " Web Developer & AI Automation Specialist",
+    org: "Tigernethost OPC",
+    period: "June 2025 - December 2025  ",
     summary:
-      "Placeholder: built ingestion dashboards and data views. Replace with verifiable work.",
-    tags: ["React", "Node.js", "Postgres"],
+      'After completing my internship, I transitioned into a part-time role focused on Web development, where I built and maintained website features to improve user experience and ensure smooth performance. Alongside this, I used n8n to automate workflows and support the development of an AI-powered chatbot for the company’s Facebook page, helping deliver fast and responsive interactions for users.',
+    tags: ["N8N", "Telegram Chatbot", "Facebook RAG Chatbot", "Supabase", "MySQL", "Web Development", "Postman", "API Integration"],
   },
   {
-    role: "Full-Stack Developer",
-    org: "PixelForge Interactive",
-    period: "2018 — 2019",
+    role: "Shopify Developer",
+    org: "Freelance",
+    period: "January 2026 - April 2026",
     summary:
-      "Placeholder: client marketing sites and interactive UI. Replace with real projects.",
-    tags: ["TypeScript", "Tailwind", "Motion"],
-  },
-  {
-    role: "Software Engineering Intern",
-    org: "Horizon Tech",
-    period: "2017 — 2018",
-    summary:
-      "Placeholder: modularized services and wrote tests/docs. Replace with real internship scope.",
-    tags: ["Python", "Docker", "Tests"],
-  },
+     'Worked on client-based projects building and customizing Shopify storefront themes, focusing on responsive design, performance, and smooth user experience. Pursued this role to strengthen my front-end development skills in a realworld setting, collaborate directly with clients, and deliver tailored e-commerce solutions based on business needs.',
+    tags: ["Shopify", "Tailwind", "Figma", "Liquid", "JavaScript"],
+  }
 ];
 
 export type Service = {

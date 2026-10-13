@@ -3,6 +3,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { TerminalWindow } from "@/components/ui/terminal-window";
 import { TechBadge } from "@/components/ui/tech-badge";
 import { Reveal } from "@/components/ui/reveal";
+import { RollingLink } from "@/components/ui/rolling-link";
 import { projects } from "@/data/projects";
 
 export function ProjectsSection() {
@@ -37,16 +38,15 @@ export function ProjectsSection() {
                   <TechBadge key={s} label={s} />
                 ))}
               </div>
-              <div className="mt-4 flex items-center justify-between border-t-2 border-black pt-3">
-                <span className="font-mono text-xs font-bold uppercase">{p.demoLabel}</span>
-                <span className="flex gap-1.5" aria-label="Placeholder links">
-                  <span className="inline-flex h-8 w-8 items-center justify-center border-2 border-black bg-white">
-                    <ArrowUpRight size={14} aria-hidden="true" />
-                  </span>
-                  <span className="inline-flex h-8 w-8 items-center justify-center border-2 border-black bg-[#0ea5e9] font-mono text-xs font-bold">
-                    {"</>"}
-                  </span>
-                </span>
+              <div className="mt-4 border-t-2 border-black pt-3">
+                <RollingLink
+                  href="#projects"
+                  ariaLabel={`Visit site for ${p.title} (placeholder link)`}
+                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase no-underline"
+                >
+                  Visit Site 
+                  <ArrowUpRight size={14} aria-hidden="true" />
+                </RollingLink>
               </div>
             </TerminalWindow>
           </Reveal>

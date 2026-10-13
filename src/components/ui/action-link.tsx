@@ -17,7 +17,7 @@ export function ActionLink({
       ? "bg-[#0ea5e9] text-black shadow-[4px_4px_0_#000] hover:bg-[#38bdf8]"
       : variant === "dark"
         ? "bg-black text-white shadow-[4px_4px_0_#2563eb] hover:bg-[#1b1b1b]"
-        : "bg-white text-black shadow-[3px_3px_0_#000] hover:bg-[#f3f4f6]";
+        : "bg-white text-black shadow-[3px_3px_0_#000] hover:bg-[#dadbdd]";
   return (
     <Link
       href={href}

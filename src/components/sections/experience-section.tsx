@@ -26,7 +26,7 @@ export function ExperienceSection() {
                   <h3 className="font-display text-lg font-bold text-black">
                     {e.role} <span className="text-[#0051d5]">@ {e.org}</span>
                   </h3>
-                  <span className="border-2 border-black bg-black px-2 py-1 font-mono text-[11px] font-bold tracking-wider text-white uppercase">
+                  <span className="font-mono text-[11px] font-bold tracking-wider text-dark uppercase">
                     {e.period}
                   </span>
                 </div>
