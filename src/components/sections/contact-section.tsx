@@ -59,7 +59,7 @@ export function ContactSection() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className="font-mono text-xs font-bold">
-                    <span className="text-[#2563eb]">$</span> input.name *
+                    <span className="text-(--accent-strong)">$</span> input.name *
                   </label>
                   <input
                     id="name"
@@ -67,12 +67,12 @@ export function ContactSection() {
                     required
                     autoComplete="name"
                     placeholder="Elena Rostova"
-                    className="mt-2 w-full min-w-0 border-2 border-black bg-white px-3 py-2.5 font-mono text-sm placeholder:text-[#6b7280] focus:shadow-[3px_3px_0_#0ea5e9] focus:outline-none"
+                    className="mt-2 w-full min-w-0 border-2 border-black bg-white px-3 py-2.5 font-mono text-sm placeholder:text-(--text-muted) focus:shadow-[3px_3px_0_var(--accent)] focus:outline-none"
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="font-mono text-xs font-bold">
-                    <span className="text-[#2563eb]">$</span> input.email *
+                    <span className="text-(--accent-strong)">$</span> input.email *
                   </label>
                   <input
                     id="email"
@@ -81,13 +81,13 @@ export function ContactSection() {
                     required
                     autoComplete="email"
                     placeholder="elena@company.com"
-                    className="mt-2 w-full min-w-0 border-2 border-black bg-white px-3 py-2.5 font-mono text-sm placeholder:text-[#6b7280] focus:shadow-[3px_3px_0_#0ea5e9] focus:outline-none"
+                    className="mt-2 w-full min-w-0 border-2 border-black bg-white px-3 py-2.5 font-mono text-sm placeholder:text-(--text-muted) focus:shadow-[3px_3px_0_var(--accent)] focus:outline-none"
                   />
                 </div>
               </div>
               <div className="mt-4">
                 <label htmlFor="message" className="font-mono text-xs font-bold">
-                  <span className="text-[#2563eb]">$</span> input.payload *
+                  <span className="text-(--accent-strong)">$</span> input.payload *
                 </label>
                 <textarea
                   id="message"
@@ -95,17 +95,17 @@ export function ContactSection() {
                   required
                   rows={7}
                   placeholder="Tell me about your product vision, key timeline constraints, or engineering role..."
-                  className="mt-2 w-full min-w-0 resize-none border-2 border-black bg-white px-3 py-2.5 font-mono text-sm placeholder:text-[#6b7280] focus:shadow-[3px_3px_0_#0ea5e9] focus:outline-none"
+                  className="mt-2 w-full min-w-0 resize-none border-2 border-black bg-white px-3 py-2.5 font-mono text-sm placeholder:text-(--text-muted) focus:shadow-[3px_3px_0_var(--accent)] focus:outline-none"
                 />
               </div>
               {state === "error" ? (
-                <p role="alert" className="mt-4 border-2 border-black bg-[#ffdad6] px-3 py-2 font-mono text-xs font-bold">
+                <p role="alert" className="mt-4 border-2 border-black bg-[#ffdad6] px-3 py-2 font-mono text-xs font-bold text-[#1b1b1b] dark:bg-[#3a1113] dark:text-[#ffd9d7]">
                   {/* Demo only — connect a form service (e.g. Formspree/Resend) to send messages.  change this*/}
                 </p>
               ) : null}
               <button
                 type="submit"
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 border-2 border-black bg-surface px-4 py-4 font-mono text-sm font-bold tracking-wider text-black uppercase shadow-[4px_4px_0_#000000] transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 border-2 border-black bg-[#000] px-4 py-4 font-mono text-sm font-bold tracking-wider text-[#fff] uppercase shadow-[4px_4px_0_#000000] transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Transmit message
                 <Send size={16} aria-hidden="true" />
@@ -120,7 +120,7 @@ export function ContactSection() {
             className="flex h-full min-w-0 flex-col"
             bodyClassName="flex flex-1 flex-col"
           >
-            <p className="font-mono text-[11px] font-bold tracking-[0.12em] text-[#3e4850] uppercase">
+            <p className="font-mono text-[11px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">
               {"// My_Contact_List"}
             </p>
             <ul className="mt-3 flex flex-1 flex-col justify-between gap-3">
@@ -128,11 +128,11 @@ export function ContactSection() {
                 <li key={c.label}>
                   <RollingLink
                     href={c.href}
-                    className="block border-2 border-black bg-white px-3 py-2.5 shadow-[3px_3px_0_#000] transition-all hover:bg-[#f3f4f6] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-black"
+                    className="block border-2 border-black bg-white px-3 py-2.5 shadow-[3px_3px_0_#000] transition-all hover:bg-(--surface-muted) active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-black"
                   >
                     <span className="flex w-full min-w-0 flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-2">
                       <span className="flex min-w-0 items-center gap-2 font-mono text-[13px] font-bold">
-                        <c.icon size={15} aria-hidden="true" className="shrink-0 text-[#2563eb]" />
+                        <c.icon size={15} aria-hidden="true" className="shrink-0 text-(--accent-strong)" />
                         <span className="truncate">{c.value}</span>
                       </span>
                       <span className="shrink-0 font-mono text-[11px] font-bold tracking-wider uppercase">

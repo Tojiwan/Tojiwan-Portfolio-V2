@@ -26,7 +26,7 @@ export function TerminalWindow({
     >
       <div
         className={cn(
-          "flex items-center gap-2 border-b-2 border-black bg-[#dadbdd] px-3 py-2",
+          "flex items-center gap-2 border-b-2 border-black bg-(--panel) px-3 py-2",
           dark && "text-black"
         )}
       >
@@ -39,7 +39,7 @@ export function TerminalWindow({
           {file}
         </span>
         {status ? (
-          <span className="ml-auto shrink-0 text-[#2563eb] px-1.5 py-0.5 font-mono text-[10px] font-bold tracking-wider uppercase">
+          <span className="ml-auto shrink-0 text-(--accent-strong) px-1.5 py-0.5 font-mono text-[10px] font-bold tracking-wider uppercase">
             {status}
           </span>
         ) : null}

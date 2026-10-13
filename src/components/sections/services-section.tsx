@@ -27,14 +27,14 @@ export function ServicesSection() {
                   <Icon size={18} aria-hidden="true" />
                 </p>
                 <h3 className="mt-3 font-display text-lg font-bold text-black">{s.title}</h3>
-                <p className="mt-1 font-mono text-[13px] leading-5 text-[#1b1b1b]">{s.description}</p>
+                <p className="mt-1 font-mono text-[13px] leading-5 text-(--text)">{s.description}</p>
                 <div className="mt-4 flex items-center justify-between border-t-2 border-black pt-3">
                   <span className="font-mono text-[11px] font-bold tracking-wider uppercase">
                     {s.deliverable}
                   </span>
                   <RollingLink
                     href="#contact"
-                    className="border-2 border-black bg-white px-2 py-1 font-mono text-[11px] font-bold uppercase shadow-[2px_2px_0_#000] hover:bg-[#0ea5e9] focus-visible:outline-2 focus-visible:outline-black"
+                    className="border-2 border-black bg-white px-2 py-1 font-mono text-[11px] font-bold uppercase shadow-[2px_2px_0_#000] hover:bg-(--accent) focus-visible:outline-2 focus-visible:outline-black"
                   >
                     Enquire →
                   </RollingLink>

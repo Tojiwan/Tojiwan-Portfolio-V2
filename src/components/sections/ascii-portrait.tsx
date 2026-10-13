@@ -138,7 +138,7 @@ export function AsciiPortrait({
   const reduce = useReducedMotion();
 
   return (
-    <figure className={cn("relative overflow-hidden border-2 border-black bg-black p-4", className)}>
+    <figure className={cn("relative overflow-hidden border-2 border-black bg-[#000] p-4", className)}>
       <span aria-hidden="true" className="absolute left-2 top-2 h-3 w-3 border-l-2 border-t-2 border-[#2dd4bf]/70" />
       <span aria-hidden="true" className="absolute right-2 top-2 h-3 w-3 border-r-2 border-t-2 border-[#2dd4bf]/70" />
       <span aria-hidden="true" className="absolute bottom-2 left-2 h-3 w-3 border-b-2 border-l-2 border-[#2dd4bf]/70" />

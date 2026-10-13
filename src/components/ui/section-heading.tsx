@@ -18,7 +18,7 @@ export function SectionHeading({
           <span aria-hidden="true" className="h-0.5 flex-1 bg-black" />
         ) : null}
         <p className="shrink-0 border-2 border-black bg-white px-2 py-1 font-mono text-[11px] font-bold tracking-[0.08em] uppercase shadow-[3px_3px_0_#000]">
-          <span aria-hidden="true" className="mr-1 inline-block h-2 w-2 bg-[#0ea5e9] outline-2 outline-black" />
+          <span aria-hidden="true" className="mr-1 inline-block h-2 w-2 bg-(--accent) outline-2 outline-black" />
           {kicker}
         </p>
         <span aria-hidden="true" className="h-0.5 flex-1 bg-black" />
@@ -28,7 +28,7 @@ export function SectionHeading({
           {title}
         </h2>
         {description ? (
-          <p className="mt-2 font-mono text-sm leading-6 text-[#3e4850]">{description}</p>
+          <p className="mt-2 font-mono text-sm leading-6 text-(--text-muted)">{description}</p>
         ) : null}
       </div>
     </div>

@@ -18,19 +18,19 @@ export function ExperienceSection() {
           <li key={`${e.role}-${e.org}`} className="relative">
             <span
               aria-hidden="true"
-              className="absolute -left-[33px] top-4 h-3.5 w-3.5 border-2 border-black bg-[#0ea5e9]"
+              className="absolute -left-[33px] top-4 h-3.5 w-3.5 border-2 border-black bg-(--accent)"
             />
             <Reveal delay={Math.min(i * 0.05, 0.2)}>
               <article className="border-2 border-black bg-white p-5 shadow-[4px_4px_0_#000]">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <h3 className="font-display text-lg font-bold text-black">
-                    {e.role} <span className="text-[#0051d5]">@ {e.org}</span>
+                    {e.role} <span className="text-(--accent-strong)">@ {e.org}</span>
                   </h3>
                   <span className="font-mono text-[11px] font-bold tracking-wider text-dark uppercase">
                     {e.period}
                   </span>
                 </div>
-                <p className="mt-2 font-mono text-[13px] leading-5 text-[#1b1b1b]">{e.summary}</p>
+                <p className="mt-2 font-mono text-[13px] leading-5 text-(--text)">{e.summary}</p>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {e.tags.map((t) => (
                     <TechBadge key={t} label={t} />

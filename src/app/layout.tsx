@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -23,13 +23,26 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  colorScheme: "dark light",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f9f9f9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0f17" },
+  ],
+};
+
+const themeInitScript = `(function(){try{var t=localStorage.getItem('tojiwan-theme');if(t==='light'){document.documentElement.classList.remove('dark')}}catch(e){}})();`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="flex min-h-full flex-col font-mono text-[#1b1b1b]">
+    <html lang="en" className="dark h-full antialiased" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="flex min-h-full flex-col font-mono text-(--text)">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:border-2 focus:border-black focus:bg-[#0ea5e9] focus:px-3 focus:py-2 focus:font-bold"
+          className="sr-only focus:not-sr-only focus:border-2 focus:border-black focus:bg-(--accent) focus:px-3 focus:py-2 focus:font-bold"
         >
           Skip to content
         </a>

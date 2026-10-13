@@ -17,16 +17,16 @@ export function TechStackSection() {
         {skillGroups.map((g, i) => (
           <Reveal key={g.id} delay={Math.min(i * 0.05, 0.2)}>
             <BrutalistCard className="h-full p-5">
-              <p className="inline-flex h-8 w-8 items-center justify-center border-2 border-black bg-[#0ea5e9] font-mono text-xs font-bold">
+              <p className="inline-flex h-8 w-8 items-center justify-center border-2 border-black bg-(--accent) font-mono text-xs font-bold">
                 {g.index}
               </p>
               <h3 className="mt-3 font-display text-lg font-bold text-black">{g.title}</h3>
-              <p className="mt-1 font-mono text-xs leading-5 text-[#3e4850]">{g.description}</p>
+              <p className="mt-1 font-mono text-xs leading-5 text-(--text-muted)">{g.description}</p>
               <ul className="mt-3 space-y-1.5">
                 {g.skills.map((s) => (
                   <li
                     key={s}
-                    className="flex items-center gap-2 border border-black bg-[#f9f9f9] px-2 py-1.5 font-mono text-xs font-bold"
+                    className="flex items-center gap-2 border border-black bg-(--surface-muted) px-2 py-1.5 font-mono text-xs font-bold"
                   >
                     <span aria-hidden="true" className="h-2 w-2 bg-black" />
                     {s}

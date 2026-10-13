@@ -9,10 +9,10 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-[1280px] gap-6 px-4 py-10 sm:px-6 md:grid-cols-4">
         <div>
           <p className="font-display text-sm font-extrabold text-black">TOJIWAN</p>
-          <p className="mt-1 font-mono text-xs leading-5 text-[#3e4850]">
+          <p className="mt-1 font-mono text-xs leading-5 text-(--text-muted)">
             Placeholder portfolio. Replace with real bio and availability.
           </p>
-          <p className="mt-2 inline-block text-[#0ea5e9] font-mono text-[11px] font-bold uppercase">
+          <p className="mt-2 inline-block text-(--accent) font-mono text-[11px] font-bold uppercase">
             Status: Open to work
           </p>
         </div>
@@ -30,7 +30,7 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="font-mono text-xs font-bold tracking-wider uppercase">Stack</p>
-          <p className="mt-2 font-mono text-xs leading-5 text-[#3e4850]">
+          <p className="mt-2 font-mono text-xs leading-5 text-(--text-muted)">
             Next.js, TypeScript, Tailwind, Motion, Vercel
           </p>
         </div>
@@ -41,7 +41,7 @@ export function SiteFooter() {
               andreiperalta13@gmail.com
             </RollingLink>
             <br />
-            <span className="text-[#3e4850]">Replace with real email + profiles</span>
+            <span className="text-(--text-muted)">Replace with real email + profiles</span>
           </p>
         </div>
       </div>

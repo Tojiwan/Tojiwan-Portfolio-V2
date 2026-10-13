@@ -15,13 +15,13 @@ export function HeroSection() {
               className="mt-2 font-display text-4xl leading-[1.05] font-extrabold tracking-tight text-black sm:text-6xl"
             >
               Hi, I&apos;m{" "}
-              <span className="bg-[#0ea5e9] px-2 outline-2 outline-black">TOJIWAN</span>
+              <span className="bg-(--accent) px-2 outline-2 outline-black">TOJIWAN</span>
             </h1>
             <div className="mt-4 flex flex-wrap gap-2">
               <TechBadge label="Fullstack Developer" accent />
               <TechBadge label="UI / UX" />
             </div>
-            <p className="mt-4 max-w-xl font-mono text-sm leading-6 text-[#1b1b1b]">
+            <p className="mt-4 max-w-xl font-mono text-sm leading-6 text-(--text)">
               Placeholder intro: I build fast, readable web apps with React and
               TypeScript. Simplified demo content — replace with your real
               value proposition.
@@ -45,15 +45,15 @@ export function HeroSection() {
             </div>
             <div className="mt-4 border border-[#2a3340] bg-[#0f1620] p-4">
               <p className="font-mono text-xs text-[#7bd0ff]">$ whoami</p>
-              <p className="mt-1 font-mono text-sm text-white">Jake Andrei R. Peralta — full-stack dev</p>
+              <p className="mt-1 font-mono text-sm text-[#e6edf3]">Jake Andrei R. Peralta — full-stack dev</p>
               <p className="mt-3 font-mono text-xs text-[#7bd0ff]">$ stack --list</p>
               <p className="mt-1 font-mono text-xs text-[#e6edf3]">
                 next.js / typescript / tailwind / motion
               </p>
               <div className="mt-4 flex gap-2">
-                <span className="h-2 w-16 bg-[#0ea5e9]" />
-                <span className="h-2 w-10 bg-[#2563eb]" />
-                <span className="h-2 w-6 bg-white" />
+                <span className="h-2 w-16 bg-(--accent)" />
+                <span className="h-2 w-10 bg-(--accent-strong)" />
+                <span className="h-2 w-6 bg-[#e6edf3]" />
               </div>
             </div>
           </TerminalWindow>
@@ -62,7 +62,7 @@ export function HeroSection() {
       <div className="mt-6 border-2 border-black bg-white px-4 py-3 shadow-[4px_4px_0_#000]">
         <p className="font-mono text-xs leading-5">
           <span className="bg-black px-1 py-0.5 font-bold text-white uppercase">Note</span>{" "}
-          <span className="text-[#1b1b1b]">
+          <span className="text-(--text)">
             “Simplified placeholder build. Real copy, metrics, and links replace this strip.”
           </span>
         </p>

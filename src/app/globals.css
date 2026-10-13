@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Self-hosted fonts (no Google fetch at build time). */
 @font-face {
   font-family: "Courier Prime";
@@ -49,9 +51,11 @@
 }
 
 :root {
+  color-scheme: light;
   --canvas: #f9f9f9;
   --surface: #e1e1e1;
   --surface-muted: #f3f3f3;
+  --panel: #dadbdd;
   --ink: #000000;
   --text: #1b1b1b;
   --text-muted: #3e4850;
@@ -59,6 +63,31 @@
   --accent-cyan: #0ea5e9;
   --accent-blue: #2563eb;
   --accent-sky: #38bdf8;
+  --accent: #0ea5e9;
+  --accent-strong: #2563eb;
+  --accent-soft: #38bdf8;
+  --color-black: #000000;
+  --color-white: #ffffff;
+}
+
+.dark {
+  color-scheme: dark;
+  --canvas: #0b0f17;
+  --surface: #e1e1e1;
+  --surface-muted: #1a2230;
+  --panel: #1e2634;
+  --ink: #000000;
+  --text: #e8edf3;
+  --text-muted: #9aa4b2;
+  --line-muted: #e5e7eb;
+  --accent-cyan: #0ea5e9;
+  --accent-blue: #2563eb;
+  --accent-sky: #38bdf8;
+  --accent: #6366f1;
+  --accent-strong: #06b6d4;
+  --accent-soft: #8b5cf6;
+  --color-black: #e9edf3;
+  --color-white: #131a24;
 }
 
 html {
@@ -88,6 +117,12 @@ body {
   font-family: "Courier Prime", "IBM Plex Mono", ui-monospace, monospace;
 }
 
+.dark body {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
 h1,
 h2,
 h3 {
@@ -95,8 +130,12 @@ h3 {
 }
 
 ::selection {
-  background: #0ea5e9;
+  background: var(--accent);
   color: #000;
+}
+
+.dark ::selection {
+  color: #fff;
 }
 
 .label-window {
