@@ -1,7 +1,3 @@
-# Alex Vance — Neo-Brutalist Portfolio (Placeholder)
-
-Single-page developer portfolio. Light neo-brutalism: graph-paper canvas, 2px black borders, hard offset shadows, cyan/blue accents, Plus Jakarta Sans + Courier Prime.
-
 Stack: React + Next.js 16 (App Router) + TypeScript + Tailwind CSS v4 + Motion (`motion/react`) + Lucide + Vercel.
 
 ## Run
