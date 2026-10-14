@@ -35,7 +35,7 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       aria-pressed={theme === "dark"}
-      className="inline-flex px-3 py-2 shrink-0 items-center justify-center border-2 border-black bg-[#e9edf3] text-[#000] shadow-[3px_3px_0_#000] transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+      className="inline-flex px-3 py-2 shrink-0 items-center justify-center border-2 border-black dark:border-[#000] bg-[#e9edf3] text-[#000] shadow-[3px_3px_0_#000] transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
     >
       {theme === "dark" ? (
         <Sun size={16} aria-hidden="true" />

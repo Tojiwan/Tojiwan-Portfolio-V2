@@ -105,7 +105,7 @@ export function ContactSection() {
               ) : null}
               <button
                 type="submit"
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 border-2 border-black bg-[#000] px-4 py-4 font-mono text-sm font-bold tracking-wider text-[#fff] uppercase shadow-[4px_4px_0_#000000] transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 border-2 border-black bg-[#dadbdd] dark:bg-[#000] px-4 py-4 font-mono text-sm font-bold tracking-wider text-[#000] dark:text-[#fff] uppercase shadow-[4px_4px_0_#000000] transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Transmit message
                 <Send size={16} aria-hidden="true" />
