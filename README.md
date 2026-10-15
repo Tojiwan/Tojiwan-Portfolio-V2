@@ -1,28 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tojiwan Portfolio
 
-## Getting Started
+Jake Andrei R. Peralta's portfolio for web development, Shopify, and automation work. Built with Next.js 16, TypeScript, Tailwind CSS, and Motion.
 
-First, run the development server:
+## Development
 
 ```bash
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Checks and production
 
-## Learn More
+```bash
+npm run lint
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/data/projects.ts`: project summaries, stacks, and optional `liveUrl` values. Add a real, absolute HTTP(S) URL to show a Visit Site link; omit it when no public demo exists.
+- `src/data/skills.ts`: skills, services, and experience in newest-first order.
+- `src/components/sections/`: hero, About, projects, and contact content.
+- `public/files/`: the downloadable CV linked from the hero.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+External website links open in a new tab. Section links navigate within the page; email and phone links use the visitor's associated app.
 
-## Deploy on Vercel
+## Site URL
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Set `SITE_URL` to the full deployed origin, including `https://`, in your hosting environment before building. Social image URLs use this value. If omitted, the site uses `VERCEL_PROJECT_PRODUCTION_URL` on Vercel or `http://localhost:3000` locally. Rebuild after changing it.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Remaining content and integrations
+
+- The contact form is intentionally disabled until a delivery service is connected. Direct email and profile links are available above and beside the form.
+- Project galleries need screenshots and captions; the hero portrait also needs an image.
+- Vehiserive currently has a stack-based summary. Add its purpose, features, and your specific contribution when available.
+- Add verified live project URLs where available.
