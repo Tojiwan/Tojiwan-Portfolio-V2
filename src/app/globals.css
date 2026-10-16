@@ -334,15 +334,6 @@ h3 {
   border: 2px solid #111821;
   box-shadow: 4px 4px 0 var(--hero-shadow);
 }
-.hero-name-mark {
-  position: absolute;
-  right: -14px;
-  top: -19px;
-  color: var(--hero-yellow);
-  font-size: 38px;
-  line-height: 1;
-  -webkit-text-stroke: 1px #111821;
-}
 .hero-identity { flex-wrap: wrap; font-size: 11px; }
 .hero-identity > span { color: var(--accent); }
 .hero-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }

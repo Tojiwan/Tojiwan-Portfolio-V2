@@ -28,7 +28,7 @@ export function HeroSection() {
             <p className="hero-location"><MapPin size={14} aria-hidden="true" /> Pampanga, Philippines <span aria-hidden="true">↗</span></p>
             <h1 id="hero-heading" className="hero-heading">
               Hi, I&apos;m{" "}
-              <span className="hero-name">TOJIWAN<span aria-hidden="true" className="hero-name-mark">✳</span></span>
+              <span className="hero-name">TOJIWAN</span>
             </h1>
             <p className="hero-identity">Jake Andrei R. Peralta <span aria-hidden="true">/</span> Developer</p>
             <div className="hero-skills">
