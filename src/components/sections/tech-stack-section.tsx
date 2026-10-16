@@ -9,15 +9,15 @@ export function TechStackSection() {
       <div id="stack-heading">
         <SectionHeading
           kicker="Toolbox"
-          title="Tech Stack Matrix"
-          description="Grouped by what I can actually demo. Replace with your substantiated tools."
+          title="Tools I Work With"
+          description="Technologies used across my web development, Shopify, and automation projects."
         />
       </div>
       <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {skillGroups.map((g, i) => (
           <Reveal key={g.id} delay={Math.min(i * 0.05, 0.2)}>
             <BrutalistCard className="h-full p-5">
-              <p className="inline-flex h-8 w-8 items-center justify-center border-2 border-black bg-(--accent) font-mono text-xs font-bold">
+              <p className="inline-flex h-8 w-8 items-center justify-center border-2 border-black bg-(--accent) font-mono text-xs font-bold text-[#000]">
                 {g.index}
               </p>
               <h3 className="mt-3 font-display text-lg font-bold text-black">{g.title}</h3>

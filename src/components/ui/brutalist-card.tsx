@@ -11,7 +11,7 @@ export function BrutalistCard({
   return (
     <div
       className={cn(
-        "border-2 border-black bg-white shadow-[4px_4px_0_#000]",
+        "brutal-panel border-2 border-black bg-white",
         className
       )}
     >

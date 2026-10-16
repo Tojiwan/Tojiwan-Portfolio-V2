@@ -5,14 +5,15 @@ const COPYRIGHT_YEAR = 2026;
 export function SiteFooter() {
   const year = COPYRIGHT_YEAR;
   return (
-    <footer className="border-t-2 border-black bg-white">
-      <div className="mx-auto grid max-w-[1280px] gap-6 px-4 py-10 sm:px-6 md:grid-cols-4">
+    <footer className="border-t-2 border-black bg-(--panel)">
+      <div className="mx-auto grid max-w-[1280px] gap-8 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.5fr_1fr_1fr_1.5fr]">
         <div>
           <p className="font-display text-sm font-extrabold text-black">TOJIWAN</p>
           <p className="mt-1 font-mono text-xs leading-5 text-(--text-muted)">
-            Placeholder portfolio. Replace with real bio and availability.
+            Jake Andrei R. Peralta. Web development, Shopify storefronts,
+            and automation from Pampanga, Philippines.
           </p>
-          <p className="mt-2 inline-block text-(--accent) font-mono text-[11px] font-bold uppercase">
+          <p className="mt-2 inline-block text-(--accent-strong) font-mono text-[11px] font-bold uppercase">
             Status: Open to work
           </p>
         </div>
@@ -31,17 +32,23 @@ export function SiteFooter() {
         <div>
           <p className="font-mono text-xs font-bold tracking-wider uppercase">Stack</p>
           <p className="mt-2 font-mono text-xs leading-5 text-(--text-muted)">
-            Next.js, TypeScript, Tailwind, Motion, Vercel
+            Nuxt.js, Laravel, Shopify Liquid, n8n, Next.js
           </p>
         </div>
         <div>
           <p className="font-mono text-xs font-bold tracking-wider uppercase">Contact</p>
-          <p className="mt-2 font-mono text-xs leading-5">
+          <p className="mt-2 break-all font-mono text-xs leading-5">
             <RollingLink href="mailto:andreiperalta13@gmail.com" className="underline underline-offset-2">
               andreiperalta13@gmail.com
             </RollingLink>
-            <br />
-            <span className="text-(--text-muted)">Replace with real email + profiles</span>
+            <span className="mt-2 flex flex-wrap gap-3">
+              <RollingLink href="https://github.com/Tojiwan" className="underline underline-offset-2">
+                GitHub
+              </RollingLink>
+              <RollingLink href="https://www.linkedin.com/in/jake-andrei-peralta-454154390" className="underline underline-offset-2">
+                LinkedIn
+              </RollingLink>
+            </span>
           </p>
         </div>
       </div>

@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import { Send, Share2, CodeXml, AtSign, Phone } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TerminalWindow } from "@/components/ui/terminal-window";
@@ -9,16 +6,16 @@ import { Reveal } from "@/components/ui/reveal";
 
 const channels = [
   {
-    href: "www.linkedin.com/in/jake-andrei-peralta-454154390",
+    href: "https://www.linkedin.com/in/jake-andrei-peralta-454154390",
     icon: Share2,
     value: "linkedin.com/in/jake-andrei-peralta-454154390",
-    label: "Linkedin",
+    label: "LinkedIn",
   },
   {
     href: "https://github.com/Tojiwan",
     icon: CodeXml,
     value: "github.com/Tojiwan",
-    label: "Github",
+    label: "GitHub",
   },
   {
     href: "mailto:andreiperalta13@gmail.com",
@@ -35,88 +32,91 @@ const channels = [
 ];
 
 export function ContactSection() {
-  const [state, setState] = useState<"idle" | "error">("idle");
-
   return (
     <section id="contact" aria-labelledby="contact-heading" className="scroll-mt-20">
       <div id="contact-heading">
         <SectionHeading
-          kicker="Initiate communication"
-          title="Contact"
-          description="UI-only demo form. Wire to a real endpoint before calling it functional."
+          kicker="Get in touch"
+          title="Let's Work Together"
+          description="Have a website, Shopify project, or workflow in mind? Reach out by email or through the links below."
         />
       </div>
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
         <Reveal className="h-full min-w-0">
-          <TerminalWindow file="transmit_console.exe" status="Port: 443 [TLS 1.3]" className="h-full min-w-0">
-            <form
-              aria-label="Contact form (demo, not wired)"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setState("error");
-              }}
-            >
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="name" className="font-mono text-xs font-bold">
-                    <span className="text-(--accent-strong)">$</span> input.name *
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    required
-                    autoComplete="name"
-                    placeholder="Elena Rostova"
-                    className="mt-2 w-full min-w-0 border-2 border-black bg-white px-3 py-2.5 font-mono text-sm placeholder:text-(--text-muted) focus:shadow-[3px_3px_0_var(--accent)] focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="font-mono text-xs font-bold">
-                    <span className="text-(--accent-strong)">$</span> input.email *
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    autoComplete="email"
-                    placeholder="elena@company.com"
-                    className="mt-2 w-full min-w-0 border-2 border-black bg-white px-3 py-2.5 font-mono text-sm placeholder:text-(--text-muted) focus:shadow-[3px_3px_0_var(--accent)] focus:outline-none"
-                  />
-                </div>
-              </div>
-              <div className="mt-4">
-                <label htmlFor="message" className="font-mono text-xs font-bold">
-                  <span className="text-(--accent-strong)">$</span> input.payload *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={7}
-                  placeholder="Tell me about your product vision, key timeline constraints, or engineering role..."
-                  className="mt-2 w-full min-w-0 resize-none border-2 border-black bg-white px-3 py-2.5 font-mono text-sm placeholder:text-(--text-muted) focus:shadow-[3px_3px_0_var(--accent)] focus:outline-none"
-                />
-              </div>
-              {state === "error" ? (
-                <p role="alert" className="mt-4 border-2 border-black bg-[#ffdad6] px-3 py-2 font-mono text-xs font-bold text-[#1b1b1b] dark:bg-[#3a1113] dark:text-[#ffd9d7]">
-                  {/* Demo only — connect a form service (e.g. Formspree/Resend) to send messages.  change this*/}
-                </p>
-              ) : null}
-              <button
-                type="submit"
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 border-2 border-black bg-[#dadbdd] dark:bg-[#000] px-4 py-4 font-mono text-sm font-bold tracking-wider text-[#000] dark:text-[#fff] uppercase shadow-[4px_4px_0_#000000] transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          <TerminalWindow file="transmit_console.exe" status="Email available" className="h-full min-w-0">
+            <p id="contact-form-note" className="mb-5 font-mono text-sm leading-6 text-(--text)">
+              The online form is coming soon. For now,{" "}
+              <RollingLink
+                href="mailto:andreiperalta13@gmail.com"
+                className="font-bold underline underline-offset-4"
               >
-                Transmit message
-                <Send size={16} aria-hidden="true" />
-              </button>
+                email me directly
+              </RollingLink>
+              {" "}about your project or opportunity.
+            </p>
+            <form
+              aria-label="Contact form (currently unavailable)"
+              aria-describedby="contact-form-note"
+            >
+              <fieldset disabled className="min-w-0">
+                <legend className="sr-only">Online contact form — coming soon</legend>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="name" className="font-mono text-xs font-bold">
+                      <span className="text-(--accent-strong)">$</span> Name *
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      required
+                      autoComplete="name"
+                      placeholder="Your name"
+                      className="mt-2 w-full min-w-0 border-2 border-black bg-white px-3 py-2.5 font-mono text-sm placeholder:text-(--text-muted) focus:shadow-[3px_3px_0_var(--accent)] focus:outline-none disabled:cursor-not-allowed"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="font-mono text-xs font-bold">
+                      <span className="text-(--accent-strong)">$</span> Email *
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      autoComplete="email"
+                      placeholder="you@company.com"
+                      className="mt-2 w-full min-w-0 border-2 border-black bg-white px-3 py-2.5 font-mono text-sm placeholder:text-(--text-muted) focus:shadow-[3px_3px_0_var(--accent)] focus:outline-none disabled:cursor-not-allowed"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <label htmlFor="message" className="font-mono text-xs font-bold">
+                    <span className="text-(--accent-strong)">$</span> Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={7}
+                    placeholder="Tell me what you want to build, your timeline, and how I can help."
+                    className="mt-2 w-full min-w-0 resize-none border-2 border-black bg-white px-3 py-2.5 font-mono text-sm placeholder:text-(--text-muted) focus:shadow-[3px_3px_0_var(--accent)] focus:outline-none disabled:cursor-not-allowed"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="mt-5 inline-flex w-full cursor-not-allowed items-center justify-center gap-2 border-2 border-black bg-[#dadbdd] dark:bg-[#000] px-4 py-4 font-mono text-sm font-bold tracking-wider text-[#000] dark:text-[#fff] uppercase shadow-[4px_4px_0_#000000] opacity-60"
+                >
+                  Form coming soon
+                  <Send size={16} aria-hidden="true" />
+                </button>
+              </fieldset>
             </form>
           </TerminalWindow>
         </Reveal>
         <Reveal delay={0.1} className="h-full min-w-0">
           <TerminalWindow
             file="Contact_Info.exe"
-            status="● Online"
+            status="Direct links"
             className="flex h-full min-w-0 flex-col"
             bodyClassName="flex flex-1 flex-col"
           >

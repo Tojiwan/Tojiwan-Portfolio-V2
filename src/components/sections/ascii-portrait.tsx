@@ -82,8 +82,11 @@ const RAIN_CHARS = "アイウエオカキクケコ01".split("");
 
 function Rain() {
   const ref = useRef<HTMLCanvasElement>(null);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
+    if (reduce) return;
+
     const canvas = ref.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -120,8 +123,9 @@ function Rain() {
     return () => {
       cancelAnimationFrame(raf);
       io.disconnect();
+      ctx.clearRect(0, 0, CW, CH);
     };
-  }, []);
+  }, [reduce]);
 
   return <canvas ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full" />;
 }
@@ -135,8 +139,6 @@ export function AsciiPortrait({
   variant?: AsciiVariant;
   label?: string;
 }) {
-  const reduce = useReducedMotion();
-
   return (
     <figure className={cn("relative overflow-hidden border-2 border-black bg-[#000] p-4", className)}>
       <span aria-hidden="true" className="absolute left-2 top-2 h-3 w-3 border-l-2 border-t-2 border-[#2dd4bf]/70" />
@@ -158,7 +160,7 @@ export function AsciiPortrait({
           </div>
         ))}
       </pre>
-      {reduce ? null : <Rain />}
+      <Rain />
     </figure>
   );
 }

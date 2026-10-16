@@ -19,7 +19,7 @@ export function TerminalWindow({
   return (
     <div
       className={cn(
-        "border-2 border-black bg-white shadow-[4px_4px_0_#000]",
+        "brutal-panel border-2 border-black bg-white",
         dark && "bg-[#0b0f14] text-[#e6edf3]",
         className
       )}

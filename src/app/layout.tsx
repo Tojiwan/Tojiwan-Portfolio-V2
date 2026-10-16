@@ -3,20 +3,27 @@ import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 
+const title = "Tojiwan — Web Developer & Automation Specialist";
+const description =
+  "Jake Andrei R. Peralta, a web developer in Pampanga, Philippines. Explore my responsive websites, Shopify storefronts, and AI automation projects.";
+const siteUrl = process.env.SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  title: "Tojiwan — Full-Stack Developer",
-  description:
-    "Placeholder neo-brutalist portfolio. React, TypeScript, Next.js, and UI systems. Replace with real copy before launch.",
-  metadataBase: new URL("https://example.com"),
+  title,
+  description,
+  metadataBase: new URL(siteUrl),
   openGraph: {
-    title: "Tojiwan — Full-Stack Developer",
-    description: "Simplified placeholder portfolio. Real projects and copy coming soon.",
+    title,
+    description,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tojiwan — Full-Stack Developer",
-    description: "Simplified placeholder portfolio.",
+    title,
+    description,
   },
   icons: {
     icon: "/icon.svg",

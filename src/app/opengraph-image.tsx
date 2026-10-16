@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Tojiwan — Full-Stack Developer";
+export const alt = "Tojiwan — Web Development, Shopify & Automation";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -32,11 +32,11 @@ export default async function OpengraphImage() {
         >
           Tojiwan
         </div>
-        <div style={{ fontSize: 84, fontWeight: 800, marginTop: 24 }}>
-          Full-Stack Developer
+        <div style={{ fontSize: 72, fontWeight: 800, marginTop: 24 }}>
+          Web Development & Automation
         </div>
         <div style={{ fontSize: 30, marginTop: 12 }}>
-          Next.js / TypeScript / Tailwind — placeholder
+          Responsive websites / Shopify storefronts / n8n
         </div>
       </div>
     ),

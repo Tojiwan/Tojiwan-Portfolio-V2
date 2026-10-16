@@ -10,30 +10,30 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "frontend",
     index: "01",
-    title: "Front-End Mastery",
-    description: "Interfaces that stay fast and readable at any viewport.",
-    skills: ["React + Next.js", "TypeScript", "Tailwind CSS", "Motion"],
+    title: "Web Interfaces",
+    description: "Responsive pages and UI improvements for websites and web apps.",
+    skills: ["Nuxt.js", "React + Next.js", "JavaScript + TypeScript", "Tailwind CSS + Bootstrap"],
   },
   {
-    id: "frameworks",
+    id: "ecommerce",
     index: "02",
-    title: "Frameworks & APIs",
-    description: "Typed contracts from database to UI.",
-    skills: ["Node + Express", "REST + tRPC", "Prisma", "GraphQL basics"],
+    title: "Shopify & E-commerce",
+    description: "Storefront themes, custom product pages, and responsive shopping experiences.",
+    skills: ["Shopify", "Liquid", "JavaScript", "Figma"],
   },
   {
     id: "backend",
     index: "03",
-    title: "Back-End & Architecture",
-    description: "Small services with clear boundaries.",
-    skills: ["Go + Python", "Postgres", "Redis", "Docker"],
+    title: "Back-End & APIs",
+    description: "Application features, data storage, and third-party service integration.",
+    skills: ["PHP + Laravel", "MySQL + PostgreSQL", "Supabase", "Firebase Authentication", "Postman"],
   },
   {
-    id: "devops",
+    id: "automation",
     index: "04",
-    title: "DevOps & Cloud Tooling",
-    description: "Preview deploys and boring, reliable releases.",
-    skills: ["Git + GitHub", "Vercel", "CI basics", "Observability"],
+    title: "Automation & Chatbots",
+    description: "Connected workflows and AI-powered conversations for everyday tasks.",
+    skills: ["n8n", "OpenAI API", "Meta API", "Telegram Bot API", "Google Sheets API"],
   },
 ];
 
@@ -47,29 +47,29 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: "Intern & Trainee",
-    org: "Tigernethost OPC",
-    period: "February 2025 - May 2025",
-    summary:
-      'I have developed foundational skills in web development as an intern, working with programming languages such as Nuxt.js, Laravel, and CSS frameworks including Tailwind CSS and Bootstrap. I also have hands-on experience integrating APIs into web applications. These skills have strengthened my ability to build and maintain functional, user-friendly web systems.',
-    tags: ["Nuxt.js", "Laravel", "Tailwind CSS", "Bootstrap", "API Integration", "Web Development", "Postman", "Git"],
-  },
-  {
-    role: " Web Developer & AI Automation Specialist",
-    org: "Tigernethost OPC",
-    period: "June 2025 - December 2025  ",
-    summary:
-      'After completing my internship, I transitioned into a part-time role focused on Web development, where I built and maintained website features to improve user experience and ensure smooth performance. Alongside this, I used n8n to automate workflows and support the development of an AI-powered chatbot for the company’s Facebook page, helping deliver fast and responsive interactions for users.',
-    tags: ["N8N", "Telegram Chatbot", "Facebook RAG Chatbot", "Supabase", "MySQL", "Web Development", "Postman", "API Integration"],
-  },
-  {
     role: "Shopify Developer",
     org: "Freelance",
-    period: "January 2026 - April 2026",
+    period: "January 2026 – April 2026",
     summary:
-     'Worked on client-based projects building and customizing Shopify storefront themes, focusing on responsive design, performance, and smooth user experience. Pursued this role to strengthen my front-end development skills in a realworld setting, collaborate directly with clients, and deliver tailored e-commerce solutions based on business needs.',
-    tags: ["Shopify", "Tailwind", "Figma", "Liquid", "JavaScript"],
-  }
+      "Built and customized Shopify storefront themes for client projects, focusing on responsive layouts, performance, and the shopping experience. Worked directly with clients to tailor their storefronts to business needs.",
+    tags: ["Shopify", "Tailwind CSS", "Figma", "Liquid", "JavaScript"],
+  },
+  {
+    role: "Web Developer & AI Automation Specialist",
+    org: "Tigernethost OPC",
+    period: "June 2025 – December 2025",
+    summary:
+      "Continued part-time after my internship, building and maintaining website features. Used n8n to automate workflows and supported development of an AI-powered chatbot for the company’s Facebook page.",
+    tags: ["n8n", "Telegram Chatbot", "Facebook RAG Chatbot", "Supabase", "MySQL", "Web Development", "Postman", "API Integration"],
+  },
+  {
+    role: "Intern & Trainee",
+    org: "Tigernethost OPC",
+    period: "February 2025 – May 2025",
+    summary:
+      "Contributed to web projects using Nuxt.js, Laravel, Tailwind CSS, and Bootstrap. Worked on user interfaces, responsive layouts, and API integrations while developing practical web development skills.",
+    tags: ["Nuxt.js", "Laravel", "Tailwind CSS", "Bootstrap", "API Integration", "Web Development", "Postman", "Git"],
+  },
 ];
 
 export type Service = {
@@ -80,27 +80,27 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    title: "End-to-End Web Applications",
+    title: "Responsive Web Development",
     description:
-      "Marketing sites and dashboards from sketch to deploy, with clean routing and forms.",
-    deliverable: "DELIVERY: 2–4 WEEKS",
+      "Build and refine website pages with responsive layouts, clear navigation, and practical application features.",
+    deliverable: "RESPONSIVE PAGES",
   },
   {
-    title: "High-Throughput APIs & Cloud Architecture",
+    title: "Shopify Theme Customization",
     description:
-      "Typed APIs with auth, caching, and preview environments wired to Vercel.",
-    deliverable: "DELIVERY: SCOPED",
+      "Customize Liquid themes, product pages, and storefront sections to suit your brand and shopping experience.",
+    deliverable: "CUSTOM STOREFRONTS",
   },
   {
-    title: "Interactive & Creative Frontend",
+    title: "API Integration",
     description:
-      "Motion, canvas, and shader accents that respect reduced-motion and performance.",
-    deliverable: "DELIVERY: 1–2 WEEKS",
+      "Connect web applications to authentication, data storage, and third-party APIs using tools such as Laravel, Firebase, and Supabase.",
+    deliverable: "CONNECTED SERVICES",
   },
   {
-    title: "Technical Consulting & Audits",
+    title: "Workflow & Chatbot Automation",
     description:
-      "Code walkthroughs and performance passes with a prioritized fix list.",
-    deliverable: "DELIVERY: AUDIT DOC",
+      "Build n8n workflows that connect your tools and support AI-powered conversations on Facebook or Telegram.",
+    deliverable: "N8N WORKFLOWS",
   },
 ];

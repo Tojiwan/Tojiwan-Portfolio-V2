@@ -26,7 +26,7 @@ export function SiteHeader() {
               Tojiwan
             </span>
             <span className="block font-mono text-[10px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">
-              Full-Stack Web Developer
+              Web Developer & Automation
             </span>
           </span>
         </Link>
@@ -45,7 +45,7 @@ export function SiteHeader() {
           <ThemeToggle />
           <Link
             href="#contact"
-            className="hidden border-2 border-black bg-(--accent) px-3 py-2 font-mono text-xs font-bold uppercase shadow-[3px_3px_0_#000] transition-all hover:bg-(--accent-soft) active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black sm:inline-flex"
+            className="hidden h-10 items-center border-2 border-black bg-(--accent) px-3 font-mono text-xs font-bold text-[#000] uppercase shadow-[3px_3px_0_var(--shadow-color)] transition-all hover:bg-(--accent-soft) active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 sm:inline-flex"
           >
             Get in touch
           </Link>
@@ -55,6 +55,9 @@ export function SiteHeader() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
+            onKeyDown={(event) => {
+              if (event.key === "Escape") setOpen(false);
+            }}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X size={18} /> : <Menu size={18} />}
@@ -65,6 +68,12 @@ export function SiteHeader() {
         <nav
           id="mobile-nav"
           aria-label="Mobile"
+          onKeyDown={(event) => {
+            if (event.key === "Escape") {
+              setOpen(false);
+              document.querySelector<HTMLButtonElement>('[aria-controls="mobile-nav"]')?.focus();
+            }
+          }}
           className="border-t-2 border-black bg-white px-4 py-3 lg:hidden"
         >
           <ul className="flex flex-col gap-1">
@@ -83,7 +92,7 @@ export function SiteHeader() {
               <Link
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="mt-1 block border-2 border-black bg-(--accent) px-2 py-2 text-center font-mono text-sm font-bold uppercase"
+                className="mt-1 block border-2 border-black bg-(--accent) px-2 py-2 text-center font-mono text-sm font-bold text-[#000] uppercase"
               >
                 Get in touch
               </Link>

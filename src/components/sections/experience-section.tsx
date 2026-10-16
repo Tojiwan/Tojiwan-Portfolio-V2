@@ -10,7 +10,7 @@ export function ExperienceSection() {
         <SectionHeading
           kicker="Career timeline"
           title="Experience"
-          description="Reverse-chronological placeholders. Replace dates and outcomes with verifiable ones."
+          description="From my internship to web development, automation, and freelance Shopify work. Most recent role first."
         />
       </div>
       <ol className="relative mt-6 space-y-5 border-l-2 border-black pl-6">
@@ -21,12 +21,12 @@ export function ExperienceSection() {
               className="absolute -left-[33px] top-4 h-3.5 w-3.5 border-2 border-black bg-(--accent)"
             />
             <Reveal delay={Math.min(i * 0.05, 0.2)}>
-              <article className="border-2 border-black bg-white p-5 shadow-[4px_4px_0_#000]">
+              <article className="brutal-panel border-2 border-black bg-white p-5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <h3 className="font-display text-lg font-bold text-black">
                     {e.role} <span className="text-(--accent-strong)">@ {e.org}</span>
                   </h3>
-                  <span className="font-mono text-[11px] font-bold tracking-wider text-dark uppercase">
+                  <span className="font-mono text-[11px] font-bold tracking-wider text-(--text-muted) uppercase">
                     {e.period}
                   </span>
                 </div>

@@ -6,78 +6,75 @@ export type Project = {
   status: string;
   description: string;
   stack: string[];
-  specs: Array<{ label: string; value: string }>;
+  focus: string;
+  liveUrl?: string;
 };
 
 export const projects: Project[] = [
   {
     slug: "shop-co-slug",
-    file: "shop_co.liquid",
+    file: "e_commerce_web.liquid",
     title: "Shop.Co",
-    category: "E-commerce Website",
+    category: "E-commerce",
     status: "Personal Project",
     description:
-      "A modern fashion e-commerce website with bold typography and minimalist layouts. Shows product collections, bestsellers, dress styles, and testimonials in a clean, responsive desktop and mobile experience.",
+      "A responsive fashion storefront with custom product pages, product sliders, and collection browsing. The layout brings together bestsellers, dress styles, and customer testimonials across desktop and mobile.",
     stack: ["Liquid", "Tailwind CSS", "JavaScript", "Swiper.js"],
-    specs: [
-      { label: "TYPE", value: "PERSONAL PROJECT" },
-      { label: "FOCUS", value: "CUSTOM PRODUCT PAGE, CUSTOM UI, CUSTOM PRODUCT SLIDER" },
-    ]
+    focus: "Custom product pages, UI, and product sliders",
   },
   {
     slug: "n8n-slug",
     file: "n8n_chatbot.js",
     title: "Facebook RAG Chatbot",
-    category: "AI + RAG AGENT",
+    category: "AI Chatbot",
     status: "Company Project",
     description:
-      "An AI-powered chatbot and automation workflow for a company Facebook page that answers user questions and delivers fast helpful interactions using AI company information and automated replies consistently.",
-    stack: ["JavaScript", "N8N Workflow", "Meta API", "Custom API", "Supabase", "Postgres", "OPENAI API"],
-    specs: [
-      { label: "TYPE", value: "PERSONAL PROJECT" },
-      { label: "FOCUS", value: "AI INTEGRATION, RAG IMPLEMENTATION" },
-    ]
+      "An n8n workflow that answers questions on a company Facebook page using company information and AI-generated replies. It connects the Meta API, OpenAI, and Supabase to support automated conversations.",
+    stack: ["JavaScript", "n8n", "Meta API", "Custom API", "Supabase", "PostgreSQL", "OpenAI API"],
+    focus: "AI integration and RAG workflows",
   },
   {
     slug: "budget-tracker-slug",
     file: "n8n_chatbot.js",
-    title: "Budget tracker using telegram bot and n8n",
-    category: "AI + RAG AGENT",
+    title: "Telegram Budget Tracker",
+    category: "Workflow Automation",
     status: "Personal Project",
     description:
-      "A personal budget tracker powered by Telegram and n8n, enabling users to log expenses, monitor spending, manage finances, and track their budgets through automated chat interactions and workflows.",
-    stack: ["JavaScript", "N8N Workflow", "Telegram Bot", "Custom API", "Supabase", "Postgres", "OPENAI API", "Google Sheets API"],
-    specs: [
-      { label: "TYPE", value: "PERSONAL PROJECT" },
-      { label: "FOCUS", value: "TELEGRAM INTEGRATION, N8N WORKFLOW" },
-    ]
+      "A personal budget tracker that logs expenses and monitors spending through Telegram conversations. n8n connects the bot with data storage and Google Sheets to automate the tracking workflow.",
+    stack: ["JavaScript", "n8n", "Telegram Bot", "Custom API", "Supabase", "PostgreSQL", "OpenAI API", "Google Sheets API"],
+    focus: "Telegram integration and n8n workflows",
   },
   {
     slug: "one-pampanga-chatbot-slug",
     file: "n8n_chatbot.js",
     title: "One Pampanga RAG Chatbot",
-    category: "WEB DEVELOPMENT + AI + RAG AGENT",
+    category: "AI Chatbot",
     status: "Company Project",
     description:
-      "A business chatbot automation system built with Laravel, MySQL, n8n, and Tailwind CSS. When enabled, Laravel jobs use the n8n API to automatically create customized chatbot workflows based on business information, products, services, and other relevant data stored in MySQL. This streamlines chatbot setup and enables AI-powered customer interactions tailored to each business. The project has been discontinued for now and is expected to be further improved and developed by the company in the future.",
-    stack: ["Laravel", "MySQL", "N8N Workflow", "Custom API", "OPENAI API", "Vanilla CSS"],
-    specs: [
-      { label: "TYPE", value: "Company Project" },
-      { label: "FOCUS", value: "BUILDING A RAG CHATBOT FOR A LOCAL BUSINESS" },
-    ]
+      "Laravel jobs use MySQL business data and the n8n API to create customized chatbot workflows for local businesses. The company project is currently on hold.",
+    stack: ["Laravel", "MySQL", "n8n", "Custom API", "OpenAI API", "Vanilla CSS"],
+    focus: "Business-specific RAG chatbots",
   },
   {
     slug: "ramen-makimura-slug",
     file: "web_development.vue",
     title: "Ramen Makimura Website",
-    category: "WEB DEVELOPMENT + UI",
+    category: "Web Development",
     status: "Company Project",
     description:
-      "My first major company project during my OJT, contributing to the Ramen Makimura restaurant website by refining the user interface, updating colors and typography, assisting with Firebase authentication, and improving page responsiveness across different screen sizes. This experience helped me strengthen my front-end development skills, gain a better understanding of authentication integration, and gain practical experience contributing to a real-world web project.",
-    stack: ["Nuxt.js", "Tailwind CSS", "Firebase Authentication", "typeScript", "JavaScript"],
-    specs: [
-      { label: "TYPE", value: "Company Project" },
-      { label: "FOCUS", value: "USER INTERFACE, RESPONSIVE DESIGN, FIREBASE AUTHENTICATION" },
-    ]
+      "Contributed to this restaurant website during my internship. My work included UI refinements, color and typography updates, responsive layout improvements, and assistance with Firebase authentication.",
+    stack: ["Nuxt.js", "Tailwind CSS", "Firebase Authentication", "TypeScript", "JavaScript"],
+    focus: "UI updates, responsive layouts, and Firebase authentication",
+  },
+  {
+    slug: "vehiserive-slug",
+    file: "web_development.php",
+    title: "Vehiserive",
+    category: "Web Development",
+    status: "Capstone Project",
+    description:
+      "A capstone web project built with PHP, MySQL, HTML, CSS, and JavaScript.",
+    stack: ["PHP", "MySQL", "Vanilla CSS", "HTML", "JavaScript"],
+    focus: "PHP web development",
   },
 ];

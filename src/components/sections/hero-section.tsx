@@ -1,71 +1,66 @@
-import { ArrowDown, FolderGit2 } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Download, MapPin } from "lucide-react";
+import localFont from "next/font/local";
 import { ActionLink } from "@/components/ui/action-link";
 import { TechBadge } from "@/components/ui/tech-badge";
-import { TerminalWindow } from "@/components/ui/terminal-window";
 import { Reveal } from "@/components/ui/reveal";
+import { HeroPortrait } from "@/components/sections/hero-portrait";
+
+const display = localFont({
+  src: "../../../public/fonts/Space_Grotesk/SpaceGrotesk-Variable.ttf",
+  variable: "--font-hero-display",
+  display: "swap",
+  weight: "300 700",
+});
 
 export function HeroSection() {
   return (
-    <section id="top" aria-labelledby="hero-heading" className="scroll-mt-20">
-      <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
-        <Reveal>
-          <div className="flex h-full flex-col justify-center border-2 border-black bg-white p-6 shadow-[6px_6px_0_#000] sm:p-8">
-            <h1
-              id="hero-heading"
-              className="mt-2 font-display text-4xl leading-[1.05] font-extrabold tracking-tight text-black sm:text-6xl"
-            >
+    <section id="top" aria-labelledby="hero-heading" className={`hero ${display.variable} scroll-mt-20`}>
+      <div className="hero-editorial">
+        <span>01 / INTRODUCTION</span>
+        <span aria-hidden="true">&lt;hello_world /&gt;</span>
+      </div>
+      <div className="hero-grid">
+        <Reveal className="min-w-0">
+          <HeroPortrait />
+        </Reveal>
+        <Reveal delay={0.08} className="min-w-0">
+          <div className="hero-intro">
+            <p className="hero-location"><MapPin size={14} aria-hidden="true" /> Pampanga, Philippines <span aria-hidden="true">↗</span></p>
+            <h1 id="hero-heading" className="hero-heading">
               Hi, I&apos;m{" "}
-              <span className="bg-(--accent) px-2 outline-2 outline-black">TOJIWAN</span>
+              <span className="hero-name">TOJIWAN<span aria-hidden="true" className="hero-name-mark">✳</span></span>
             </h1>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <TechBadge label="Fullstack Developer" accent />
-              <TechBadge label="UI / UX" />
+            <p className="hero-identity">Jake Andrei R. Peralta <span aria-hidden="true">/</span> Developer</p>
+            <div className="hero-skills">
+              <TechBadge label="Web Development" accent />
+              <TechBadge label="Shopify" />
+              <TechBadge label="AI Automation" />
             </div>
-            <p className="mt-4 max-w-xl font-mono text-sm leading-6 text-(--text)">
-              Placeholder intro: I build fast, readable web apps with React and
-              TypeScript. Simplified demo content — replace with your real
-              value proposition.
+            <p className="hero-description">
+              I build responsive websites, high-converting Shopify storefronts,
+              and smart automations that make everyday work easier.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <ActionLink href="#projects">
-                <FolderGit2 size={16} aria-hidden="true" /> View Projects
-              </ActionLink>
+            <div className="hero-actions">
+              <ActionLink href="#projects">View Projects <ArrowUpRight size={18} aria-hidden="true" /></ActionLink>
               <ActionLink href="/files/Peralta, Jake Andrei R. (RESUME).pdf" variant="secondary" download>
-                <ArrowDown size={16} aria-hidden="true" /> Download CV
+                <Download size={17} aria-hidden="true" /> Download CV
               </ActionLink>
+            </div>
+            <div className="hero-focus" aria-labelledby="hero-focus-label">
+              <p id="hero-focus-label"><span aria-hidden="true">$</span> currently_building</p>
+              <p>Web experiences <span aria-hidden="true">/</span> Shopify storefronts <span aria-hidden="true">/</span> n8n workflows</p>
+            </div>
+            <div className="hero-bottom-rail">
+              <a href="#about" className="hero-scroll">Scroll to explore <ArrowDown size={15} aria-hidden="true" /></a>
+              <span aria-hidden="true">&lt;/&gt;</span>
             </div>
           </div>
         </Reveal>
-        <Reveal delay={0.1}>
-          <TerminalWindow file="tojiwan_preview.img" status="LIVE" dark className="h-full">
-            <div aria-hidden="true" className="grid grid-cols-12 gap-px border border-[#2a3340] bg-[#2a3340]">
-              {Array.from({ length: 96 }).map((_, i) => (
-                <span key={i} className="h-4 bg-[#0f1620]" />
-              ))}
-            </div>
-            <div className="mt-4 border border-[#2a3340] bg-[#0f1620] p-4">
-              <p className="font-mono text-xs text-[#7bd0ff]">$ whoami</p>
-              <p className="mt-1 font-mono text-sm text-[#e6edf3]">Jake Andrei R. Peralta — full-stack dev</p>
-              <p className="mt-3 font-mono text-xs text-[#7bd0ff]">$ stack --list</p>
-              <p className="mt-1 font-mono text-xs text-[#e6edf3]">
-                next.js / typescript / tailwind / motion
-              </p>
-              <div className="mt-4 flex gap-2">
-                <span className="h-2 w-16 bg-(--accent)" />
-                <span className="h-2 w-10 bg-(--accent-strong)" />
-                <span className="h-2 w-6 bg-[#e6edf3]" />
-              </div>
-            </div>
-          </TerminalWindow>
-        </Reveal>
       </div>
-      <div className="mt-6 border-2 border-black bg-white px-4 py-3 shadow-[4px_4px_0_#000]">
-        <p className="font-mono text-xs leading-5">
-          <span className="bg-black px-1 py-0.5 font-bold text-white uppercase">Note</span>{" "}
-          <span className="text-(--text)">
-            “Simplified placeholder build. Real copy, metrics, and links replace this strip.”
-          </span>
-        </p>
+      <div className="hero-availability">
+        <span className="hero-status"><span aria-hidden="true" /> Available for work</span>
+        <p>Open to web development, Shopify, and automation opportunities.</p>
+        <a href="#contact" aria-label="Get in touch about an opportunity"><ArrowUpRight size={22} aria-hidden="true" /></a>
       </div>
     </section>
   );

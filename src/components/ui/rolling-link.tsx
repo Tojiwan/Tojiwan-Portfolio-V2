@@ -32,6 +32,7 @@ export function RollingLink({
   onClick?: () => void;
   ariaLabel?: string;
 }) {
+  const external = /^https?:\/\//i.test(href);
   const reduceMotion = useReducedMotion();
   const [active, setActive] = useState(false);
   const activeRef = useRef(false);
@@ -46,6 +47,8 @@ export function RollingLink({
   };
 
   const requestActive = (next: boolean) => {
+    if (reduceMotion) return;
+
     if (next === activeRef.current) {
       pendingRequest.current = null;
       return;
@@ -77,22 +80,11 @@ export function RollingLink({
     }
   };
 
-  if (reduceMotion) {
-    return (
-      <Link
-        href={href}
-        className={className}
-        onClick={onClick}
-        aria-label={ariaLabel}
-      >
-        {children}
-      </Link>
-    );
-  }
-
   return (
     <Link
       href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
       className={className}
       onClick={onClick}
       aria-label={ariaLabel}
@@ -118,9 +110,9 @@ export function RollingLink({
           className="label-copy"
           variants={outgoingVariants}
           initial="rest"
-          animate={active ? "active" : "rest"}
+          animate={!reduceMotion && active ? "active" : "rest"}
           onAnimationComplete={completeAnimation}
-          transition={transition}
+          transition={reduceMotion ? { duration: 0 } : transition}
         >
           {children}
         </motion.span>
@@ -129,8 +121,8 @@ export function RollingLink({
           aria-hidden="true"
           variants={incomingVariants}
           initial="rest"
-          animate={active ? "active" : "rest"}
-          transition={transition}
+          animate={!reduceMotion && active ? "active" : "rest"}
+          transition={reduceMotion ? { duration: 0 } : transition}
         >
           {children}
         </motion.span>

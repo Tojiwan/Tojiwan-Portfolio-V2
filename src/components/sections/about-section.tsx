@@ -54,7 +54,7 @@ export function AboutSection() {
         <SectionHeading kicker="Developer overview" title="About Me" />
       </div>
       <Reveal className="mt-6">
-        <div className="border-2 border-black bg-white shadow-[6px_6px_0_#000]">
+        <div className="border-2 border-black bg-white shadow-[6px_6px_0_var(--shadow-color)]">
           {/* Title bar */}
           <div className="flex items-center gap-2 border-b-2 border-black bg-(--panel) px-3 py-2">
             <span className="flex gap-1.5" aria-hidden="true">
@@ -63,7 +63,7 @@ export function AboutSection() {
               <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#28c840]" />
             </span>
             <span className="mx-auto font-mono text-[11px] font-bold tracking-[0.15em] uppercase">
-              About_me.exe · Bio.md
+              About_me.exe · {tab}.md
             </span>
             <span className="w-10" aria-hidden="true" />
           </div>
@@ -71,7 +71,7 @@ export function AboutSection() {
           {/* Path bar */}
           <div className="border-b-2 border-black px-3 py-1.5 font-mono text-xs">
             <span className="font-bold">Path</span>{" "}
-            <span className="text-(--text-muted)">C:/portfolio/about_me/bio.md</span>
+            <span className="text-(--text-muted)">C:/portfolio/about_me/{tab}.md</span>
           </div>
 
           {/* Body */}
@@ -79,16 +79,28 @@ export function AboutSection() {
             {/* Sidebar */}
             <div
               className="border-b-2 border-black p-3 lg:border-r-2 lg:border-b-0"
-              role="tablist"
-              aria-label="About files"
             >
               <p className="font-mono text-[11px] font-bold tracking-[0.12em] uppercase">
                 Directories
               </p>
-              <div className="mt-2 flex gap-2 lg:flex-col">
+              <div
+                role="tablist"
+                aria-label="About files"
+                className="mt-2 flex gap-2 lg:flex-col"
+                onKeyDown={(event) => {
+                  if (!["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) return;
+                  event.preventDefault();
+                  const next = event.key === "Home" ? "bio" : event.key === "End" ? "education" : tab === "bio" ? "education" : "bio";
+                  setTab(next);
+                  document.getElementById(`about-tab-${next}`)?.focus();
+                }}
+              >
                 <button
                   type="button"
                   role="tab"
+                  id="about-tab-bio"
+                  aria-controls="about-panel-bio"
+                  tabIndex={tab === "bio" ? 0 : -1}
                   aria-selected={tab === "bio"}
                   onClick={() => setTab("bio")}
                   className={cn(
@@ -104,6 +116,9 @@ export function AboutSection() {
                 <button
                   type="button"
                   role="tab"
+                  id="about-tab-education"
+                  aria-controls="about-panel-education"
+                  tabIndex={tab === "education" ? 0 : -1}
                   aria-selected={tab === "education"}
                   onClick={() => setTab("education")}
                   className={cn(
@@ -122,7 +137,7 @@ export function AboutSection() {
             {/* Content */}
             <div className="border-b-2 border-black p-5 sm:p-6 lg:border-b-0">
               {tab === "bio" ? (
-                <div role="tabpanel" aria-label="Biography">
+                <div role="tabpanel" id="about-panel-bio" aria-labelledby="about-tab-bio" tabIndex={0}>
                   <p className="font-mono text-[11px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">
                     {"// Active file: bio.md"}
                   </p>
@@ -157,7 +172,7 @@ export function AboutSection() {
                     </div>
                     <div className="flex gap-6">
                       <dt className="w-20 shrink-0 text-(--text-muted)">timezone</dt>
-                      <dd className="font-bold">utc+8 (pst)</dd>
+                      <dd className="font-bold">UTC+8 (Philippine Time)</dd>
                     </div>
                     <div className="flex gap-6">
                       <dt className="w-20 shrink-0 text-(--text-muted)">status</dt>
@@ -169,7 +184,7 @@ export function AboutSection() {
                   </dl>
                 </div>
               ) : (
-                <div role="tabpanel" aria-label="Education">
+                <div role="tabpanel" id="about-panel-education" aria-labelledby="about-tab-education" tabIndex={0}>
                   <p className="font-mono text-[11px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">
                     {"// Active file: education.md"}
                   </p>
@@ -227,7 +242,7 @@ export function AboutSection() {
                   <span className="w-10" aria-hidden="true" />
                 </div>
                 <div className="relative">
-                  <AsciiPortrait variant="jp" label="ASCII art JP monogram" className="m-3" />
+                  <AsciiPortrait variant={tab === "education" ? "cap" : "jp"} label={tab === "education" ? "ASCII graduation cap" : "ASCII art JP monogram"} className="m-3" />
                 </div>
                 <div className="border-t border-[#2a3340] p-3">
                   <p className="font-mono text-[11px] font-bold tracking-[0.12em] text-(--accent-soft) uppercase text-center">
