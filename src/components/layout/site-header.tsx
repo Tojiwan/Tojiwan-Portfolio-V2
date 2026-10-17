@@ -45,7 +45,7 @@ export function SiteHeader() {
           <ThemeToggle />
           <Link
             href="#contact"
-            className="hidden h-10 items-center border-2 border-black bg-(--accent) px-3 font-mono text-xs font-bold text-[#000] uppercase shadow-[3px_3px_0_var(--shadow-color)] transition-all hover:bg-(--accent-soft) active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 sm:inline-flex"
+            className="header-action hidden h-10 items-center border-2 border-black bg-(--accent) px-3 font-mono text-xs font-bold text-[#000] uppercase shadow-[3px_3px_0_var(--shadow-color)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 sm:inline-flex"
           >
             Get in touch
           </Link>

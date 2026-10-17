@@ -20,10 +20,7 @@ export function HeroSection() {
         <span aria-hidden="true">&lt;hello_world /&gt;</span>
       </div>
       <div className="hero-grid">
-        <Reveal className="min-w-0">
-          <HeroPortrait />
-        </Reveal>
-        <Reveal delay={0.08} className="min-w-0">
+        <Reveal className="min-w-0 lg:col-start-2 lg:row-start-1">
           <div className="hero-intro">
             <p className="hero-location"><MapPin size={14} aria-hidden="true" /> Pampanga, Philippines <span aria-hidden="true">↗</span></p>
             <h1 id="hero-heading" className="hero-heading">
@@ -55,6 +52,9 @@ export function HeroSection() {
               <span aria-hidden="true">&lt;/&gt;</span>
             </div>
           </div>
+        </Reveal>
+        <Reveal delay={0.08} className="min-w-0 lg:col-start-1 lg:row-start-1">
+          <HeroPortrait />
         </Reveal>
       </div>
       <div className="hero-availability">

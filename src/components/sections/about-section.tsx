@@ -150,15 +150,8 @@ export function AboutSection() {
                   </h3>
                   <div className="mt-3 space-y-3 font-mono text-[13px] leading-6 text-(--text)">
                     <p>
-                      I&apos;m a web developer focused on building responsive,
-                      user-friendly digital experiences across web development,
-                      e-commerce, and automation.
-                    </p>
-                    <p>
-                      I&apos;ve worked with technologies including Nuxt.js,
-                      Laravel, Tailwind CSS, Shopify Liquid, JavaScript,
-                      TypeScript, PHP, and automation platforms such as n8n and
-                      Zapier.
+                      I&apos;m a web developer focused on making websites
+                      responsive and easy to use.
                     </p>
                     <p>
                       I enjoy learning new technologies and applying them to

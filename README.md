@@ -34,7 +34,7 @@ Set `SITE_URL` to the full deployed origin, including `https://`, in your hostin
 
 ## Remaining content and integrations
 
-- The contact form is intentionally disabled until a delivery service is connected. Direct email and profile links are available above and beside the form.
+- The contact form sends through Formspree with validation, sending/success/error feedback, and a spam honeypot. Direct email and profile links are also available. The owner confirmed a successful localhost submission and inbox delivery from the 2026-10-16 test.
 - Project galleries need screenshots and captions (currently deferred).
 - Hero portraits use all five `public/Profile_Avatar/pfp-*_result.webp` images in original color, starting with pfp-1. Each mouse hover or click/tap/keyboard activation advances to the next image and wraps after pfp-5. Edit `src/components/sections/hero-portrait.tsx` to change them.
 - Vehiserive currently has a stack-based summary. Add its purpose, features, and your specific contribution when available.
@@ -48,6 +48,6 @@ Set `SITE_URL` to the full deployed origin, including `https://`, in your hostin
 4. Use Tab/Shift+Tab, Enter, and Space. In About, test arrow keys and Home/End. Open the mobile menu and close it with Escape. Check that focus stays visible.
 5. Confirm pfp-1 is shown initially. Move the pointer off/on the portrait repeatedly, then test click, tap, and Enter/Space: all five photos should appear in order and wrap to pfp-1. Check image crops and reduced-motion switching.
 6. In DevTools > More tools > Rendering, emulate `prefers-reduced-motion: reduce`. Reload: typing, hover lift, and transitions should be static/immediate.
-7. Click email/phone/profile links and Download CV. Confirm destinations and the current PDF. The online form is deliberately disabled.
+7. Click email/phone/profile links and Download CV. Confirm destinations and the current PDF. Contact-form delivery has been verified locally; repeat the submission check on the deployed site.
 8. Inspect Console for errors and Network for failed requests. Run `npm run lint` and `npm run build`, then `npm start` to repeat against production output (stop the dev server first).
 9. Repeat the key checks on the deployed URL and a real phone; verify favicon and social-sharing preview.

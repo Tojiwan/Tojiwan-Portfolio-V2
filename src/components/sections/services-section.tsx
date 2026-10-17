@@ -2,7 +2,6 @@ import { Globe, ShoppingBag, Plug, Workflow } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { BrutalistCard } from "@/components/ui/brutalist-card";
 import { Reveal } from "@/components/ui/reveal";
-import { RollingLink } from "@/components/ui/rolling-link";
 import { services } from "@/data/skills";
 
 const icons = [Globe, ShoppingBag, Plug, Workflow];
@@ -14,7 +13,7 @@ export function ServicesSection() {
         <SectionHeading
           kicker="What I can build"
           title="Services"
-          description="Practical help with websites, Shopify storefronts, connected services, and automated workflows."
+          description="From page updates to connected workflows."
         />
       </div>
       <div className="mt-6 grid gap-5 md:grid-cols-2">
@@ -32,12 +31,6 @@ export function ServicesSection() {
                   <span className="font-mono text-[11px] font-bold tracking-wider uppercase">
                     {s.deliverable}
                   </span>
-                  <RollingLink
-                    href="#contact"
-                    className="border-2 border-black bg-white px-2 py-1 font-mono text-[11px] font-bold uppercase shadow-[2px_2px_0_var(--shadow-color)] hover:bg-(--accent) hover:text-[#000] focus-visible:outline-2 focus-visible:outline-black"
-                  >
-                    Enquire →
-                  </RollingLink>
                 </div>
               </BrutalistCard>
             </Reveal>

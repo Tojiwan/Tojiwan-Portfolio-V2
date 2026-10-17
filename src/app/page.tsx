@@ -5,6 +5,7 @@ import { TechStackSection } from "@/components/sections/tech-stack-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { ServicesSection } from "@/components/sections/services-section";
 import { ContactSection } from "@/components/sections/contact-section";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
       <div className="py-10 sm:py-14">
         <ContactSection />
       </div>
+      <SpeedInsights />
     </main>
   );
 }

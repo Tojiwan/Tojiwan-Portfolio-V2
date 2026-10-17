@@ -10,30 +10,37 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "frontend",
     index: "01",
-    title: "Web Interfaces",
-    description: "Responsive pages and UI improvements for websites and web apps.",
-    skills: ["Nuxt.js", "React + Next.js", "JavaScript + TypeScript", "Tailwind CSS + Bootstrap"],
+    title: "Frontend & UI",
+    description: "Responsive pages and user interfaces for websites and web apps.",
+    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "Tailwind CSS", "Bootstrap"],
   },
   {
-    id: "ecommerce",
+    id: "frameworks",
     index: "02",
-    title: "Shopify & E-commerce",
-    description: "Storefront themes, custom product pages, and responsive shopping experiences.",
-    skills: ["Shopify", "Liquid", "JavaScript", "Figma"],
+    title: "Frameworks & Animation",
+    description: "Component-based apps with smooth, purposeful motion.",
+    skills: ["React", "Next.js", "Nuxt.js", "Motion (Framer Motion)"],
   },
   {
     id: "backend",
     index: "03",
-    title: "Back-End & APIs",
-    description: "Application features, data storage, and third-party service integration.",
-    skills: ["PHP + Laravel", "MySQL + PostgreSQL", "Supabase", "Firebase Authentication", "Postman"],
+    title: "Backend & Data",
+    description: "Application features, data storage, and service integration.",
+    skills: ["PHP", "Laravel", "MySQL", "Supabase"],
   },
   {
-    id: "automation",
+    id: "shopify-automation",
     index: "04",
-    title: "Automation & Chatbots",
-    description: "Connected workflows and AI-powered conversations for everyday tasks.",
-    skills: ["n8n", "OpenAI API", "Meta API", "Telegram Bot API", "Google Sheets API"],
+    title: "Shopify & Automation",
+    description: "Storefront customization and connected automated workflows.",
+    skills: ["Shopify Liquid", "n8n", "Zapier"],
+  },
+  {
+    id: "tools",
+    index: "05",
+    title: "Development & Design Tools",
+    description: "Daily workflow, testing, local development, and design handoff.",
+    skills: ["Git", "Postman", "Laravel Herd", "Docker", "Figma", "Canva", "ChatGPT", "OpenCode"],
   },
 ];
 
@@ -82,19 +89,19 @@ export const services: Service[] = [
   {
     title: "Responsive Web Development",
     description:
-      "Build and refine website pages with responsive layouts, clear navigation, and practical application features.",
+      "Build and refine pages with responsive layouts, clear navigation, and practical features.",
     deliverable: "RESPONSIVE PAGES",
   },
   {
     title: "Shopify Theme Customization",
     description:
-      "Customize Liquid themes, product pages, and storefront sections to suit your brand and shopping experience.",
+      "Adapt themes, product pages, and storefront sections to your brand.",
     deliverable: "CUSTOM STOREFRONTS",
   },
   {
     title: "API Integration",
     description:
-      "Connect web applications to authentication, data storage, and third-party APIs using tools such as Laravel, Firebase, and Supabase.",
+      "Connect your website to sign-in services, data storage, and third-party APIs.",
     deliverable: "CONNECTED SERVICES",
   },
   {
