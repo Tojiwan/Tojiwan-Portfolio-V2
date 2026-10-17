@@ -8,6 +8,9 @@ export type Project = {
   stack: string[];
   focus: string;
   liveUrl?: string;
+  demoUrl?: string;
+  demoPassword?: string;
+  designUrl?: string;
 };
 
 export const projects: Project[] = [
@@ -18,9 +21,12 @@ export const projects: Project[] = [
     category: "E-commerce",
     status: "Personal Project",
     description:
-      "A responsive fashion storefront with custom product pages, product sliders, and collection browsing. The layout brings together bestsellers, dress styles, and customer testimonials across desktop and mobile.",
+      "A responsive Shopify storefront built from the “E-commerce Website Template (Freebie)” Figma design. I implemented the storefront using Liquid, Tailwind CSS, and JavaScript, with custom product pages, product sliders, and collection browsing.",
     stack: ["Liquid", "Tailwind CSS", "JavaScript", "Swiper.js"],
-    focus: "Custom product pages, UI, and product sliders",
+    focus: "Figma-to-Shopify implementation and responsive development",
+    demoUrl: "https://shopco-9844.myshopify.com",
+    demoPassword: "steusk",
+    designUrl: "https://www.figma.com/design/IQvBFmtENrp2u4TvKWWb9e/E-commerce-Website-Template--Freebie---Community-?node-id=39-1402",
   },
   {
     slug: "n8n-slug",

@@ -1,12 +1,17 @@
-import { RollingLink } from "@/components/ui/rolling-link";
-
 const COPYRIGHT_YEAR = 2026;
+
+const wordmark = `████████╗ ██████╗      ██╗██╗██╗    ██╗ █████╗ ███╗   ██╗
+╚══██╔══╝██╔═══██╗     ██║██║██║    ██║██╔══██╗████╗  ██║
+   ██║   ██║   ██║     ██║██║██║ █╗ ██║███████║██╔██╗ ██║
+   ██║   ██║   ██║██   ██║██║██║███╗██║██╔══██║██║╚██╗██║
+   ██║   ╚██████╔╝╚█████╔╝██║╚███╔███╔╝██║  ██║██║ ╚████║
+   ╚═╝    ╚═════╝  ╚════╝ ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═══╝`;
 
 export function SiteFooter() {
   const year = COPYRIGHT_YEAR;
   return (
     <footer className="border-t-2 border-black bg-(--panel)">
-      <div className="mx-auto grid max-w-[1280px] gap-8 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.5fr_1fr_1fr_1.5fr]">
+      <div className="mx-auto grid max-w-[1280px] gap-8 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.65fr)_minmax(0,1.2fr)_minmax(0,1.8fr)]">
         <div>
           <p className="font-display text-sm font-extrabold text-black">TOJIWAN</p>
           <p className="mt-1 font-mono text-xs leading-5 text-(--text-muted)">
@@ -22,34 +27,48 @@ export function SiteFooter() {
           <ul className="mt-2 space-y-1 font-mono text-xs">
             {["about", "projects", "stack", "experience", "services", "contact"].map((s) => (
               <li key={s}>
-                <RollingLink href={`#${s}`} className="no-underline">
+                <a href={`#${s}`} className="no-underline hover:underline hover:underline-offset-2">
                   {s}
-                </RollingLink>
+                </a>
               </li>
             ))}
           </ul>
         </div>
+        {/* Contacts retained for later use.
         <div>
-          <p className="font-mono text-xs font-bold tracking-wider uppercase">Stack</p>
-          <p className="mt-2 font-mono text-xs leading-5 text-(--text-muted)">
-            Nuxt.js, Laravel, Shopify Liquid, n8n, Next.js
-          </p>
-        </div>
-        <div>
-          <p className="font-mono text-xs font-bold tracking-wider uppercase">Contact</p>
+          <p className="font-mono text-xs font-bold tracking-wider uppercase">Contacts</p>
           <p className="mt-2 break-all font-mono text-xs leading-5">
-            <RollingLink href="mailto:andreiperalta13@gmail.com" className="underline underline-offset-2">
+            <a href="mailto:andreiperalta13@gmail.com" className="no-underline hover:underline">
               andreiperalta13@gmail.com
-            </RollingLink>
+            </a>
             <span className="mt-2 flex flex-wrap gap-3">
-              <RollingLink href="https://github.com/Tojiwan" className="underline underline-offset-2">
+              <a href="https://github.com/Tojiwan" target="_blank" rel="noopener noreferrer" className="no-underline hover:underline">
                 GitHub
-              </RollingLink>
-              <RollingLink href="https://www.linkedin.com/in/jake-andrei-peralta-454154390" className="underline underline-offset-2">
+              </a>
+              <a href="https://www.linkedin.com/in/jake-andrei-peralta-454154390" target="_blank" rel="noopener noreferrer" className="no-underline hover:underline">
                 LinkedIn
-              </RollingLink>
+              </a>
             </span>
           </p>
+        </div>
+        */}
+        <div>
+          <p className="font-mono text-xs font-bold tracking-wider uppercase">Resources</p>
+          <ul className="mt-2 space-y-1 font-mono text-xs">
+            <li>
+              <a href="/files/Peralta, Jake Andrei R. (RESUME).pdf" download className="no-underline hover:underline hover:underline-offset-2">
+                Download résumé
+              </a>
+            </li>
+            <li>
+              <a href="#top" className="no-underline hover:underline hover:underline-offset-2">
+                Back to top ↑
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div role="img" aria-label="Tojiwan ASCII wordmark" className="min-w-0 self-center text-(--text) [container-type:inline-size]">
+          <pre aria-hidden="true" className="m-0 whitespace-pre text-[clamp(6px,2.8cqi,12px)] leading-tight [font-family:ui-monospace,monospace]">{wordmark}</pre>
         </div>
       </div>
       <div className="border-t-2 border-black">

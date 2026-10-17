@@ -5,6 +5,7 @@ import { TechBadge } from "@/components/ui/tech-badge";
 import { Reveal } from "@/components/ui/reveal";
 import { RollingLink } from "@/components/ui/rolling-link";
 import { projects } from "@/data/projects";
+import { DemoPassword } from "@/components/ui/demo-password";
 
 export function ProjectsSection() {
   return (
@@ -53,6 +54,36 @@ export function ProjectsSection() {
                     Visit Site
                     <ArrowUpRight size={14} aria-hidden="true" />
                   </RollingLink>
+                ) : null}
+                {p.demoUrl ? (
+                  <div className="mt-4">
+                    <a
+                      href={p.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${p.title} demo (opens in a new tab)`}
+                      className="inline-flex min-h-11 items-center gap-1.5 font-mono text-xs font-bold uppercase underline underline-offset-4"
+                    >
+                      View demo <ArrowUpRight size={14} aria-hidden="true" />
+                    </a>
+                    {p.demoPassword ? (
+                      <>
+                        <p className="font-mono text-xs leading-5 text-(--text-muted)">Shopify development store · password required</p>
+                        <DemoPassword password={p.demoPassword} />
+                      </>
+                    ) : null}
+                  </div>
+                ) : null}
+                {p.designUrl ? (
+                  <a
+                    href={p.designUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${p.title} original Figma design source (opens in a new tab)`}
+                    className="mt-2 inline-flex min-h-11 w-fit items-center gap-1.5 font-mono text-xs underline underline-offset-4"
+                  >
+                    Design source <ArrowUpRight size={14} aria-hidden="true" />
+                  </a>
                 ) : null}
               </div>
             </TerminalWindow>

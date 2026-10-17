@@ -212,8 +212,10 @@ export function ContactSection() {
             <ul className="mt-3 flex flex-1 flex-col justify-between gap-3">
               {channels.map((c) => (
                 <li key={c.label}>
-                  <RollingLink
+                  <a
                     href={c.href}
+                    target={c.href.startsWith("https:") ? "_blank" : undefined}
+                    rel={c.href.startsWith("https:") ? "noopener noreferrer" : undefined}
                     className="block border-2 border-black bg-white px-3 py-2.5 shadow-[3px_3px_0_#000] transition-all hover:bg-(--surface-muted) active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-black"
                   >
                     <span className="flex w-full min-w-0 flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-2">
@@ -225,7 +227,7 @@ export function ContactSection() {
                         {c.label}
                       </span>
                     </span>
-                  </RollingLink>
+                  </a>
                 </li>
               ))}
             </ul>

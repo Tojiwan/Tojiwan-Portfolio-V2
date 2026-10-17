@@ -106,7 +106,7 @@ export function AboutSection() {
                   className={cn(
                     "flex flex-1 items-center gap-2 px-2 py-2 font-mono text-xs font-bold lg:flex-none",
                     tab === "bio"
-                      ? "border-2 border-black bg-white text-(--accent-strong) shadow-[3px_3px_0_#000]"
+                      ? "border-2 border-black bg-white text-(--accent-strong) shadow-[3px_3px_0_var(--shadow-color)]"
                       : "border-2 border-transparent hover:border-black focus-visible:outline-2 focus-visible:outline-black"
                   )}
                 >
@@ -124,7 +124,7 @@ export function AboutSection() {
                   className={cn(
                     "flex flex-1 items-center gap-2 px-2 py-2 font-mono text-xs font-bold lg:flex-none",
                     tab === "education"
-                      ? "border-2 border-black bg-white text-(--accent-strong) shadow-[3px_3px_0_#000]"
+                      ? "border-2 border-black bg-white text-(--accent-strong) shadow-[3px_3px_0_var(--shadow-color)]"
                       : "border-2 border-transparent hover:border-black focus-visible:outline-2 focus-visible:outline-black"
                   )}
                 >
@@ -142,7 +142,7 @@ export function AboutSection() {
                     {"// Active file: bio.md"}
                   </p>
                   <h3 className="mt-2 font-display text-2xl font-bold text-black">
-                    Web developer for the modern web.
+                    A little about me.
                     <span
                       aria-hidden="true"
                       className="ml-2 inline-block h-5 w-0.5 translate-y-1 animate-pulse bg-(--accent-soft)"
@@ -150,30 +150,49 @@ export function AboutSection() {
                   </h3>
                   <div className="mt-3 space-y-3 font-mono text-[13px] leading-6 text-(--text)">
                     <p>
-                      I&apos;m a web developer focused on making websites
-                      responsive and easy to use.
+                      Hi! I&apos;m Jake, a web developer based in
+                      Pampanga, Philippines.
                     </p>
                     <p>
-                      I enjoy learning new technologies and applying them to
-                      practical projects.
+                      I build websites, work on Shopify storefronts, and connect
+                      tools through automation. I like figuring out how things
+                      work and turning what I learn into something useful.
+                    </p>
+                    <p>
+                      I also use AI tools like ChatGPT and OpenCode to explore
+                      ideas, work through problems, and keep learning as I build.
+                    </p>
+                    <p>
+                      Still learning, still building, and always looking for ways
+                      to improve.
                     </p>
                   </div>
-                  <dl className="mt-5 space-y-1 font-mono text-[13px]">
-                    <div className="flex gap-6">
-                      <dt className="w-20 shrink-0 text-(--text-muted)">base</dt>
-                      <dd className="font-bold">pampanga, ph</dd>
-                    </div>
-                    <div className="flex gap-6">
-                      <dt className="w-20 shrink-0 text-(--text-muted)">timezone</dt>
-                      <dd className="font-bold">UTC+8 (Philippine Time)</dd>
-                    </div>
-                    <div className="flex gap-6">
-                      <dt className="w-20 shrink-0 text-(--text-muted)">status</dt>
-                      <dd className="font-bold text-(--accent-strong)">
-                        <span aria-hidden="true" className="mr-1 inline-block h-2 w-2 rounded-full bg-(--accent-strong)" />
-                        active
-                      </dd>
-                    </div>
+                  <dl className="mt-5 grid grid-cols-[max-content_minmax(0,1fr)] gap-x-5 gap-y-1 font-mono text-[13px] sm:gap-x-6">
+                    <dt className="text-(--text-muted)">date of birth</dt>
+                    <dd className="font-bold">January 13, 2003</dd>
+                    <dt className="text-(--text-muted)">place of birth</dt>
+                    <dd className="font-bold">guagua, pampanga</dd>
+                    <dt className="text-(--text-muted)">age</dt>
+                    <dd className="font-bold">23</dd>
+                    <dt className="text-(--text-muted)">sex</dt>
+                    <dd className="font-bold">male</dd>
+                    <dt className="text-(--text-muted)">civil status</dt>
+                    <dd className="font-bold">single</dd>
+                    <dt className="text-(--text-muted)">religion</dt>
+                    <dd className="font-bold">roman catholic</dd>
+                    <dt className="text-(--text-muted)">nationality</dt>
+                    <dd className="font-bold">filipino</dd>
+                    <dt className="text-(--text-muted)">languages</dt>
+                    <dd className="font-bold">tagalog, kapampangan, english</dd>
+                    <dt className="text-(--text-muted)">base</dt>
+                    <dd className="font-bold">pampanga, ph</dd>
+                    <dt className="text-(--text-muted)">timezone</dt>
+                    <dd className="font-bold">UTC+8 (Philippine Time)</dd>
+                    <dt className="text-(--text-muted)">status</dt>
+                    <dd className="font-bold text-(--accent-strong)">
+                      <span aria-hidden="true" className="mr-1 inline-block h-2 w-2 rounded-full bg-(--accent-strong)" />
+                      active
+                    </dd>
                   </dl>
                 </div>
               ) : (
