@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { RollingLink } from "@/components/ui/rolling-link";
@@ -21,16 +22,17 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b-2 border-black bg-(--panel)">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="#top" className="flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-black">
+          <Image src="/icon.svg" alt="" width={40} height={40} className="shrink-0" />
           <span className="leading-none">
             <span className="block font-display text-sm font-extrabold tracking-tight text-black">
               Tojiwan
             </span>
-            <span className="block font-mono text-[10px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">
+            <span className="hidden font-mono text-[10px] font-bold tracking-[0.12em] text-(--text-muted) uppercase sm:block">
               Web Developer & Automation
             </span>
           </span>
         </Link>
-        <nav aria-label="Primary" className="hidden items-center gap-5 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-5 xl:flex">
           {links.map((l) => (
             <RollingLink
               key={l.href}
@@ -51,7 +53,7 @@ export function SiteHeader() {
           </Link>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_#000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_#000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none xl:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -74,7 +76,7 @@ export function SiteHeader() {
               document.querySelector<HTMLButtonElement>('[aria-controls="mobile-nav"]')?.focus();
             }
           }}
-          className="border-t-2 border-black bg-white px-4 py-3 lg:hidden"
+          className="border-t-2 border-black bg-white px-4 py-3 xl:hidden"
         >
           <ul className="flex flex-col gap-1">
             {links.map((l) => (
