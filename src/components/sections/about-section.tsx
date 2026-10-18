@@ -150,7 +150,7 @@ export function AboutSection() {
                   </h3>
                   <div className="mt-3 space-y-3 font-mono text-[13px] leading-6 text-(--text)">
                     <p>
-                      Hi! I&apos;m Jake, a web developer based in
+                      Hi! I&apos;m Jake Andrei Peralta, a web developer based in
                       Pampanga, Philippines.
                     </p>
                     <p>
