@@ -80,7 +80,7 @@ export const projects: Project[] = [
     status: "Capstone Project",
     description:
       "A capstone web project built with PHP, MySQL, HTML, CSS, and JavaScript.",
-    stack: ["PHP", "MySQL", "Vanilla CSS", "HTML", "JavaScript"],
+    stack: ["PHP", "MySQL", "Vanilla CSS", "HTML", "JavaScript", "Hostinger"],
     focus: "PHP web development",
   },
 ];
