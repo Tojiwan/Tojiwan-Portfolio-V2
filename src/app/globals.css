@@ -313,7 +313,7 @@ h3 {
 .hero-location > span { margin-left: auto; color: var(--accent); font-size: 23px; }
 .hero-heading {
   margin: 24px 0 16px;
-  font-family: var(--font-hero-display), sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(24px, 10.5cqi, 72px);
   line-height: 1.04;

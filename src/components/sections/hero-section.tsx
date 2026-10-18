@@ -1,20 +1,12 @@
 import { ArrowDown, ArrowUpRight, Download, MapPin } from "lucide-react";
-import localFont from "next/font/local";
 import { ActionLink } from "@/components/ui/action-link";
 import { TechBadge } from "@/components/ui/tech-badge";
 import { Reveal } from "@/components/ui/reveal";
 import { HeroPortrait } from "@/components/sections/hero-portrait";
 
-const display = localFont({
-  src: "../../../public/fonts/Space_Grotesk/SpaceGrotesk-Variable.ttf",
-  variable: "--font-hero-display",
-  display: "swap",
-  weight: "300 700",
-});
-
 export function HeroSection() {
   return (
-    <section id="top" aria-labelledby="hero-heading" className={`hero ${display.variable} scroll-mt-20`}>
+    <section id="top" aria-labelledby="hero-heading" className="hero scroll-mt-20">
       <div className="hero-editorial">
         <span>01 / INTRODUCTION</span>
         <span aria-hidden="true">&lt;hello_world /&gt;</span>
