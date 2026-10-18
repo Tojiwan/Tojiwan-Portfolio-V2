@@ -14,7 +14,7 @@ export function DemoPassword({ password }: { password: string }) {
           type="button"
           onClick={() => setRevealed((current) => !current)}
           aria-label={revealed ? "Hide demo password" : "Show demo password"}
-          className="inline-flex h-11 w-11 items-center justify-center hover:bg-(--panel)"
+          className="inline-flex items-center"
         >
           {revealed ? <EyeOff size={16} aria-hidden="true" /> : <Eye size={16} aria-hidden="true" />}
         </button>
