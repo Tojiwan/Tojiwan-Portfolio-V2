@@ -44,7 +44,7 @@ export function HeroPortrait() {
       {portraits.map((alt, index) => (
         <Image
           key={index}
-          src={`/Profile_Avatar/pfp-${index + 1}_result.webp`}
+          src={`/Profile_Avatar/pfp-${index + 1}.webp`}
           alt={index === portrait ? alt : ""}
           aria-hidden={index !== portrait}
           fill

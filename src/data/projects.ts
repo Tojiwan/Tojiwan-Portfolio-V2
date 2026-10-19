@@ -79,7 +79,7 @@ export const projects: Project[] = [
     category: "Web Development",
     status: "Capstone Project",
     description:
-      "A capstone web project built with PHP, MySQL, HTML, CSS, and JavaScript.",
+      "VEHISERVE is a web-based Motor Pool Management System for Don Honorio Ventura State University. Personnel submit vehicle requests and travel orders online, which pass through Dean → Cluster VP → SUC President → Motor Pool approval before staff assign a vehicle and driver. Requesters track status, schedules, and notifications, with trip tickets, PDF documents, and role-based dashboards for every user type.",
     stack: ["PHP", "MySQL", "Vanilla CSS", "HTML", "JavaScript", "Hostinger"],
     focus: "PHP web development",
   },
