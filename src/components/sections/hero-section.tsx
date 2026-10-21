@@ -14,17 +14,11 @@ export function HeroSection() {
       <div className="hero-grid">
         <Reveal className="min-w-0 lg:col-start-2 lg:row-start-1">
           <div className="hero-intro">
-            <p className="hero-location"><MapPin size={14} aria-hidden="true" /> Pampanga, Philippines <span aria-hidden="true">↗</span></p>
+            <p className="hero-location"><MapPin size={14} aria-hidden="true" /> Pampanga, Philippines <span>UTC+8</span></p>
             <h1 id="hero-heading" className="hero-heading">
-              Hi, I&apos;m{" "}
-              <span className="hero-name">TOJIWAN</span>
+              <span className="hero-heading-typing">Hi, I&apos;m <span className="hero-name">Tojiwan.</span></span>
             </h1>
             <p className="hero-identity">Jake Andrei R. Peralta <span aria-hidden="true">/</span> Developer</p>
-            <div className="hero-availability">
-              <span className="hero-status"><span aria-hidden="true" /> Available for work</span>
-              <p>Open to web development, Shopify, and automation opportunities.</p>
-              <a href="#contact" aria-label="Get in touch about an opportunity"><ArrowUpRight size={22} aria-hidden="true" /></a>
-            </div>
             <div className="hero-skills">
               <TechBadge label="Web Development" accent />
               <TechBadge label="Shopify" />
@@ -53,6 +47,11 @@ export function HeroSection() {
         <Reveal delay={0.08} className="min-w-0 lg:col-start-1 lg:row-start-1">
           <HeroPortrait />
         </Reveal>
+      </div>
+      <div className="hero-availability">
+        <span className="hero-status"><span aria-hidden="true" /> Available for work</span>
+        <p>Open to web development, Shopify, and automation opportunities.</p>
+        <a href="#contact" aria-label="Get in touch about an opportunity"><ArrowUpRight size={22} aria-hidden="true" /></a>
       </div>
     </section>
   );

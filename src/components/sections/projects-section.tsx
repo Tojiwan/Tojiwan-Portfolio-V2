@@ -29,9 +29,13 @@ export function ProjectsSection() {
               className="h-full min-w-0"
               bodyClassName="min-w-0"
             >
-              <p className="type-label text-(--text-muted)">{p.category}</p>
+              <p className="type-label uppercase text-(--accent-strong)">{p.category}</p>
               <h3 className="type-title mt-2 font-display text-black">{p.title}</h3>
               <p className="type-body mt-3 font-mono text-(--text)">{p.description}</p>
+              <dl className="mt-4 border-2 border-black bg-(--surface-muted) px-3 py-2 font-mono">
+                <dt className="text-[10px] font-bold tracking-wider text-(--text-muted) uppercase">Focus</dt>
+                <dd className="mt-1 text-xs leading-5 font-bold">{p.focus}</dd>
+              </dl>
               <div className="mt-4 flex flex-col">
                 {p.demoUrl ? (
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -64,14 +68,9 @@ export function ProjectsSection() {
                   </a>
                 ) : null}
                 <div className="mt-4 flex flex-wrap items-start gap-1.5">
-                  {p.stack.slice(0, 4).map((s) => (
+                  {p.stack.map((s) => (
                     <TechBadge key={s} label={s} />
                   ))}
-                  {p.stack.length > 4 ? (
-                    <p className="type-label w-full text-(--text-muted)">
-                      stack: {p.stack.slice(4).join(" · ")}
-                    </p>
-                  ) : null}
                 </div>
               </div>
             </TerminalWindow>

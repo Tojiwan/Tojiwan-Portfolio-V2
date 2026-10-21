@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 
 const STORAGE_KEY = "tojiwan-theme";
-// Settles just past the 220ms .theme-switching fade window.
-const SWITCH_MS = 240;
+const SWITCH_MS = 180;
 
 export function ThemeToggle() {
   // Matches the served render (light default) so hydration never mismatches.
@@ -45,7 +44,7 @@ export function ThemeToggle() {
   };
 
   // Both icons stay mounted and are shown by CSS via the root theme class,
-  // so the icon is correct from the very first paint (server render is dark).
+  // so the icon is correct from the very first paint (server render is light).
   // Their cross-rotate is a 16px op/transform, cheap in both directions.
   return (
     <button

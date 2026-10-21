@@ -4,6 +4,10 @@ import { useState } from "react";
 import {
   FileText,
   GraduationCap,
+  GitBranch,
+  Mail,
+  CodeXml,
+  Share2,
 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
@@ -21,7 +25,7 @@ export function AboutSection() {
         <SectionHeading kicker="Developer overview" title="About Me" />
       </div>
       <Reveal className="mt-6">
-        <div className="brutal-panel border-2 border-black bg-white">
+        <div className="border-2 border-black bg-white shadow-[6px_6px_0_var(--shadow-color)]">
           {/* Title bar */}
           <div className="flex items-center gap-2 border-b-2 border-black bg-(--panel) px-3 py-2">
             <span className="flex gap-1.5" aria-hidden="true">
@@ -29,10 +33,15 @@ export function AboutSection() {
               <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#febc2e]" />
               <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#28c840]" />
             </span>
-            <span className="type-label mx-auto uppercase">
+            <span className="mx-auto min-w-0 truncate font-mono text-[11px] font-bold tracking-[0.15em] uppercase">
               About_me.exe · {tab}.md
             </span>
             <span className="w-10" aria-hidden="true" />
+          </div>
+
+          <div className="break-all border-b-2 border-black px-3 py-1.5 font-mono text-xs">
+            <span className="font-bold">Path</span>{" "}
+            <span className="text-(--text-muted)">C:/portfolio/about_me/{tab}.md</span>
           </div>
 
           {/* Body */}
@@ -42,7 +51,7 @@ export function AboutSection() {
               className="border-b-2 border-black p-3 lg:border-r-2 lg:border-b-0"
             >
               <p className="type-label uppercase">
-                Files
+                Directories
               </p>
               <div
                 role="tablist"
@@ -99,6 +108,7 @@ export function AboutSection() {
             <div className="border-b-2 border-black p-5 sm:p-6 lg:border-b-0">
               {tab === "bio" ? (
                 <div role="tabpanel" id="about-panel-bio" aria-labelledby="about-tab-bio" tabIndex={0}>
+                  <p className="mb-2 font-mono text-[11px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">{"// Active file: bio.md"}</p>
                   <h3 className="type-title font-display text-black">
                     A little about me.
                     <span
@@ -141,6 +151,7 @@ export function AboutSection() {
                 </div>
               ) : (
                 <div role="tabpanel" id="about-panel-education" aria-labelledby="about-tab-education" tabIndex={0}>
+                  <p className="mb-2 font-mono text-[11px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">{"// Active file: education.md"}</p>
                   <h3 className="type-title font-display text-black">
                     Education.
                     <span
@@ -183,8 +194,13 @@ export function AboutSection() {
             {/* Avatar preview */}
             <div className="p-4 sm:p-5">
               <div className="border-2 border-black bg-[#0b0f14] text-[#e6edf3] shadow-[4px_4px_0_var(--shadow-color)]">
-                <div className="border-b border-[#2a3340] px-3 py-2">
-                  <span className="type-label block text-center uppercase">
+                <div className="flex items-center gap-2 border-b border-[#2a3340] px-3 py-2">
+                  <span className="flex shrink-0 gap-1.5" aria-hidden="true">
+                    <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#ff5f57]" />
+                    <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#febc2e]" />
+                    <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#28c840]" />
+                  </span>
+                  <span className="mx-auto min-w-0 truncate font-mono text-[11px] font-bold tracking-[0.12em] uppercase">
                     Avatar_preview.img
                   </span>
                 </div>
@@ -193,8 +209,27 @@ export function AboutSection() {
                   label={tab === "education" ? "ASCII graduation cap" : "ASCII art JP monogram"}
                   className="m-3"
                 />
+                <div className="border-t border-[#2a3340] p-3">
+                  <p className="text-center font-mono text-[11px] font-bold tracking-[0.12em] text-(--accent-soft) uppercase">{"// My_Contact_List"}</p>
+                  <div className="mt-2 grid grid-cols-3 gap-2">
+                    {[
+                      { label: "Email", href: "mailto:andreiperalta13@gmail.com", icon: Mail },
+                      { label: "LinkedIn", href: "https://www.linkedin.com/in/jake-andrei-peralta-454154390", icon: Share2 },
+                      { label: "GitHub", href: "https://github.com/Tojiwan", icon: CodeXml },
+                    ].map(({ label, href, icon: Icon }) => (
+                      <a key={label} href={href} target={href.startsWith("https:") ? "_blank" : undefined} rel={href.startsWith("https:") ? "noopener noreferrer" : undefined} className="flex min-h-11 items-center justify-center gap-1 border border-[#2a3340] bg-[#11161d] px-1 font-mono text-[11px] font-bold hover:border-(--accent-soft)">
+                        <Icon size={12} aria-hidden="true" />{label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-3 border-t-2 border-black bg-(--panel) px-3 py-1.5 font-mono text-[11px] font-bold">
+            <span className="flex items-center gap-1"><GitBranch size={12} aria-hidden="true" />main</span>
+            <span>UTF-8</span>
+            <span>Markdown</span>
           </div>
         </div>
       </Reveal>

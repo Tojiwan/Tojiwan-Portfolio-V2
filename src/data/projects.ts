@@ -6,6 +6,7 @@ export type Project = {
   status: string;
   description: string;
   stack: string[];
+  focus: string;
   demoUrl?: string;
   demoPassword?: string;
   designUrl?: string;
@@ -16,6 +17,7 @@ export const projects: Project[] = [
     slug: "shop-co-slug",
     file: "e_commerce_web.liquid",
     title: "Shop.Co",
+    focus: "Figma-to-Shopify implementation and responsive development",
     category: "E-commerce",
     status: "Personal Project",
     description:
@@ -29,6 +31,7 @@ export const projects: Project[] = [
     slug: "n8n-slug",
     file: "facebook_rag.n8n",
     title: "Facebook RAG Chatbot",
+    focus: "AI integration and RAG workflows",
     category: "AI Chatbot",
     status: "Company Project",
     description:
@@ -39,6 +42,7 @@ export const projects: Project[] = [
     slug: "budget-tracker-slug",
     file: "budget_tracker.n8n",
     title: "Telegram Budget Tracker",
+    focus: "Telegram integration and n8n workflows",
     category: "Workflow Automation",
     status: "Personal Project",
     description:
@@ -49,6 +53,7 @@ export const projects: Project[] = [
     slug: "one-pampanga-chatbot-slug",
     file: "pampanga_rag.php",
     title: "One Pampanga RAG Chatbot",
+    focus: "Business-specific RAG chatbots",
     category: "AI Chatbot",
     status: "Company Project",
     description:
@@ -59,6 +64,7 @@ export const projects: Project[] = [
     slug: "ramen-makimura-slug",
     file: "restaurant_site.vue",
     title: "Ramen Makimura Website",
+    focus: "UI updates, responsive layouts, and Firebase authentication",
     category: "Web Development",
     status: "Company Project",
     description:
@@ -69,6 +75,7 @@ export const projects: Project[] = [
     slug: "vehiserive-slug",
     file: "motor_pool_system.php",
     title: "Vehiserive",
+    focus: "Vehicle requests, approvals, and scheduling",
     category: "Web Development",
     status: "Capstone Project",
     description:
