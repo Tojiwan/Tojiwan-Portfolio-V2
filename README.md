@@ -2,7 +2,7 @@
 
 Jake Andrei R. Peralta's portfolio for web development, Shopify, and automation work. Built with Next.js 16, TypeScript, Tailwind CSS, and Motion.
 
-Dark-first neo-brutalist styling with a persistent theme toggle, terminal-inspired panels, and a cyan robot-terminal logo. The site uses only self-hosted Courier Prime and IBM Plex Mono, with Courier Prime for headings, including the hero.
+Light-default "paper mode" styling with a persistent dark console toggle, terminal-inspired panels, and a cyan robot-terminal logo. The site uses only self-hosted Courier Prime and IBM Plex Mono, with Courier Prime for headings, including the hero.
 
 ## Development
 

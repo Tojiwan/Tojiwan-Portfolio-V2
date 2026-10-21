@@ -1,11 +1,10 @@
 import { SectionHeading } from "@/components/ui/section-heading";
-import { TechBadge } from "@/components/ui/tech-badge";
 import { Reveal } from "@/components/ui/reveal";
 import { experience } from "@/data/skills";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" aria-labelledby="exp-heading" className="scroll-mt-20">
+    <section id="experience" aria-labelledby="exp-heading" tabIndex={-1} className="scroll-mt-20 focus:outline-none">
       <div id="exp-heading">
         <SectionHeading
           kicker="Career timeline"
@@ -23,19 +22,17 @@ export function ExperienceSection() {
             <Reveal delay={Math.min(i * 0.05, 0.2)}>
               <article className="brutal-panel border-2 border-black bg-white p-5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h3 className="font-display text-lg font-bold text-black">
+                  <h3 className="type-title font-display text-black">
                     {e.role} <span className="text-(--accent-strong)">@ {e.org}</span>
                   </h3>
-                  <span className="font-mono text-[11px] font-bold tracking-wider text-(--text-muted) uppercase">
+                  <span className="type-label text-(--text-muted)">
                     {e.period}
                   </span>
                 </div>
-                <p className="mt-2 font-mono text-[13px] leading-5 text-(--text)">{e.summary}</p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {e.tags.map((t) => (
-                    <TechBadge key={t} label={t} />
-                  ))}
-                </div>
+                <p className="type-body mt-3 font-mono text-(--text)">{e.summary}</p>
+                <p className="type-label mt-3 min-w-0 text-(--text-muted)">
+                  stack: {e.tags.join(" · ")}
+                </p>
               </article>
             </Reveal>
           </li>

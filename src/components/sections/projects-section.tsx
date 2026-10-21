@@ -3,13 +3,12 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { TerminalWindow } from "@/components/ui/terminal-window";
 import { TechBadge } from "@/components/ui/tech-badge";
 import { Reveal } from "@/components/ui/reveal";
-import { RollingLink } from "@/components/ui/rolling-link";
 import { projects } from "@/data/projects";
 import { DemoPassword } from "@/components/ui/demo-password";
 
 export function ProjectsSection() {
   return (
-    <section id="projects" aria-labelledby="projects-heading" className="scroll-mt-20">
+    <section id="projects" aria-labelledby="projects-heading" tabIndex={-1} className="scroll-mt-20 focus:outline-none">
       <div id="projects-heading">
         <SectionHeading
           kicker="Selected work"
@@ -22,49 +21,28 @@ export function ProjectsSection() {
           <Reveal
             key={p.slug}
             delay={Math.min(i * 0.06, 0.2)}
-            className="min-w-0 md:row-span-6 md:grid md:grid-rows-subgrid md:gap-y-0"
+            className="h-full min-w-0"
           >
             <TerminalWindow
               file={p.file}
               status={p.status}
-              className="h-full min-w-0 md:row-span-6 md:grid md:grid-rows-subgrid"
-              bodyClassName="min-w-0 md:row-span-5 md:grid md:grid-rows-subgrid"
+              className="h-full min-w-0"
+              bodyClassName="min-w-0"
             >
-              <p className="font-mono text-[11px] font-bold tracking-[0.08em] text-(--accent-strong) uppercase">
-                {p.category}
-              </p>
-              <h3 className="mt-1 font-display text-2xl font-extrabold text-black">{p.title}</h3>
-              <p className="mt-2 font-mono text-[13px] leading-5 text-(--text)">{p.description}</p>
-              <dl className="mt-4 border-2 border-black bg-(--surface-muted) px-3 py-2 font-mono">
-                <dt className="text-[10px] font-bold tracking-wider text-(--text-muted) uppercase">Focus</dt>
-                <dd className="mt-1 text-xs leading-5 font-bold">{p.focus}</dd>
-              </dl>
+              <p className="type-label text-(--text-muted)">{p.category}</p>
+              <h3 className="type-title mt-2 font-display text-black">{p.title}</h3>
+              <p className="type-body mt-3 font-mono text-(--text)">{p.description}</p>
               <div className="mt-4 flex flex-col">
-                <div className="flex flex-wrap items-start gap-1.5">
-                  {p.stack.map((s) => (
-                    <TechBadge key={s} label={s} />
-                  ))}
-                </div>
-                {p.liveUrl ? (
-                  <RollingLink
-                    href={p.liveUrl}
-                    ariaLabel={`Visit ${p.title} (opens in a new tab)`}
-                    className="mt-auto inline-flex w-fit items-center gap-1.5 pt-4 font-mono text-xs font-bold uppercase no-underline"
-                  >
-                    Visit Site
-                    <ArrowUpRight size={14} aria-hidden="true" />
-                  </RollingLink>
-                ) : null}
                 {p.demoUrl ? (
-                  <div className="mt-4">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                     <a
                       href={p.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`View ${p.title} demo (opens in a new tab)`}
-                      className="inline-flex min-h-11 items-center gap-1.5 font-mono text-xs font-bold uppercase underline underline-offset-4"
+                      className="inline-flex min-h-11 w-fit items-center gap-2 border-2 border-black bg-(--accent) px-4 py-2 font-mono text-sm font-bold tracking-wide text-[#000] uppercase shadow-[4px_4px_0_var(--shadow-color)] transition-all hover:bg-(--accent-soft) hover:shadow-[2px_2px_0_var(--shadow-color)] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     >
-                      View demo <ArrowUpRight size={14} aria-hidden="true" />
+                      View demo <ArrowUpRight size={15} aria-hidden="true" />
                     </a>
                     {p.demoPassword ? (
                       <>
@@ -85,6 +63,16 @@ export function ProjectsSection() {
                     Design source <ArrowUpRight size={14} aria-hidden="true" />
                   </a>
                 ) : null}
+                <div className="mt-4 flex flex-wrap items-start gap-1.5">
+                  {p.stack.slice(0, 4).map((s) => (
+                    <TechBadge key={s} label={s} />
+                  ))}
+                  {p.stack.length > 4 ? (
+                    <p className="type-label w-full text-(--text-muted)">
+                      stack: {p.stack.slice(4).join(" · ")}
+                    </p>
+                  ) : null}
+                </div>
               </div>
             </TerminalWindow>
           </Reveal>

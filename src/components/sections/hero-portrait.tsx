@@ -14,6 +14,7 @@ const portraits = [
 
 export function HeroPortrait() {
   const [portrait, setPortrait] = useState(0);
+  const [failed, setFailed] = useState<Record<number, boolean>>({});
   const lastHover = useRef(-Infinity);
   const nextPortrait = () => setPortrait((current) => (current + 1) % portraits.length);
   return (
@@ -48,19 +49,22 @@ export function HeroPortrait() {
           alt={index === portrait ? alt : ""}
           aria-hidden={index !== portrait}
           fill
-          sizes="(min-width: 1280px) 430px, (min-width: 1024px) 36vw, (min-width: 640px) 480px, 85vw"
-          loading={index === 0 ? "eager" : "lazy"}
-          className={`object-cover object-[center_30%] transition-opacity duration-300 motion-reduce:transition-none ${index === portrait ? "opacity-100" : "opacity-0"}`}
+          sizes="(min-width: 1280px) 430px, (min-width: 1024px) 36vw, (min-width: 768px) 360px, 85vw"
+          priority={index === 0}
+          loading={index === 0 ? undefined : "lazy"}
+          onError={() => setFailed((current) => ({ ...current, [index]: true }))}
+          className={`object-cover object-[center_30%] transition-opacity duration-300 motion-reduce:transition-none ${index === portrait ? "opacity-100" : "opacity-0"} ${failed[index] ? "invisible" : ""}`}
         />
       ))}
+      {failed[portrait] ? (
+        <span className="absolute inset-0 grid place-items-center p-6 text-center font-terminal text-xs font-semibold tracking-wide text-[#e6edf3] uppercase">
+          Portrait unavailable
+        </span>
+      ) : null}
       <span aria-hidden="true" className="portrait-grid absolute inset-0" />
     </button>
       <div className="hero-profile-contact pt-4">
-        <div className="hero-tablet-availability">
-          <p className="hero-status"><span aria-hidden="true" /> Available for work</p>
-          <p className="mt-3 text-sm leading-6 text-(--hero-muted)">Open to web development, Shopify, and automation opportunities.</p>
-        </div>
-        <p className="mb-2 flex items-center gap-2 font-mono text-[11px] font-bold text-black uppercase">
+        <p className="type-label mb-2 flex items-center gap-2 text-black uppercase">
           <MessageSquare size={13} aria-hidden="true" /> Let&apos;s connect:
         </p>
         <div className="grid grid-cols-3 gap-2">

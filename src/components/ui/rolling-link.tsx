@@ -80,53 +80,67 @@ export function RollingLink({
     }
   };
 
+  // Same-page anchors must use a native <a> so the browser's fragment
+  // navigation runs (it focuses the target and sets the sequential-focus
+  // starting point). next/link intercepts hash clicks and skips that step.
+  const anchorProps = {
+    className,
+    onClick,
+    "aria-label": ariaLabel,
+    onMouseEnter: () => {
+      hovered.current = true;
+      requestActive(true);
+    },
+    onMouseLeave: () => {
+      hovered.current = false;
+      requestActive(focused.current);
+    },
+    onFocus: () => {
+      focused.current = true;
+      requestActive(true);
+    },
+    onBlur: () => {
+      focused.current = false;
+      requestActive(hovered.current);
+    },
+  };
+
+  const label = (
+    <span className="label-window">
+      <motion.span
+        className="label-copy"
+        variants={outgoingVariants}
+        initial="rest"
+        animate={!reduceMotion && active ? "active" : "rest"}
+        onAnimationComplete={completeAnimation}
+        transition={reduceMotion ? { duration: 0 } : transition}
+      >
+        {children}
+      </motion.span>
+      <motion.span
+        className="label-copy label-copy--incoming"
+        aria-hidden="true"
+        variants={incomingVariants}
+        initial="rest"
+        animate={!reduceMotion && active ? "active" : "rest"}
+        transition={reduceMotion ? { duration: 0 } : transition}
+      >
+        {children}
+      </motion.span>
+    </span>
+  );
+
+  if (href.startsWith("#")) {
+    return <a href={href} {...anchorProps}>{label}</a>;
+  }
   return (
     <Link
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className={className}
-      onClick={onClick}
-      aria-label={ariaLabel}
-      onMouseEnter={() => {
-        hovered.current = true;
-        requestActive(true);
-      }}
-      onMouseLeave={() => {
-        hovered.current = false;
-        requestActive(focused.current);
-      }}
-      onFocus={() => {
-        focused.current = true;
-        requestActive(true);
-      }}
-      onBlur={() => {
-        focused.current = false;
-        requestActive(hovered.current);
-      }}
+      {...anchorProps}
     >
-      <span className="label-window">
-        <motion.span
-          className="label-copy"
-          variants={outgoingVariants}
-          initial="rest"
-          animate={!reduceMotion && active ? "active" : "rest"}
-          onAnimationComplete={completeAnimation}
-          transition={reduceMotion ? { duration: 0 } : transition}
-        >
-          {children}
-        </motion.span>
-        <motion.span
-          className="label-copy label-copy--incoming"
-          aria-hidden="true"
-          variants={incomingVariants}
-          initial="rest"
-          animate={!reduceMotion && active ? "active" : "rest"}
-          transition={reduceMotion ? { duration: 0 } : transition}
-        >
-          {children}
-        </motion.span>
-      </span>
+      {label}
     </Link>
   );
 }

@@ -1,6 +1,5 @@
 export type SkillGroup = {
   id: string;
-  index: string;
   title: string;
   description: string;
   skills: string[];
@@ -9,35 +8,30 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     id: "frontend",
-    index: "01",
     title: "Frontend & UI",
     description: "Responsive pages and user interfaces for websites and web apps.",
     skills: ["HTML", "CSS", "JavaScript", "TypeScript", "Tailwind CSS", "Bootstrap"],
   },
   {
     id: "frameworks",
-    index: "02",
     title: "Frameworks & Animation",
     description: "Component-based apps with smooth, purposeful motion.",
     skills: ["React", "Next.js", "Nuxt.js", "Motion (Framer Motion)"],
   },
   {
     id: "backend",
-    index: "03",
     title: "Backend & Data",
     description: "Application features, data storage, and service integration.",
     skills: ["PHP", "Laravel", "MySQL", "Supabase"],
   },
   {
     id: "shopify-automation",
-    index: "04",
     title: "Shopify & Automation",
     description: "Storefront customization and connected automated workflows.",
     skills: ["Shopify Liquid", "n8n", "Zapier"],
   },
   {
     id: "tools",
-    index: "05",
     title: "Development & Design Tools",
     description: "Daily workflow, testing, local development, and design handoff.",
     skills: ["Git", "Postman", "Laravel Herd", "Docker", "Figma", "Canva", "ChatGPT", "OpenCode"],
@@ -90,24 +84,24 @@ export const services: Service[] = [
     title: "Responsive Web Development",
     description:
       "Build and refine pages with responsive layouts, clear navigation, and practical features.",
-    deliverable: "RESPONSIVE PAGES",
+    deliverable: "Responsive pages",
   },
   {
     title: "Shopify Theme Customization",
     description:
       "Adapt themes, product pages, and storefront sections to your brand.",
-    deliverable: "CUSTOM STOREFRONTS",
+    deliverable: "Custom storefronts",
   },
   {
     title: "API Integration",
     description:
       "Connect your website to sign-in services, data storage, and third-party APIs.",
-    deliverable: "CONNECTED SERVICES",
+    deliverable: "Connected services",
   },
   {
     title: "Workflow & Chatbot Automation",
     description:
       "Build n8n workflows that connect your tools and support AI-powered conversations on Facebook or Telegram.",
-    deliverable: "N8N WORKFLOWS",
+    deliverable: "n8n workflows",
   },
 ];

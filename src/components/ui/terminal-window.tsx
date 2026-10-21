@@ -35,11 +35,11 @@ export function TerminalWindow({
           <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#febc2e]" />
           <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#28c840]" />
         </span>
-        <span className="min-w-0 truncate font-mono text-[11px] font-bold tracking-wider uppercase opacity-80 text-black">
+        <span className="type-label min-w-0 truncate uppercase text-black">
           {file}
         </span>
         {status ? (
-          <span className="ml-auto shrink-0 text-(--accent-strong) px-1.5 py-0.5 font-mono text-[10px] font-bold tracking-wider uppercase">
+          <span className="type-label ml-auto text-right text-(--accent-strong) px-1.5 py-0.5 uppercase whitespace-nowrap shrink-0">
             {status}
           </span>
         ) : null}

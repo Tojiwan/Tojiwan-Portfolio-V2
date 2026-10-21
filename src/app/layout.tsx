@@ -31,25 +31,37 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "dark light",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  colorScheme: "light dark",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f9f9f9" },
-    { media: "(prefers-color-scheme: dark)", color: "#0b0f17" },
+    { media: "(prefers-color-scheme: dark)", color: "#1b202b" },
   ],
 };
 
-const themeInitScript = `(function(){try{var t=localStorage.getItem('tojiwan-theme');if(t==='light'){document.documentElement.classList.remove('dark')}}catch(e){}})();`;
+//  Light is the served default ('paper mode'); the pre-paint script adds the
+//  dark console class only when the visitor's stored preference says so.
+const themeInitScript = `(function(){try{if(localStorage.getItem('tojiwan-theme')==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})();`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="dark h-full antialiased" suppressHydrationWarning>
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <head>
+        {/* All four faces render in the first viewport (hero + header); preloading
+            them starts the fetch before the CSS body is parsed. Fonts are CORS-mode
+            requests, so crossorigin is required even same-origin. */}
+        <link rel="preload" href="/fonts/Courier_Prime/CourierPrime-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Courier_Prime/CourierPrime-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/IBM_Plex_Mono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="flex min-h-full flex-col font-mono text-(--text)">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:border-2 focus:border-black focus:bg-(--accent) focus:px-3 focus:py-2 focus:font-bold"
+          className="sr-only focus:not-sr-only focus:border-2 focus:border-black focus:bg-(--accent) focus:px-3 focus:py-2 focus:font-bold focus:text-[#111821]"
         >
           Skip to content
         </a>

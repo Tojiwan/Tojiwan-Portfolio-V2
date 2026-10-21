@@ -2,10 +2,11 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Self-hosted fonts (no Google fetch at build time). */
+/* Self-hosted fonts (no Google fetch at build time). woff2 only — every
+   modern browser supports it; the .ttf sources were 60-70% heavier. */
 @font-face {
   font-family: "Courier Prime";
-  src: url("/fonts/Courier_Prime/CourierPrime-Regular.ttf") format("truetype");
+  src: url("/fonts/Courier_Prime/CourierPrime-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -13,7 +14,7 @@
 
 @font-face {
   font-family: "Courier Prime";
-  src: url("/fonts/Courier_Prime/CourierPrime-Bold.ttf") format("truetype");
+  src: url("/fonts/Courier_Prime/CourierPrime-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -21,7 +22,7 @@
 
 @font-face {
   font-family: "IBM Plex Mono";
-  src: url("/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf") format("truetype");
+  src: url("/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -29,7 +30,7 @@
 
 @font-face {
   font-family: "IBM Plex Mono";
-  src: url("/fonts/IBM_Plex_Mono/IBMPlexMono-SemiBold.ttf") format("truetype");
+  src: url("/fonts/IBM_Plex_Mono/IBMPlexMono-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -38,16 +39,7 @@
 @theme {
   --font-display: "Courier Prime", "IBM Plex Mono", ui-monospace, monospace;
   --font-mono: "Courier Prime", "IBM Plex Mono", ui-monospace, monospace;
-
-  --color-canvas: #f9f9f9;
-  --color-surface: #e1e1e1;
-  --color-muted: #f3f3f3;
-  --color-ink: #000000;
-  --color-line-muted: #e5e7eb;
-
-  --shadow-brutal: 4px 4px 0 #000000;
-  --shadow-brutal-sm: 3px 3px 0 #000000;
-  --shadow-brutal-lg: 6px 6px 0 #000000;
+  --font-terminal: "IBM Plex Mono", "Courier Prime", ui-monospace, monospace;
 }
 
 :root {
@@ -61,10 +53,12 @@
   --text-muted: #3e4850;
   --line-muted: #e5e7eb;
   --accent-cyan: #0ea5e9;
-  --accent-blue: #2563eb;
+  /* Pressed Blue darkened one step (blue-700) so accent-strength text passes
+     4.5:1 on the chrome-grey titlebars, not just on white. */
+  --accent-blue: #1d4ed8;
   --accent-sky: #38bdf8;
   --accent: #0ea5e9;
-  --accent-strong: #2563eb;
+  --accent-strong: #1d4ed8;
   --accent-soft: #38bdf8;
   --color-black: #000000;
   --color-white: #ffffff;
@@ -92,6 +86,9 @@
   --color-white: #131a24;
   --shadow-color: #53677e;
   --focus: #7dd3fc;
+  /* Hairlines track Window Line (#2a3340) in console mode — the light value
+     would print near-white rules on dark panels. */
+  --line-muted: #2a3340;
 }
 
 html {
@@ -131,6 +128,38 @@ h1,
 h2,
 h3 {
   font-family: "Courier Prime", "IBM Plex Mono", ui-monospace, monospace;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.type-body {
+  max-width: 65ch;
+  font-size: 1rem;
+  line-height: 1.65;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+
+.type-headline {
+  font-size: clamp(1.875rem, 1.5rem + 1vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+}
+
+.type-title {
+  font-size: clamp(1.25rem, 1.05rem + .65vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+
+.type-label {
+  font-family: var(--font-terminal);
+  font-size: .75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: .06em;
 }
 
 ::selection {
@@ -139,7 +168,8 @@ h3 {
 }
 
 .dark ::selection {
-  color: #fff;
+  /* Ink on cyan in both themes — white on cyan measured 2.77:1. */
+  color: #000;
 }
 
 .label-window {
@@ -189,11 +219,11 @@ h3 {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  body, header, footer, .brutal-panel, button, a {
-    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, translate 180ms ease;
+  body, header, footer, .brutal-panel, button, a, input, textarea {
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, translate 180ms ease, outline-color 180ms ease;
   }
   .typewriter {
-    animation: type-in 1.2s steps(9, end) both;
+    animation: type-in 0.9s steps(15, end) both;
   }
 }
 
@@ -264,7 +294,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 11px;
+  font-size: .75rem;
   line-height: 1.6;
   color: var(--hero-muted);
 }
@@ -275,15 +305,14 @@ h3 {
   letter-spacing: .08em;
 }
 
-.hero-grid { display: grid; gap: 28px; }
+.hero-grid { display: grid; gap: 24px; }
 .hero-profile, .hero-intro {
   border: 2px solid var(--hero-line);
   background: var(--hero-card);
   box-shadow: 4px 4px 0 var(--hero-shadow);
 }
 .hero-profile { width: 100%; max-width: 520px; margin-inline: auto; padding: 16px; }
-.hero-tablet-availability { display: none; }
-.hero-profile-label { justify-content: space-between; padding-bottom: 12px; font-size: 10px; }
+.hero-profile-label { justify-content: space-between; padding-bottom: 12px; font-size: .75rem; }
 .hero-profile .portrait-screen { aspect-ratio: 1; }
 .hero-profile .font-mono { font-family: "IBM Plex Mono", monospace; }
 .hero-profile .text-black { color: var(--hero-text); }
@@ -305,20 +334,20 @@ h3 {
 .hero-intro {
   display: flex;
   flex-direction: column;
-  padding: clamp(22px, 3vw, 40px);
+  padding: clamp(20px, 2.5vw, 32px);
   height: 100%;
   container-type: inline-size;
 }
-.hero-location { font-size: 11px; }
+.hero-location { font-size: .75rem; }
 .hero-location > span { margin-left: auto; color: var(--accent); font-size: 23px; }
 .hero-heading {
-  margin: 24px 0 16px;
+  margin: 20px 0 16px;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(24px, 10.5cqi, 72px);
+  font-size: clamp(1.5rem, 10.5cqi, 4.5rem);
   line-height: 1.04;
   letter-spacing: -.065em;
-  white-space: nowrap;
+  white-space: normal;
 }
 .hero-heading > .hero-name { display: inline-block; vertical-align: baseline; }
 .hero-name {
@@ -330,21 +359,20 @@ h3 {
   border: 2px solid #111821;
   box-shadow: 4px 4px 0 var(--hero-shadow);
 }
-.hero-identity { flex-wrap: wrap; font-size: 11px; }
+.hero-identity { flex-wrap: wrap; font-size: .9375rem; font-weight: 600; }
 .hero-identity > span { color: var(--accent); }
-.hero-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.hero-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
 .hero-skills > span {
   font-family: inherit;
-  font-size: 10px;
-  letter-spacing: .02em;
+  font-size: .75rem;
   border: 2px solid var(--hero-line);
   background: var(--hero-card);
   color: var(--hero-text);
   padding: 6px 8px;
 }
 .hero-skills > span:first-child { border-color: var(--accent-strong); color: var(--accent-strong); }
-.hero-description { max-width: 60ch; margin-top: 22px; font-size: 14px; line-height: 1.8; color: var(--hero-muted); }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+.hero-description { max-width: 60ch; margin-top: 20px; font-family: var(--font-mono); font-size: clamp(1rem, .9rem + .3vw, 1.125rem); line-height: 1.65; color: var(--hero-text); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
 .hero-actions > a, .hero-social {
   min-height: 44px;
   border: 2px solid var(--hero-line);
@@ -352,19 +380,19 @@ h3 {
   background: var(--hero-card);
   color: var(--hero-text);
   font-family: inherit;
-  font-size: 11px;
+  font-size: .875rem;
   font-weight: 600;
 }
-.hero-social { padding: 6px 3px; font-size: 10px; }
+.hero-social { padding: 6px 3px; font-size: .75rem; }
 .hero-actions > a:first-child { background: var(--accent); color: #111821; border-color: #111821; }
 .dark .hero-actions > a:first-child { border-color: #ffffff; }
 .hero-focus {
-  margin-block: 26px;
-  padding: 14px 16px;
+  margin-block: 24px;
+  padding: 12px 16px;
   border: 1px solid var(--hero-line);
   border-left: 3px solid var(--accent);
-  font-size: 11px;
-  line-height: 1.9;
+  font-size: .75rem;
+  line-height: 1.7;
 }
 .hero-focus p:first-child { color: var(--hero-text); font-weight: 600; }
 .hero-focus p:first-child span { color: var(--accent); }
@@ -383,22 +411,18 @@ h3 {
 .hero-scroll { width: fit-content; min-height: 44px; text-transform: uppercase; letter-spacing: .08em; }
 .hero-scroll svg { color: var(--accent); }
 .hero-availability {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 12px 24px;
-  margin-top: 28px;
-  padding: 14px 18px;
-  border: 2px solid var(--hero-line);
-  background: var(--hero-card);
-  box-shadow: 4px 4px 0 var(--hero-shadow);
-  font-size: 11px;
+  gap: 4px 16px;
+  margin-top: 16px;
+  font-size: .75rem;
   line-height: 1.7;
 }
 .hero-status { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
 .hero-status > span { width: 8px; height: 8px; background: var(--hero-yellow); border: 1px solid #111821; }
-.hero-availability p { flex: 1 1 240px; color: var(--hero-muted); }
-.hero-availability > a { display: grid; place-items: center; min-width: 44px; min-height: 44px; color: var(--accent); }
+.hero-availability p { grid-column: 1; grid-row: 2; color: var(--hero-muted); }
+.hero-availability > a { grid-column: 2; grid-row: 1 / span 2; display: grid; place-items: center; min-width: 44px; min-height: 44px; color: var(--accent); }
 .hero a:focus-visible, .hero button:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
 
 @media (min-width: 1024px) {
@@ -417,34 +441,19 @@ h3 {
   .hero-profile-label { grid-column: 1 / -1; }
   .hero-profile .portrait-screen { max-width: 360px; justify-self: center; }
   .hero-profile-contact { min-width: 0; padding-top: 0; }
-  .hero-tablet-availability { display: block; margin-bottom: 20px; }
   .hero-profile-contact > .grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .hero-profile-contact > p { margin-bottom: 12px; }
   .hero-profile .hero-sticker { right: calc(45% + 8px); }
 }
-@media (max-width: 1023px) {
-  .hero-availability {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 8px 16px;
-    padding: 18px;
-  }
-  .hero-availability p { grid-column: 1; grid-row: 2; }
-  .hero-availability > a { grid-column: 2; grid-row: 1 / span 2; }
-}
 @media (max-width: 639px) {
-  .hero-heading { font-size: clamp(20px, 9.5cqi, 58px); }
+  .hero-heading { font-size: clamp(1.5rem, 9.5cqi, 3.625rem); }
   .hero-actions { flex-direction: column; }
-  .hero-editorial { font-size: 9px; }
+  .hero-editorial { flex-wrap: wrap; }
   .hero-sticker { right: -8px; }
-  .hero-availability { gap: 8px; }
-}
-@media (min-width: 768px) and (max-width: 1023px) {
-  .hero > .hero-availability { display: none; }
 }
 @media (hover: hover) {
   .header-action:hover {
-    background: var(--accent);
+    background: var(--accent-soft);
     color: #111821;
     box-shadow: 2px 2px 0 var(--shadow-color);
   }
@@ -464,4 +473,70 @@ h3 {
 }
 @media (prefers-reduced-motion: reduce) {
   .hero a:active { transform: none; }
+}
+
+/* ==== Motion refinements ==== */
+
+/* Theme swap: ThemeToggle opens one bounded fade window so every surface
+   (including those with no ambient transition) recolors together. */
+@media (prefers-reduced-motion: no-preference) {
+  .theme-switching,
+  .theme-switching *,
+  .theme-switching *::before,
+  .theme-switching *::after {
+    transition:
+      background-color 220ms ease,
+      background-image 220ms ease,
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      color 220ms ease,
+      outline-color 220ms ease;
+  }
+}
+
+/* Theme toggle icons track the root theme class (right at first paint) and
+   cross-rotate on toggle via their own transition. This rule beats the
+   .theme-switching window by source order so the icons keep their spin. */
+.theme-toggle-icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  transition: opacity 150ms ease, rotate 150ms ease;
+}
+:root.dark .theme-toggle-icon--sun,
+:root:not(.dark) .theme-toggle-icon--moon {
+  opacity: 1;
+  rotate: 0deg;
+}
+:root.dark .theme-toggle-icon--moon,
+:root:not(.dark) .theme-toggle-icon--sun {
+  opacity: 0;
+  rotate: -90deg;
+}
+
+/* Console caret: a real cursor blinks stepped on/off, it does not fade. */
+.terminal-caret {
+  display: inline-block;
+  animation: caret-blink 1.06s steps(1, end) infinite;
+}
+@keyframes caret-blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Tab panels re-fade each time a swap brings them back into view. */
+[role="tabpanel"]:not([hidden]) {
+  animation: panel-fade 160ms ease-out;
+}
+@keyframes panel-fade {
+  from { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal-caret,
+  .typewriter,
+  [role="tabpanel"]:not([hidden]) {
+    animation: none;
+  }
 }

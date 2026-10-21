@@ -6,10 +6,10 @@ import { HeroPortrait } from "@/components/sections/hero-portrait";
 
 export function HeroSection() {
   return (
-    <section id="top" aria-labelledby="hero-heading" className="hero scroll-mt-20">
+    <section id="top" aria-labelledby="hero-heading" tabIndex={-1} className="hero scroll-mt-20 focus:outline-none">
       <div className="hero-editorial">
         <span>01 / INTRODUCTION</span>
-        <span aria-hidden="true">&lt;hello_world /&gt;</span>
+        <span aria-hidden="true" className="typewriter">&lt;hello_world /&gt;</span>
       </div>
       <div className="hero-grid">
         <Reveal className="min-w-0 lg:col-start-2 lg:row-start-1">
@@ -20,6 +20,11 @@ export function HeroSection() {
               <span className="hero-name">TOJIWAN</span>
             </h1>
             <p className="hero-identity">Jake Andrei R. Peralta <span aria-hidden="true">/</span> Developer</p>
+            <div className="hero-availability">
+              <span className="hero-status"><span aria-hidden="true" /> Available for work</span>
+              <p>Open to web development, Shopify, and automation opportunities.</p>
+              <a href="#contact" aria-label="Get in touch about an opportunity"><ArrowUpRight size={22} aria-hidden="true" /></a>
+            </div>
             <div className="hero-skills">
               <TechBadge label="Web Development" accent />
               <TechBadge label="Shopify" />
@@ -31,7 +36,7 @@ export function HeroSection() {
             </p>
             <div className="hero-actions">
               <ActionLink href="#projects">View Projects <ArrowUpRight size={18} aria-hidden="true" /></ActionLink>
-              <ActionLink href="/files/Peralta, Jake Andrei R. (RESUME).pdf" variant="secondary" download>
+              <ActionLink href="/files/Jake-Peralta-Resume.pdf" variant="secondary" download="Jake-Peralta-Resume.pdf">
                 <Download size={17} aria-hidden="true" /> Download CV
               </ActionLink>
             </div>
@@ -48,11 +53,6 @@ export function HeroSection() {
         <Reveal delay={0.08} className="min-w-0 lg:col-start-1 lg:row-start-1">
           <HeroPortrait />
         </Reveal>
-      </div>
-      <div className="hero-availability">
-        <span className="hero-status"><span aria-hidden="true" /> Available for work</span>
-        <p>Open to web development, Shopify, and automation opportunities.</p>
-        <a href="#contact" aria-label="Get in touch about an opportunity"><ArrowUpRight size={22} aria-hidden="true" /></a>
       </div>
     </section>
   );
