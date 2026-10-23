@@ -1,7 +1,7 @@
 import { SectionHeading } from "@/components/ui/section-heading";
-import { BrutalistCard } from "@/components/ui/brutalist-card";
-import { Reveal } from "@/components/ui/reveal";
-import { services } from "@/data/skills";
+import { BrutalistCard }  from "@/components/ui/brutalist-card";
+import { Reveal }         from "@/components/ui/reveal";
+import { services }       from "@/data/skills";
 
 export function ServicesSection() {
   return (

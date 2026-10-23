@@ -1,7 +1,7 @@
-// Run via Playwright MCP browser_run_code_unsafe filename against npm start -- --port 3025.
-// eslint-disable-next-line @typescript-eslint/no-unused-expressions -- MCP evaluates this function expression with its Page instance.
+  // Run via Playwright MCP browser_run_code_unsafe filename against npm start -- --port 3025.
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions -- MCP evaluates this function expression with its Page instance.
 async (page, url = "http://localhost:3025") => {
-  const check = (condition, message) => { if (!condition) throw new Error(message); };
+  const check  = (condition, message) => { if (!condition) throw new Error(message); };
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto(url);
@@ -15,14 +15,14 @@ async (page, url = "http://localhost:3025") => {
     for (const dark of [false, true]) {
       await page.evaluate((value) => document.documentElement.classList.toggle("dark", value), dark);
       const dimensions = await page.locator("#projects").evaluate((section) => {
-        const active = section.querySelector(".swiper-slide:not([inert])");
+        const active  = section.querySelector(".swiper-slide:not([inert])");
         const summary = active.querySelector(".projects-summary").getBoundingClientRect();
         const preview = active.querySelector(".projects-preview").getBoundingClientRect();
         return {
-          overflow: document.documentElement.scrollWidth > innerWidth,
+          overflow   : document.documentElement.scrollWidth > innerWidth,
           activeCount: section.querySelectorAll(".swiper-slide:not([inert])").length,
-          split: preview.left > summary.left + summary.width - 1,
-          buttons: [...section.querySelectorAll("button")].filter((button) => !button.closest("[inert]") && button.getClientRects().length > 0).map((button) => {
+          split      : preview.left > summary.left + summary.width - 1,
+          buttons    : [...section.querySelectorAll("button")].filter((button) => !button.closest("[inert]") && button.getClientRects().length > 0).map((button) => {
             const rect = button.getBoundingClientRect();
             return [rect.width, rect.height];
           }),

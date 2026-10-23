@@ -1,7 +1,7 @@
-import { SectionHeading } from "@/components/ui/section-heading";
+import { SectionHeading }   from "@/components/ui/section-heading";
 import { ProjectsCarousel } from "@/components/sections/projects-carousel";
-import { projects } from "@/data/projects";
-import { Suspense } from "react";
+import { projects }         from "@/data/projects";
+import { Suspense }         from "react";
 
 export function ProjectsSection() {
   return (

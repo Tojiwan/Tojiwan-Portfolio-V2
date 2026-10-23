@@ -7,10 +7,10 @@ export function SectionHeading({
   description,
   align = "left",
 }: {
-  kicker: string;
-  title: string;
+  kicker      : string;
+  title       : string;
   description?: string;
-  align?: "left" | "center";
+  align      ?: "left" | "center";
 }) {
   return (
     <Reveal>

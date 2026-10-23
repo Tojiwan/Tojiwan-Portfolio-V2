@@ -10,9 +10,9 @@ import {
   Share2,
 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Reveal } from "@/components/ui/reveal";
-import { AsciiPortrait } from "@/components/sections/ascii-portrait";
-import { cn } from "@/lib/utils";
+import { Reveal }         from "@/components/ui/reveal";
+import { AsciiPortrait }  from "@/components/sections/ascii-portrait";
+import { cn }             from "@/lib/utils";
 
 type Tab = "bio" | "education";
 
@@ -20,44 +20,44 @@ export function AboutSection() {
   const [tab, setTab] = useState<Tab>("bio");
 
   return (
-    <section id="about" aria-labelledby="about-heading" tabIndex={-1} className="scroll-mt-20 focus:outline-none">
-      <div id="about-heading">
-        <SectionHeading kicker="Developer overview" title="About Me" />
+    <section        id     = "about" aria-labelledby    = "about-heading" tabIndex = {-1} className = "scroll-mt-20 focus:outline-none">
+    <div            id     = "about-heading">
+    <SectionHeading kicker = "Developer overview" title = "About Me" />
       </div>
-      <Reveal className="mt-6">
-        <div className="border-2 border-black bg-white shadow-[6px_6px_0_var(--shadow-color)]">
+      <Reveal className = "mt-6">
+      <div    className = "border-2 border-black bg-white shadow-[6px_6px_0_var(--shadow-color)]">
           {/* Title bar */}
-          <div className="flex items-center gap-2 border-b-2 border-black bg-(--panel) px-3 py-2">
-            <span className="flex gap-1.5" aria-hidden="true">
-              <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#ff5f57]" />
-              <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#febc2e]" />
-              <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#28c840]" />
+          <div  className = "flex items-center gap-2 border-b-2 border-black bg-(--panel) px-3 py-2">
+          <span className = "flex gap-1.5" aria-hidden = "true">
+          <span className = "h-2.5 w-2.5 rounded-full border border-black bg-[#ff5f57]" />
+          <span className = "h-2.5 w-2.5 rounded-full border border-black bg-[#febc2e]" />
+          <span className = "h-2.5 w-2.5 rounded-full border border-black bg-[#28c840]" />
             </span>
-            <span className="mx-auto min-w-0 truncate font-mono text-[11px] font-bold tracking-[0.15em] uppercase">
+            <span className = "mx-auto min-w-0 truncate font-mono text-[11px] font-bold tracking-[0.15em] uppercase">
               About_me.exe · {tab}.md
             </span>
-            <span className="w-10" aria-hidden="true" />
+            <span className = "w-10" aria-hidden = "true" />
           </div>
 
-          <div className="break-all border-b-2 border-black px-3 py-1.5 font-mono text-xs">
-            <span className="font-bold">Path</span>{" "}
-            <span className="text-(--text-muted)">C:/portfolio/about_me/{tab}.md</span>
+          <div  className = "break-all border-b-2 border-black px-3 py-1.5 font-mono text-xs">
+          <span className = "font-bold">Path</span>{" "}
+          <span className = "text-(--text-muted)">C:/portfolio/about_me/{tab}.md</span>
           </div>
 
           {/* Body */}
-          <div className="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[180px_minmax(0,1fr)_360px]">
+          <div className = "grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[180px_minmax(0,1fr)_360px]">
             {/* Tabs */}
             <div
-              className="border-b-2 border-black p-3 lg:border-r-2 lg:border-b-0"
+              className = "border-b-2 border-black p-3 lg:border-r-2 lg:border-b-0"
             >
-              <p className="type-label uppercase">
+              <p className = "type-label uppercase">
                 Directories
               </p>
               <div
-                role="tablist"
-                aria-label="About files"
-                className="mt-2 flex flex-wrap gap-2 lg:flex-col"
-                onKeyDown={(event) => {
+                role       = "tablist"
+                aria-label = "About files"
+                className  = "mt-2 flex flex-wrap gap-2 lg:flex-col"
+                onKeyDown  = {(event) => {
                   if (!["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) return;
                   event.preventDefault();
                   const next = event.key === "Home" ? "bio" : event.key === "End" ? "education" : tab === "bio" ? "education" : "bio";
@@ -66,57 +66,57 @@ export function AboutSection() {
                 }}
               >
                 <button
-                  type="button"
-                  role="tab"
-                  id="about-tab-bio"
-                  aria-controls="about-panel-bio"
-                  tabIndex={tab === "bio" ? 0 : -1}
-                  aria-selected={tab === "bio"}
-                  onClick={() => setTab("bio")}
-                  className={cn(
+                  type          = "button"
+                  role          = "tab"
+                  id            = "about-tab-bio"
+                  aria-controls = "about-panel-bio"
+                  tabIndex      = {tab === "bio" ? 0 : -1}
+                  aria-selected = {tab === "bio"}
+                  onClick       = {() => setTab("bio")}
+                  className     = {cn(
                     "flex min-h-11 flex-1 items-center gap-2 px-2 py-2 font-mono text-xs font-bold lg:flex-none",
                     tab === "bio"
                       ? "border-2 border-black bg-white text-(--accent-strong) shadow-[3px_3px_0_var(--shadow-color)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
-                      : "border-2 border-transparent hover:border-black active:border-black focus-visible:outline-2 focus-visible:outline-black"
+                      :  "border-2 border-transparent hover:border-black active:border-black focus-visible:outline-2 focus-visible:outline-black"
                   )}
                 >
-                  <FileText size={14} aria-hidden="true" />
+                  <FileText size = {14} aria-hidden = "true" />
                   bio.md
                 </button>
                 <button
-                  type="button"
-                  role="tab"
-                  id="about-tab-education"
-                  aria-controls="about-panel-education"
-                  tabIndex={tab === "education" ? 0 : -1}
-                  aria-selected={tab === "education"}
-                  onClick={() => setTab("education")}
-                  className={cn(
+                  type          = "button"
+                  role          = "tab"
+                  id            = "about-tab-education"
+                  aria-controls = "about-panel-education"
+                  tabIndex      = {tab === "education" ? 0 : -1}
+                  aria-selected = {tab === "education"}
+                  onClick       = {() => setTab("education")}
+                  className     = {cn(
                     "flex min-h-11 flex-1 items-center gap-2 px-2 py-2 font-mono text-xs font-bold lg:flex-none",
                     tab === "education"
                       ? "border-2 border-black bg-white text-(--accent-strong) shadow-[3px_3px_0_var(--shadow-color)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
-                      : "border-2 border-transparent hover:border-black active:border-black focus-visible:outline-2 focus-visible:outline-black"
+                      :  "border-2 border-transparent hover:border-black active:border-black focus-visible:outline-2 focus-visible:outline-black"
                   )}
                 >
-                  <GraduationCap size={14} aria-hidden="true" />
+                  <GraduationCap size = {14} aria-hidden = "true" />
                   education.md
                 </button>
               </div>
             </div>
 
             {/* Content */}
-            <div className="border-b-2 border-black p-5 sm:p-6 lg:border-b-0">
+            <div className = "border-b-2 border-black p-5 sm:p-6 lg:border-b-0">
               {tab === "bio" ? (
-                <div role="tabpanel" id="about-panel-bio" aria-labelledby="about-tab-bio" tabIndex={0}>
-                  <p className="mb-2 font-mono text-[11px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">{"// Active file: bio.md"}</p>
-                  <h3 className="type-title font-display text-black">
+                <div role      = "tabpanel" id = "about-panel-bio" aria-labelledby = "about-tab-bio" tabIndex = {0}>
+                <p   className = "mb-2 font-mono text-[11px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">{"// Active file: bio.md"}</p>
+                <h3  className = "type-title font-display text-black">
                     A little about me.
                     <span
-                      aria-hidden="true"
-                      className="terminal-caret ml-2 inline-block h-5 w-0.5 translate-y-1 bg-(--accent-soft)"
+                      aria-hidden = "true"
+                      className   = "terminal-caret ml-2 inline-block h-5 w-0.5 translate-y-1 bg-(--accent-soft)"
                     />
                   </h3>
-                  <div className="type-body mt-3 space-y-4 font-mono text-(--text)">
+                  <div className = "type-body mt-3 space-y-4 font-mono text-(--text)">
                     <p>
                       Hi! I&apos;m Jake Andrei Peralta, a web developer based in
                       Pampanga, Philippines.
@@ -135,54 +135,54 @@ export function AboutSection() {
                       to improve.
                     </p>
                   </div>
-                  <dl className="mt-5 grid grid-cols-[max-content_minmax(0,1fr)] gap-x-3 gap-y-1 font-mono text-sm sm:gap-x-6">
-                    <dt className="type-label text-(--text-muted)">languages</dt>
-                    <dd className="font-bold">tagalog, kapampangan, english</dd>
-                    <dt className="type-label text-(--text-muted)">base</dt>
-                    <dd className="font-bold">pampanga, ph</dd>
-                    <dt className="type-label text-(--text-muted)">timezone</dt>
-                    <dd className="font-bold">UTC+8 (Philippine Time)</dd>
-                    <dt className="type-label text-(--text-muted)">status</dt>
-                    <dd className="font-bold text-(--accent-strong)">
-                      <span aria-hidden="true" className="mr-1 inline-block h-2 w-2 border border-black bg-(--accent-strong)" />
+                  <dl   className   = "mt-5 grid grid-cols-[max-content_minmax(0,1fr)] gap-x-3 gap-y-1 font-mono text-sm sm:gap-x-6">
+                  <dt   className   = "type-label text-(--text-muted)">languages</dt>
+                  <dd   className   = "font-bold">tagalog,  kapampangan, english</dd>
+                  <dt   className   = "type-label text-(--text-muted)">base</dt>
+                  <dd   className   = "font-bold">pampanga, ph</dd>
+                  <dt   className   = "type-label text-(--text-muted)">timezone</dt>
+                  <dd   className   = "font-bold">UTC+8 (Philippine Time)</dd>
+                  <dt   className   = "type-label text-(--text-muted)">status</dt>
+                  <dd   className   = "font-bold text-(--accent-strong)">
+                  <span aria-hidden = "true" className     = "mr-1 inline-block h-2 w-2 border border-black bg-(--accent-strong)" />
                       active
                     </dd>
                   </dl>
                 </div>
               ) : (
-                <div role="tabpanel" id="about-panel-education" aria-labelledby="about-tab-education" tabIndex={0}>
-                  <p className="mb-2 font-mono text-[11px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">{"// Active file: education.md"}</p>
-                  <h3 className="type-title font-display text-black">
+                <div role      = "tabpanel" id = "about-panel-education" aria-labelledby = "about-tab-education" tabIndex = {0}>
+                <p   className = "mb-2 font-mono text-[11px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">{"// Active file: education.md"}</p>
+                <h3  className = "type-title font-display text-black">
                     Education.
                     <span
-                      aria-hidden="true"
-                      className="terminal-caret ml-2 inline-block h-5 w-0.5 translate-y-1 bg-(--accent-soft)"
+                      aria-hidden = "true"
+                      className   = "terminal-caret ml-2 inline-block h-5 w-0.5 translate-y-1 bg-(--accent-soft)"
                     />
                   </h3>
-                  <ul className="mt-3 space-y-3">
-                    <li className="border-2 border-black bg-(--surface-muted) p-3 shadow-[3px_3px_0_var(--shadow-color)]">
-                      <div className="flex items-start justify-between gap-2">
-                        <p className="text-sm font-bold">
+                  <ul  className = "mt-3 space-y-3">
+                  <li  className = "border-2 border-black bg-(--surface-muted) p-3 shadow-[3px_3px_0_var(--shadow-color)]">
+                  <div className = "flex items-start justify-between gap-2">
+                  <p   className = "text-sm font-bold">
                           Bachelor of Science in Information Technology
                         </p>
-                        <span className="type-label shrink-0 text-black">
+                        <span className = "type-label shrink-0 text-black">
                           2021 – 2025
                         </span>
                       </div>
-                      <p className="mt-1 font-mono text-xs text-(--text-muted)">
+                      <p className = "mt-1 font-mono text-xs text-(--text-muted)">
                         Don Honorio Ventura State University, Pampanga, PH
                       </p>
                     </li>
-                    <li className="border-2 border-black bg-(--surface-muted) p-3 shadow-[3px_3px_0_var(--shadow-color)]">
-                      <div className="flex items-start justify-between gap-2">
-                        <p className="text-sm font-bold">
+                    <li  className = "border-2 border-black bg-(--surface-muted) p-3 shadow-[3px_3px_0_var(--shadow-color)]">
+                    <div className = "flex items-start justify-between gap-2">
+                    <p   className = "text-sm font-bold">
                           TVL-ICT · Grades 11 & 12
                         </p>
-                        <span className="type-label shrink-0 text-black">
+                        <span className = "type-label shrink-0 text-black">
                           2019 – 2021
                         </span>
                       </div>
-                      <p className="mt-1 font-mono text-xs text-(--text-muted)">
+                      <p className = "mt-1 font-mono text-xs text-(--text-muted)">
                         Mary the Queen College
                       </p>
                     </li>
@@ -192,33 +192,33 @@ export function AboutSection() {
             </div>
 
             {/* Avatar preview */}
-            <div className="p-4 sm:p-5">
-              <div className="border-2 border-black bg-[#0b0f14] text-[#e6edf3] shadow-[4px_4px_0_var(--shadow-color)]">
-                <div className="flex items-center gap-2 border-b border-[#2a3340] px-3 py-2">
-                  <span className="flex shrink-0 gap-1.5" aria-hidden="true">
-                    <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#ff5f57]" />
-                    <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#febc2e]" />
-                    <span className="h-2.5 w-2.5 rounded-full border border-black bg-[#28c840]" />
+            <div  className = "p-4 sm:p-5">
+            <div  className = "border-2 border-black bg-[#0b0f14] text-[#e6edf3] shadow-[4px_4px_0_var(--shadow-color)]">
+            <div  className = "flex items-center gap-2 border-b border-[#2a3340] px-3 py-2">
+            <span className = "flex shrink-0 gap-1.5" aria-hidden = "true">
+            <span className = "h-2.5 w-2.5 rounded-full border border-black bg-[#ff5f57]" />
+            <span className = "h-2.5 w-2.5 rounded-full border border-black bg-[#febc2e]" />
+            <span className = "h-2.5 w-2.5 rounded-full border border-black bg-[#28c840]" />
                   </span>
-                  <span className="mx-auto min-w-0 truncate font-mono text-[11px] font-bold tracking-[0.12em] uppercase">
+                  <span className = "mx-auto min-w-0 truncate font-mono text-[11px] font-bold tracking-[0.12em] uppercase">
                     Avatar_preview.img
                   </span>
                 </div>
                 <AsciiPortrait
-                  variant={tab === "education" ? "cap" : "jp"}
-                  label={tab === "education" ? "ASCII graduation cap" : "ASCII art JP monogram"}
-                  className="m-3"
+                  variant   = {tab === "education" ? "cap" : "jp"}
+                  label     = {tab === "education" ? "ASCII graduation cap" : "ASCII art JP monogram"}
+                  className = "m-3"
                 />
-                <div className="border-t border-[#2a3340] p-3">
-                  <p className="text-center font-mono text-[11px] font-bold tracking-[0.12em] text-(--accent-soft) uppercase">{"// My_Contact_List"}</p>
-                  <div className="mt-2 grid grid-cols-3 gap-2">
+                <div className = "border-t border-[#2a3340] p-3">
+                <p   className = "text-center font-mono text-[11px] font-bold tracking-[0.12em] text-(--accent-soft) uppercase">{"// My_Contact_List"}</p>
+                <div className = "mt-2 grid grid-cols-3 gap-2">
                     {[
                       { label: "Email", href: "mailto:andreiperalta13@gmail.com", icon: Mail },
                       { label: "LinkedIn", href: "https://www.linkedin.com/in/jake-andrei-peralta-454154390", icon: Share2 },
                       { label: "GitHub", href: "https://github.com/Tojiwan", icon: CodeXml },
                     ].map(({ label, href, icon: Icon }) => (
-                      <a key={label} href={href} target={href.startsWith("https:") ? "_blank" : undefined} rel={href.startsWith("https:") ? "noopener noreferrer" : undefined} className="flex min-h-11 items-center justify-center gap-1 border border-[#2a3340] bg-[#11161d] px-1 font-mono text-[11px] font-bold hover:border-(--accent-soft)">
-                        <Icon size={12} aria-hidden="true" />{label}
+                      <a    key  = {label} href     = {href} target = {href.startsWith("https:") ? "_blank" : undefined} rel = {href.startsWith("https:") ? "noopener noreferrer" : undefined} className = "flex min-h-11 items-center justify-center gap-1 border border-[#2a3340] bg-[#11161d] px-1 font-mono text-[11px] font-bold hover:border-(--accent-soft)">
+                      <Icon size = {12} aria-hidden = "true" />{label}
                       </a>
                     ))}
                   </div>
@@ -226,8 +226,8 @@ export function AboutSection() {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap items-center gap-3 border-t-2 border-black bg-(--panel) px-3 py-1.5 font-mono text-[11px] font-bold">
-            <span className="flex items-center gap-1"><GitBranch size={12} aria-hidden="true" />main</span>
+          <div  className = "flex flex-wrap items-center gap-3 border-t-2 border-black bg-(--panel) px-3 py-1.5 font-mono text-[11px] font-bold">
+          <span className = "flex items-center gap-1"><GitBranch size = {12} aria-hidden = "true" />main</span>
             <span>UTF-8</span>
             <span>Markdown</span>
           </div>

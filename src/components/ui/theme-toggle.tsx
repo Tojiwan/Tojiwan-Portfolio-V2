@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon }                   from "lucide-react";
 
 const STORAGE_KEY = "tojiwan-theme";
-const SWITCH_MS = 180;
+const SWITCH_MS   = 180;
 
 export function ThemeToggle() {
   // Matches the served render (light default) so hydration never mismatches.

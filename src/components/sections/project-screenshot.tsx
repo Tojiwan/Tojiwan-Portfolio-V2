@@ -1,14 +1,14 @@
 "use client";
 
-import Image from "next/image";
-import { ImageIcon } from "lucide-react";
-import { useState } from "react";
+import Image                                    from "next/image";
+import { ImageIcon }                            from "lucide-react";
+import { useState }                             from "react";
 import type { ProjectScreenshot as Screenshot } from "@/data/projects";
 import "./projects.css";
 
 export function ProjectScreenshot({ image, project, gallery = false }: {
-  image: Screenshot;
-  project: string;
+  image   : Screenshot;
+  project : string;
   gallery?: boolean;
 }) {
   const [failed, setFailed] = useState(false);

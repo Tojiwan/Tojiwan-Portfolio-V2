@@ -1,16 +1,16 @@
 "use client";
 
-import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
+import Link                                 from "next/link";
+import { motion, useReducedMotion }         from "motion/react";
 import { useRef, useState, type ReactNode } from "react";
 
 const outgoingVariants = {
-  rest: { transform: "translateY(0%)" },
+  rest  : { transform: "translateY(0%)" },
   active: { transform: "translateY(100%)" },
 };
 
 const incomingVariants = {
-  rest: { transform: "translateY(-100%)" },
+  rest  : { transform: "translateY(-100%)" },
   active: { transform: "translateY(0%)" },
 };
 
@@ -26,20 +26,20 @@ export function RollingLink({
   onClick,
   ariaLabel,
 }: {
-  href: string;
-  children: ReactNode;
+  href      : string;
+  children  : ReactNode;
   className?: string;
-  onClick?: () => void;
+  onClick  ?: () => void;
   ariaLabel?: string;
 }) {
-  const external = /^https?:\/\//i.test(href);
-  const reduceMotion = useReducedMotion();
+  const external            = /^https?:\/\//i.test(href);
+  const reduceMotion        = useReducedMotion();
   const [active, setActive] = useState(false);
-  const activeRef = useRef(false);
-  const animating = useRef(false);
-  const pendingRequest = useRef<boolean | null>(null);
-  const hovered = useRef(false);
-  const focused = useRef(false);
+  const activeRef           = useRef(false);
+  const animating           = useRef(false);
+  const pendingRequest      = useRef<boolean | null>(null);
+  const hovered             = useRef(false);
+  const focused             = useRef(false);
 
   const updateActive = (next: boolean) => {
     activeRef.current = next;

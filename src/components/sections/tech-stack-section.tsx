@@ -1,38 +1,38 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
-import { FileText } from "lucide-react";
+import Image              from "next/image";
+import { useState }       from "react";
+import { FileText }       from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Reveal } from "@/components/ui/reveal";
-import { skillGroups } from "@/data/skills";
+import { Reveal }         from "@/components/ui/reveal";
+import { skillGroups }    from "@/data/skills";
 
 const skillIcons: Record<string, string> = {
-  HTML: "html5",
-  CSS: "css",
-  JavaScript: "javascript",
-  TypeScript: "typescript",
-  "Tailwind CSS": "tailwind-css",
-  Bootstrap: "bootstrap",
-  React: "react-light",
-  "Next.js": "nextjs",
-  "Nuxt.js": "nuxt",
+  HTML                    : "html5",
+  CSS                     : "css",
+  JavaScript              : "javascript",
+  TypeScript              : "typescript",
+  "Tailwind CSS"          : "tailwind-css",
+  Bootstrap               : "bootstrap",
+  React                   : "react-light",
+  "Next.js"               : "nextjs",
+  "Nuxt.js"               : "nuxt",
   "Motion (Framer Motion)": "motion",
-  PHP: "php-mono",
-  Laravel: "laravel",
-  MySQL: "mysql-wordmark",
-  Supabase: "supabase",
-  "Shopify Liquid": "shopify",
-  n8n: "n8n",
-  Zapier: "zapier",
-  Git: "git",
-  Postman: "postman",
-  "Laravel Herd": "laravel-herd",
-  Docker: "docker",
-  Figma: "figma",
-  Canva: "canva",
-  ChatGPT: "openai-chatgpt",
-  OpenCode: "opencode",
+  PHP                     : "php-mono",
+  Laravel                 : "laravel",
+  MySQL                   : "mysql-wordmark",
+  Supabase                : "supabase",
+  "Shopify Liquid"        : "shopify",
+  n8n                     : "n8n",
+  Zapier                  : "zapier",
+  Git                     : "git",
+  Postman                 : "postman",
+  "Laravel Herd"          : "laravel-herd",
+  Docker                  : "docker",
+  Figma                   : "figma",
+  Canva                   : "canva",
+  ChatGPT                 : "openai-chatgpt",
+  OpenCode                : "opencode",
 };
 
 export function TechStackSection() {
