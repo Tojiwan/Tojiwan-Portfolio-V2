@@ -88,7 +88,7 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                   <div className="projects-details">
                     <div className="projects-actions flex flex-wrap gap-4">
                       {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="projects-button projects-primary" aria-label={`View ${project.title} demo (opens in a new tab)`}>View demo <ArrowUpRight size={16} aria-hidden="true" /></a>}
-                      <button type="button" className="projects-button" aria-haspopup="dialog" onClick={(event) => { opener.current = event.currentTarget; setGallery(project); }}><Images size={16} aria-hidden="true" /> Preview gallery</button>
+                      <button type="button" className="projects-button" aria-haspopup="dialog" onClick={(event) => { opener.current = event.currentTarget; setGallery(project); }}><Images size={16} aria-hidden="true" />Gallery</button>
                     </div>
                     {project.demoPassword && (
                       <div className="projects-access">
