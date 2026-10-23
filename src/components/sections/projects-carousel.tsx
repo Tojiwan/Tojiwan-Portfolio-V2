@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Images } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Images } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y } from "swiper/modules";
 import type { Swiper as SwiperInstance } from "swiper";
@@ -28,7 +28,7 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
   }
 
   return (
-    <div className="mt-6 min-w-0">
+    <div className="projects-carousel mt-6 min-w-0">
       <nav aria-label="Choose a project" className="projects-projectNames">
         {projects.map((project, index) => (
           <button key={project.slug} type="button" aria-current={index === active ? "true" : undefined}
@@ -73,10 +73,20 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                       </div>
                       <ProjectScreenshot key={project.screenshots?.[0]?.src ?? project.slug} image={project.screenshots?.[0] ?? placeholderScreenshots[0]} project={project.title} />
                     </div>
-                    <p className="mt-4 text-sm leading-6 text-(--text-muted)">Open the gallery to browse {project.screenshots?.length ? "project screenshots" : "the planned screenshot slots"}.</p>
+                    <div className="mt-8 border-t border-(--line-muted) pt-4">
+                      <h4 className="type-label uppercase">Key deliverables</h4>
+                      <ul className="mt-3 space-y-2" aria-label={`${project.title} key deliverables`}>
+                        {project.deliverables.slice(0, 3).map((deliverable) => (
+                          <li key={deliverable} className="flex items-start gap-2 text-sm leading-6 text-(--text-muted)">
+                            <Check size={16} className="mt-1 shrink-0 text-(--accent-strong)" aria-hidden="true" />
+                            <span>{deliverable}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                   <div className="projects-details">
-                    <div className="flex flex-wrap gap-4">
+                    <div className="projects-actions flex flex-wrap gap-4">
                       {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="projects-button projects-primary" aria-label={`View ${project.title} demo (opens in a new tab)`}>View demo <ArrowUpRight size={16} aria-hidden="true" /></a>}
                       <button type="button" className="projects-button" aria-haspopup="dialog" onClick={(event) => { opener.current = event.currentTarget; setGallery(project); }}><Images size={16} aria-hidden="true" /> Preview gallery</button>
                     </div>
@@ -86,7 +96,7 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                         <DemoPassword password={project.demoPassword} />
                       </div>
                     )}
-                    {project.designUrl && <a href={project.designUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm underline underline-offset-4">Design source <ArrowUpRight size={14} aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>}
+                    {project.designUrl && <a href={project.designUrl} target="_blank" rel="noopener noreferrer" className="projects-designLink mt-4 inline-flex min-h-11 items-center gap-2 text-sm underline underline-offset-4">Design source <ArrowUpRight size={14} aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>}
                     <div className="mt-6 border-t border-(--line-muted) pt-4">
                       <p className="type-label mb-3 text-(--text-muted) uppercase">Technologies used</p>
                       <ul className="flex flex-wrap gap-2" aria-label={`${project.title} technologies`}>{project.stack.map((tech) => <li key={tech}><TechBadge label={tech} /></li>)}</ul>

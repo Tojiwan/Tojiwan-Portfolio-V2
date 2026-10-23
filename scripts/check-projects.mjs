@@ -22,7 +22,7 @@ async (page, url = "http://localhost:3025") => {
           overflow: document.documentElement.scrollWidth > innerWidth,
           activeCount: section.querySelectorAll(".swiper-slide:not([inert])").length,
           split: preview.left > summary.left + summary.width - 1,
-          buttons: [...section.querySelectorAll("button")].filter((button) => !button.closest("[inert]")).map((button) => {
+          buttons: [...section.querySelectorAll("button")].filter((button) => !button.closest("[inert]") && button.getClientRects().length > 0).map((button) => {
             const rect = button.getBoundingClientRect();
             return [rect.width, rect.height];
           }),

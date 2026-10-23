@@ -15,6 +15,7 @@ export type Project = {
   description: string;
   stack: string[];
   focus: string;
+  deliverables: string[];
   demoUrl?: string;
   demoPassword?: string;
   designUrl?: string;
@@ -34,6 +35,11 @@ export const projects: Project[] = [
     file: "e_commerce_web.liquid",
     title: "Shop.Co",
     focus: "Figma-to-Shopify implementation and responsive development",
+    deliverables: [
+      "Figma-to-Shopify storefront implementation",
+      "Custom product pages, sliders, and collection browsing",
+      "Responsive layouts with Tailwind CSS",
+    ],
     category: "E-commerce",
     status: "Personal Project",
     description:
@@ -48,6 +54,11 @@ export const projects: Project[] = [
     file: "facebook_rag.n8n",
     title: "Facebook RAG Chatbot",
     focus: "AI integration and RAG workflows",
+    deliverables: [
+      "Facebook page integration through the Meta API",
+      "Company-information-based AI replies",
+      "n8n workflow connecting OpenAI and Supabase",
+    ],
     category: "AI Chatbot",
     status: "Company Project",
     description:
@@ -59,6 +70,11 @@ export const projects: Project[] = [
     file: "budget_tracker.n8n",
     title: "Telegram Budget Tracker",
     focus: "Telegram integration and n8n workflows",
+    deliverables: [
+      "Expense logging through Telegram conversations",
+      "Spending tracking with connected data storage",
+      "Automated Google Sheets integration through n8n",
+    ],
     category: "Workflow Automation",
     status: "Personal Project",
     description:
@@ -70,6 +86,11 @@ export const projects: Project[] = [
     file: "pampanga_rag.php",
     title: "One Pampanga RAG Chatbot",
     focus: "Business-specific RAG chatbots",
+    deliverables: [
+      "Laravel jobs using MySQL business data",
+      "n8n API integration for chatbot workflows",
+      "Business-specific workflow customization",
+    ],
     category: "AI Chatbot",
     status: "Company Project",
     description:
@@ -81,6 +102,11 @@ export const projects: Project[] = [
     file: "restaurant_site.vue",
     title: "Ramen Makimura Website",
     focus: "UI updates, responsive layouts, and Firebase authentication",
+    deliverables: [
+      "Restaurant website UI refinements",
+      "Color, typography, and responsive layout updates",
+      "Assistance with Firebase authentication",
+    ],
     category: "Web Development",
     status: "Company Project",
     description:
@@ -92,6 +118,11 @@ export const projects: Project[] = [
     file: "motor_pool_system.php",
     title: "Vehiserive",
     focus: "Vehicle requests, approvals, and scheduling",
+    deliverables: [
+      "Digital vehicle requests and travel orders",
+      "Multi-level approvals and scheduling",
+      "Trip tickets and role-based dashboards",
+    ],
     category: "Web Development",
     status: "Capstone Project",
     description:

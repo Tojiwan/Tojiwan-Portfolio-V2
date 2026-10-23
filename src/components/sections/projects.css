@@ -34,6 +34,18 @@
 .projects-galleryStage { padding: 20px; background: var(--surface-muted); }
 .projects-galleryImage { height: clamp(180px, 48dvh, 560px); }
 .projects-galleryControls { display: flex; gap: 12px; align-items: center; padding: 16px; }
+@media (max-width: 639px) {
+  .projects-carousel { display: flex; flex-direction: column; }
+  .projects-projectNames { display: none; }
+  .projects-navigation { order: -1; margin-top: 0; margin-bottom: 20px; }
+  .projects-terminal > .projects-titlebar { flex-wrap: nowrap; gap: 8px; padding: 10px 12px; }
+  .projects-terminal > .projects-titlebar .type-label { font-size: 11px; }
+  .projects-terminal .projects-status { flex-basis: auto; font-size: 11px; white-space: nowrap; }
+  .projects-actions { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 12px; }
+  .projects-actions .projects-button { min-width: 0; padding: 10px 8px; font-size: 12px; text-align: center; }
+  .projects-actions svg { flex-shrink: 0; }
+  .projects-designLink { display: flex; justify-content: center; width: 100%; }
+}
 @media (min-width: 640px) {
   .projects-summary { padding: 32px 32px 0; }
   .projects-preview { padding: 32px; }
