@@ -2,6 +2,8 @@
 
 Jake Andrei R. Peralta's portfolio for web development, Shopify, and automation work. Built with Next.js 16, TypeScript, Tailwind CSS, and Motion.
 
+**Live site:** [tojiwan-portfolio-v2.vercel.app](https://tojiwan-portfolio-v2.vercel.app/)
+
 Light-default "paper mode" styling with a persistent dark console toggle, terminal-inspired panels, and a cyan robot-terminal logo. The site uses only self-hosted Courier Prime and IBM Plex Mono, with Courier Prime for headings, including the hero.
 
 ## Development
@@ -23,11 +25,11 @@ npm start
 
 ## Content
 
-- `src/data/projects.ts`: project summaries, stacks, and optional `liveUrl`, `demoUrl`, `demoPassword`, and `designUrl` fields. Links render only when provided. Shop.Co includes a Shopify demo, a revealable demo password, and Figma design credit. Demo passwords are public visitor-access information, not private credentials.
+- `src/data/projects.ts`: project summaries, stacks, optional `demoUrl`, `demoPassword`, `designUrl`, and `screenshots` fields. Links render only when provided. Shop.Co includes a Shopify demo, a revealable demo password, and Figma design credit. Demo passwords are public visitor-access information, not private credentials.
 - `src/data/skills.ts`: skills, services, and experience in newest-first order.
 - `src/components/sections/tech-stack-section.tsx`: keyboard-accessible toolbox tabs and skill-to-SVG mappings. Logo assets live in `public/Icons/`; update the mapping when adding a skill.
 - `src/components/sections/`: hero, About, projects, and contact content.
-- `public/files/`: the downloadable CV linked from the hero and footer.
+- `public/files/Jake-Peralta-Resume.pdf`: the downloadable CV linked from the hero and footer.
 - `src/components/layout/site-footer.tsx`: Resources links and the ASCII Tojiwan wordmark.
 - `src/app/icon.svg`: robot-terminal logo shared by the navbar and SVG favicon. Keep `src/app/favicon.ico` in sync when changing the mark.
 
@@ -40,21 +42,41 @@ Set `SITE_URL` to the full deployed origin, including `https://`, in your hostin
 ## Features and integrations
 
 - The contact form sends through Formspree with validation, sending/success/error feedback, and a spam honeypot. Direct email and profile links are also available. The owner confirmed a successful localhost submission and inbox delivery from the 2026-10-16 test.
-- Hero portraits use all five `public/Profile_Avatar/pfp-*_result.webp` images in original color, starting with pfp-1. Mouse entry or click/tap/keyboard activation advances the image and wraps after pfp-5; a mouse click within 350ms of hover is ignored to avoid a double advance. Edit `src/components/sections/hero-portrait.tsx` to change them.
-- The hero name is static; legacy typewriter CSS is currently unused.
+- Hero portraits use all five `public/Profile_Avatar/pfp-*.webp` images in original color, starting with pfp-1. Mouse entry or click/tap/keyboard activation advances the image and wraps after pfp-5; a mouse click within 350ms of hover is ignored to avoid a double advance. Edit `src/components/sections/hero-portrait.tsx` to change them.
+- The hero name is static; the `<hello_world />` boot line uses a typewriter animation with a reduced-motion fallback.
+- Courier Prime and IBM Plex Mono are self-hosted as preloaded WOFF2 fonts; portrait assets are compressed WebP images.
 - Vercel Speed Insights is mounted in `src/app/page.tsx`. Deployed data collection has not been verified.
-- Lint and production build passed on 2026-10-18. The owner confirmed navbar logo and browser-tab favicon appearance that day; broader browser and deployment checks remain pending.
+
+## Verification and performance
+
+- Lint and production build passed during the 2026-10-21 improvement workflow. Playwright checks covered responsive layouts at 320–1440px, both themes, keyboard navigation, and reduced-motion behavior.
+- Production-server checks confirmed light mode on a fresh visit, persisted dark-mode selection, and a `200 application/pdf` response from the renamed CV URL.
+- [PageSpeed Insights mobile report — 2026-10-22](https://pagespeed.web.dev/analysis/https-tojiwan-portfolio-v2-vercel-app/ifqd6bdgc0?form_factor=mobile): **92 Performance, 100 Accessibility, 100 Best Practices, 100 SEO**. First Contentful Paint: **1.4s**; Largest Contentful Paint: **2.9s**; Total Blocking Time: **80ms**; Cumulative Layout Shift: **0**; Speed Index: **4.4s**.
+- These are single-run lab results using an emulated Moto G Power and slow 4G. The report has insufficient real-user data; automated accessibility scores do not replace manual testing.
+- `PRODUCT.md` and `DESIGN.md` document product context and the design system. Local `design-review/` reports and screenshots record the improvement workflow; they are excluded from Git.
 
 ## Remaining work
 
-- Project screenshots, captions, and accessible galleries are deferred.
-- Vehiserive details remain owner-managed and deferred: expand its purpose, features, and personal contribution, and confirm its spelling.
+- Projects redesign is implemented locally on `projects-section-slider`: one large terminal at a time, information left / preview right on desktop, and a separate screenshot-gallery modal. Swiper React provides manual navigation without autoplay or looping. Real screenshots and captions remain pending; current previews are labelled placeholders. No push or merge until owner review.
+- Resolve the existing Next.js 16.4.0 security advisory reported by `npm audit` (patched version offered: 16.4.2) in a separate dependency update.
+- Vehiserive includes a Motor Pool Management System summary; further details and personal-contribution claims remain owner-managed. Confirm its spelling.
 - Add verified live project URLs where available.
-- Confirm remaining content claims, review project slugs/file labels, and reconcile design documentation with the current styling.
-- Complete the browser checks below, verify deployed Formspree delivery and Speed Insights collection, and check Formspree plan usage.
-- Set the production site URL and add canonical metadata when the final URL is known.
+- Confirm remaining content claims and review project slugs; project file labels are now distinct.
+- Investigate the mobile LCP delay and unused JavaScript reported by PageSpeed Insights; verify whether inactive portraits can be deferred further.
+- Repeat the regression checks below after changes. Physical-device, screen-reader, and Safari checks remain pending; verify deployed Formspree delivery and Speed Insights collection, and check Formspree plan usage.
+- Confirm production URL configuration resolves to `https://tojiwan-portfolio-v2.vercel.app` and add canonical metadata.
 
-## Browser checks before deployment
+## Project galleries
+
+Place approved captures under `public/projects/` and add a `screenshots` array to the matching project in `src/data/projects.ts`. Each entry has `src` (public URL), `title` (visible caption), `alt` (descriptive alternative text), `width`, and `height` (actual image dimensions). The first entry becomes the cover. Keep the array absent until real assets are available; three explicitly labelled placeholder slots appear automatically.
+
+The gallery component loads on demand when Preview gallery is opened. It renders the current and adjacent screenshots, uses a native modal dialog, locks background scrolling, and restores focus on close. No new project outcomes or deliverables are invented from the layout references.
+
+Local production verification on 2026-10-23 passed at 320/390/768/1024/1440px in both themes, including keyboard boundaries, 44px project controls, reduced-motion navigation, modal focus cycling/return, and password reveal. Mouse-drag navigation was also checked. Physical touch devices and performance with real screenshots are still pending.
+
+Reusable browser self-check: start `npm start -- --port 3025`, then run `scripts/check-projects.mjs` through Playwright MCP's `browser_run_code_unsafe` with its `filename` argument. Lint and production build passed; the build also reports the existing Next.js advisory above.
+
+## Browser regression checklist
 
 1. Run `npm run dev`, open `http://localhost:3000`, and open DevTools (F12).
 2. Toggle the device toolbar (Ctrl+Shift+M). Test widths 360, 768, and 1280, plus landscape and 200% browser zoom. Check for clipped text and sideways scrolling.
@@ -65,17 +87,4 @@ Set `SITE_URL` to the full deployed origin, including `https://`, in your hostin
 7. Click email/phone/profile links, Shop.Co demo/design links, and both CV download links. Confirm destinations and the current PDF. Contact-form delivery has been verified locally; repeat the submission check on the deployed site.
 8. Inspect Console for errors and Network for failed requests. Run `npm run lint` and `npm run build`, then `npm start` to repeat against production output (stop the dev server first).
 9. Repeat the key checks on the deployed URL and a real phone; verify favicon and social-sharing preview.
-
-```text
-/$$$$$$$$            /$$
-|__  $$__/           |__/
-   | $$  /$$$$$$  /$$ /$$ /$$  /$$  /$$  /$$$$$$  /$$$$$$$
-   | $$ /$$__  $$|__/| $$| $$ | $$ | $$ |____  $$| $$__  $$
-   | $$| $$  \ $$ /$$| $$| $$ | $$ | $$  /$$$$$$$| $$  \ $$
-   | $$| $$  | $$| $$| $$| $$ | $$ | $$ /$$__  $$| $$  | $$
-   | $$|  $$$$$$/| $$| $$|  $$$$$/$$$$/|  $$$$$$$| $$  | $$
-   |__/ \______/ | $$|__/ \_____/\___/  \_______/|__/  |__/
-            /$$  | $$
-           |  $$$$$$/
-            \______/
-```
+10. In Projects, test named navigation, previous/next boundaries, and ArrowLeft/ArrowRight/Home/End while the project carousel is focused. Open Preview gallery, check screenshot navigation and Tab/Shift+Tab containment, then close with Escape and verify focus returns to Preview. Check each project after replacing placeholders with real screenshots.

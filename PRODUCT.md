@@ -42,7 +42,7 @@ Confirmed functionality:
 
 Constraints and explicitly undecided facts:
 
-- No project screenshots or accessible galleries yet — deferred by the owner.
+- Real project screenshots await owner input; the Projects branch includes an accessible gallery with explicitly labelled placeholder slots.
 - Vehiserive details are owner-managed and deferred (spelling of the name also unconfirmed).
 - Live URLs beyond the Shop.Co demo are unverified; add only verified links.
 - Production `SITE_URL` value is not yet recorded.
@@ -58,6 +58,7 @@ Binding by owner decision (preserved verbatim, not expanded):
 - CLI/terminal-inspired voice and labels.
 - Neo-brutalist terminal aesthetic with square geometry, 2px borders, hard offset shadows, light-default "paper mode" themes with a persistent dark console (owner decision, 2026-10-20), graph-paper backgrounds, cyan #0ea5e9 accent, Courier Prime and IBM Plex Mono (self-hosted).
 - "Preserve current branding — no redesign" is a standing instruction for all future work acting on this record.
+- Owner-approved exception (2026-10-23): recreate Projects & Contributions following `design-review/projects-terminal/`. One project terminal at a time; desktop text left / preview right; separate modal screenshot slider. Swiper React, no autoplay or loop; labelled placeholders until screenshots arrive. Preserve the existing typography, palette, and terminal identity. Work stays on `projects-section-slider` pending owner review; do not push or merge yet.
 
 ## Evidence on Hand
 

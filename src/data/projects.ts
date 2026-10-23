@@ -1,3 +1,11 @@
+export type ProjectScreenshot = {
+  src?: string;
+  title: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
 export type Project = {
   slug: string;
   file: string;
@@ -10,7 +18,15 @@ export type Project = {
   demoUrl?: string;
   demoPassword?: string;
   designUrl?: string;
+  screenshots?: ProjectScreenshot[];
 };
+
+// Placeholder slots are explicit until the owner supplies real project captures.
+export const placeholderScreenshots: ProjectScreenshot[] = [
+  { title: "Overview placeholder", alt: "", width: 1200, height: 900 },
+  { title: "Detail placeholder", alt: "", width: 1200, height: 900 },
+  { title: "Mobile placeholder", alt: "", width: 900, height: 1200 },
+];
 
 export const projects: Project[] = [
   {

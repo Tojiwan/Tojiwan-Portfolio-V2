@@ -14,7 +14,7 @@ export function DemoPassword({ password }: { password: string }) {
           type="button"
           onClick={() => setRevealed((current) => !current)}
           aria-label={revealed ? "Hide demo password" : "Show demo password"}
-          className="inline-flex items-center p-3 -m-3 hover:bg-(--surface-muted) hover:shadow-[2px_2px_0_var(--shadow-color)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center hover:bg-(--surface-muted) hover:shadow-[2px_2px_0_var(--shadow-color)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
         >
           {revealed ? <EyeOff size={16} aria-hidden="true" /> : <Eye size={16} aria-hidden="true" />}
         </button>
