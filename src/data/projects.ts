@@ -129,4 +129,20 @@ export const projects: Project[] = [
       "A capstone Motor Pool Management System for DHVSU that digitizes vehicle requests and travel orders through multi-level approvals, scheduling, trip tickets, and role-based dashboards.",
     stack: ["PHP", "MySQL", "Vanilla CSS", "HTML", "JavaScript", "Hostinger"],
   },
+  {
+    slug        : "dental-clinic-management",
+    file        : "dental_clinic.php",
+    title       : "Dental Clinic Management System",
+    focus       : "Multi-branch patient records, dental charting, and appointment management",
+    deliverables: [
+      "Patient profiles, diagnostic records, interactive dental charts, and treatment procedures",
+      "Appointment scheduling, approval, rejection, and completion with patient accounts",
+      "Digital consent forms, waivers, signatures, and branch administration with roles and permissions",
+    ],
+    category   : "Web Development",
+    status     : "Web Application",
+    description:
+      "A web-based dental clinic management system for managing patients, appointments, and dental records across clinic branches. It brings interactive dental charting, digital forms, patient accounts, and dashboards with branch and timeframe filters into one application, aiming to replace paper records and manual appointment tracking.",
+    stack: ["Laravel 12", "PHP", "Livewire", "Laravel Backpack", "MySQL"],
+  },
 ];

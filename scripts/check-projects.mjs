@@ -39,7 +39,7 @@ async (page, url = "http://localhost:3025") => {
   check(await page.locator("#projects .swiper-slide:not([inert]) h3").innerText() === "Facebook RAG Chatbot", "Next project failed");
   await region.focus();
   await page.keyboard.press("End");
-  check(await page.locator("#projects .swiper-slide:not([inert]) h3").innerText() === "Vehiserive", "End key failed");
+  check(await page.locator("#projects .swiper-slide:not([inert]) h3").innerText() === "Dental Clinic Management System", "End key failed");
   check(await page.getByRole("button", { name: "Next project", exact: true }).getAttribute("aria-disabled") === "true", "Last project must not loop");
   await page.keyboard.press("Home");
   await page.getByRole("button", { name: "Show demo password" }).click();
