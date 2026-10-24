@@ -1,6 +1,6 @@
 # Portfolio Checklist — Done + Remaining
 
-Updated: 2026-10-23. Historical verification dates are retained below.
+Updated: 2026-10-24. Historical verification dates are retained below.
 Implementation status is based on source review. Content accuracy, browser behavior,
 and deployment are not verified unless explicitly noted. See `TO-DO.md` for work order.
 
@@ -13,7 +13,10 @@ and deployment are not verified unless explicitly noted. See `TO-DO.md` for work
 - [x] Verify keyboard navigation, mouse drag, 44px project targets, inactive slides, reduced motion, both themes, and 320–1440px layouts (2026-10-23).
 - [x] Run lint/build and local production browser checks; reusable self-check at `scripts/check-projects.mjs`.
 - [ ] Check physical-device swiping and performance after adding real screenshots.
-- [ ] Replace placeholders with approved screenshots, captions, and alt text.
+- [x] Connect the 25 supplied screenshots for Dental Clinic (7), Ramen Makimura (9), Vehiserve (4), and Shop.Co (5), with captions, alt text, and measured dimensions. Other projects retain labelled placeholders.
+- [x] Match gallery reference with desktop side arrows, mobile horizontal selectors, uncropped images, clickable covers, and full-size links.
+- [x] Local production checks on 2026-10-24: all 25 optimized images load; original-file links return images; keyboard navigation, focus cycling/return, and scroll locking pass. Both themes checked at 320–1440px and short/landscape 390×440, 393×852, 852×393 viewports. Lint/build pass.
+- [ ] Owner review of captions/screenshots and real-device Safari/full-size zoom testing before publishing.
 - [ ] Owner review on `projects-section-slider` before any push or merge.
 
 ## Existing implementation
@@ -25,7 +28,7 @@ and deployment are not verified unless explicitly noted. See `TO-DO.md` for work
 - [x] Hero, About/Education tabs, projects, skills, experience, services, and contact sections.
 - [x] Shared cards, terminals, badges, action links, rolling links, and scroll reveals.
 - [x] Tojiwan/Jake identity, hero introduction, contact details, and footer copy.
-- [x] Six named projects with descriptions and stacks in `src/data/projects.ts`.
+- [x] Seven named projects, including Dental Clinic Management System, with descriptions, stacks, and at most three visible key deliverables.
 - [x] Personalized skills, newest-first experience, and services in `src/data/skills.ts`.
 - [x] SVG toolbox logos with keyboard-accessible category tabs; Docker, ChatGPT, and OpenCode included in tools.
 - [x] Shop.Co demo URL, password reveal, and original Figma design credit; destination checks remain pending.
@@ -43,9 +46,10 @@ and deployment are not verified unless explicitly noted. See `TO-DO.md` for work
 ## Remaining — Launch priorities
 
 ### 1. Project evidence and final content
-Real screenshots and further Vehiserive details await owner input; placeholder gallery implementation is approved above.
-- [ ] Add project screenshots under `public/projects/`, with captions and descriptive alt text.
-- [ ] Replace gallery placeholders with approved assets.
+Real screenshots for four projects are connected; remaining automation/chatbot captures and further Vehiserive details await owner input.
+- [x] Use owner-supplied assets in `public/Dental-Clinic/`, `public/Ramen-Makimura/`, `public/Vehiserve/`, and `public/Shop.Co/`, with captions and descriptive alt text.
+- [x] Replace gallery placeholders for the four supplied project sets.
+- [ ] Supply assets for the three remaining automation/chatbot projects.
 - [ ] Add verified live URLs where available; source links are optional and should appear only when provided.
 - [ ] Expand Vehiserive with its purpose, features, and personal contribution; confirm its spelling.
 - [ ] Review repeated project filenames and placeholder-like slug names.

@@ -34,6 +34,13 @@ export const projects: Project[] = [
     slug        : "shop-co-slug",
     file        : "e_commerce_web.liquid",
     title       : "Shop.Co",
+    screenshots: [
+      { src: "/Shop.Co/hero-banner.png", title: "Storefront & hero", alt: "Shop.Co storefront with navigation, fashion hero, and brand strip", width: 1858, height: 932 },
+      { src: "/Shop.Co/new-arrivals.png", title: "New arrivals", alt: "Shop.Co new arrivals product cards with ratings and prices", width: 1854, height: 930 },
+      { src: "/Shop.Co/top-selling.png", title: "Top selling", alt: "Shop.Co top-selling products with view-product buttons", width: 1858, height: 930 },
+      { src: "/Shop.Co/category-testimonials.png", title: "Styles & testimonials", alt: "Shop.Co dress-style categories and customer testimonial section", width: 1788, height: 841 },
+      { src: "/Shop.Co/footer.png", title: "Newsletter & footer", alt: "Shop.Co newsletter signup and footer navigation", width: 1855, height: 930 },
+    ],
     focus       : "Figma-to-Shopify implementation and responsive development",
     deliverables: [
       "Figma-to-Shopify storefront implementation",
@@ -101,6 +108,17 @@ export const projects: Project[] = [
     slug        : "ramen-makimura-slug",
     file        : "restaurant_site.vue",
     title       : "Ramen Makimura Website",
+    screenshots: [
+      { src: "/Ramen-Makimura/home-page.png", title: "Menu overview", alt: "Ramen Makimura menu with food categories and product cards", width: 1836, height: 863 },
+      { src: "/Ramen-Makimura/branch-selection.png", title: "Branch & delivery", alt: "Branch and delivery dialog with pickup location, date, and time selection", width: 1843, height: 868 },
+      { src: "/Ramen-Makimura/cart.png", title: "Cart preview", alt: "Shopping cart dropdown showing selected menu items", width: 1840, height: 867 },
+      { src: "/Ramen-Makimura/cart-page.png", title: "Cart page", alt: "Cart page with item quantities, subtotal, and order button", width: 1839, height: 866 },
+      { src: "/Ramen-Makimura/order-confirmation-page.png", title: "Order summary", alt: "Order summary table showing products, quantities, and prices", width: 1843, height: 873 },
+      { src: "/Ramen-Makimura/payment-confirmation-page.png", title: "Checkout details", alt: "Checkout form beside the order total and item summary", width: 1840, height: 869 },
+      { src: "/Ramen-Makimura/login-page.png", title: "Account login", alt: "Ramen Makimura sign-in form with email and password fields", width: 1855, height: 865 },
+      { src: "/Ramen-Makimura/register-page.png", title: "Registration", alt: "Create-account form with email and password confirmation", width: 1855, height: 865 },
+      { src: "/Ramen-Makimura/forgot-password.png", title: "Password recovery", alt: "Password recovery form for requesting a reset link", width: 1857, height: 832 },
+    ],
     focus       : "UI updates, responsive layouts, and Firebase authentication",
     deliverables: [
       "Restaurant website UI refinements",
@@ -117,6 +135,12 @@ export const projects: Project[] = [
     slug        : "vehiserive-slug",
     file        : "motor_pool_system.php",
     title       : "Vehiserive",
+    screenshots: [
+      { src: "/Vehiserve/home-page.png", title: "Motor pool overview", alt: "Vehiserve management overview with request actions and vehicle selection", width: 1864, height: 932 },
+      { src: "/Vehiserve/calendar-page.png", title: "Vehicle calendar", alt: "Monthly vehicle calendar showing available dates", width: 1873, height: 929 },
+      { src: "/Vehiserve/landing-page.png", title: "Landing page", alt: "Vehiserve Motor Pool Management System landing page with login entry", width: 1872, height: 931 },
+      { src: "/Vehiserve/login-page.png", title: "Login", alt: "Vehiserve login form beside the system introduction", width: 1875, height: 928 },
+    ],
     focus       : "Vehicle requests, approvals, and scheduling",
     deliverables: [
       "Digital vehicle requests and travel orders",
@@ -133,6 +157,15 @@ export const projects: Project[] = [
     slug        : "dental-clinic-management",
     file        : "dental_clinic.php",
     title       : "Dental Clinic Management System",
+    screenshots: [
+      { src: "/Dental-Clinic/dashboard.png", title: "Patient dashboard", alt: "Dental clinic patient dashboard with profile details and appointment history", width: 1877, height: 935 },
+      { src: "/Dental-Clinic/appointment-page.png", title: "Appointment calendar", alt: "Dental clinic monthly calendar with appointment statuses", width: 1877, height: 935 },
+      { src: "/Dental-Clinic/appointment.png", title: "Create appointment", alt: "Create-appointment dialog with branch selection over the calendar", width: 1874, height: 926 },
+      { src: "/Dental-Clinic/patient-diagnostic.png", title: "Diagnostic record", alt: "Patient diagnostic record form with dental and medical history fields", width: 1873, height: 932 },
+      { src: "/Dental-Clinic/informed-consent.png", title: "Informed consent", alt: "Digital informed consent form for dental treatment", width: 1874, height: 932 },
+      { src: "/Dental-Clinic/auth-waiver-form.png", title: "Authorization waiver", alt: "Dental procedure authorization waiver form", width: 1872, height: 933 },
+      { src: "/Dental-Clinic/login-page.png", title: "Patient login", alt: "Dental clinic patient account login form", width: 1871, height: 938 },
+    ],
     focus       : "Multi-branch patient records, dental charting, and appointment management",
     deliverables: [
       "Patient profiles, diagnostic records, interactive dental charts, and treatment procedures",

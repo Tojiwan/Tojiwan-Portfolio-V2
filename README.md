@@ -57,8 +57,7 @@ Set `SITE_URL` to the full deployed origin, including `https://`, in your hostin
 
 ## Remaining work
 
-- Projects redesign is implemented locally on `projects-section-slider`: one large terminal at a time, information left / preview right on desktop, and a separate screenshot-gallery modal. Swiper React provides manual navigation without autoplay or looping. Real screenshots and captions remain pending; current previews are labelled placeholders. No push or merge until owner review.
-- Resolve the existing Next.js 16.4.0 security advisory reported by `npm audit` (patched version offered: 16.4.2) in a separate dependency update.
+- Projects redesign is implemented on `projects-section-slider`: one large terminal at a time, information left / preview right on desktop, and a separate screenshot-gallery modal. Swiper React provides manual navigation without autoplay or looping. Dental Clinic, Ramen Makimura, Vehiserve, and Shop.Co now use 25 supplied screenshots; the three remaining projects retain labelled placeholders. Owner review and deployed performance checks remain pending before merge.
 - Vehiserive includes a Motor Pool Management System summary; further details and personal-contribution claims remain owner-managed. Confirm its spelling.
 - Add verified live project URLs where available.
 - Confirm remaining content claims and review project slugs; project file labels are now distinct.
@@ -68,9 +67,11 @@ Set `SITE_URL` to the full deployed origin, including `https://`, in your hostin
 
 ## Project galleries
 
-Place approved captures under `public/projects/` and add a `screenshots` array to the matching project in `src/data/projects.ts`. Each entry has `src` (public URL), `title` (visible caption), `alt` (descriptive alternative text), `width`, and `height` (actual image dimensions). The first entry becomes the cover. Keep the array absent until real assets are available; three explicitly labelled placeholder slots appear automatically.
+Current captures live under `public/Dental-Clinic/`, `public/Ramen-Makimura/`, `public/Vehiserve/`, and `public/Shop.Co/`. Add a `screenshots` array to the matching project in `src/data/projects.ts`. Each entry has `src` (public URL), `title` (visible caption), `alt` (descriptive alternative text), `width`, and `height` (actual image dimensions). The first entry becomes the clickable cover. Keep the array absent until real assets are available; three explicitly labelled placeholder slots appear automatically.
 
 The gallery component loads on demand when Preview gallery is opened. It renders the current and adjacent screenshots, uses a native modal dialog, locks background scrolling, and restores focus on close. No new project outcomes or deliverables are invented from the layout references.
+
+Landscape covers retain their natural proportions. Gallery images use contain sizing, with side arrows on desktop, arrows below on mobile, horizontal screenshot selectors, and an Open full-size image link. On 2026-10-24, lint/build and local production browser checks passed for all 25 images and original-file links, including 390×440, 393×852, and 852×393 layouts. Physical Safari/pinch-zoom and deployed performance checks remain pending.
 
 Local production verification on 2026-10-23 passed at 320/390/768/1024/1440px in both themes, including keyboard boundaries, 44px project controls, reduced-motion navigation, modal focus cycling/return, and password reveal. Mouse-drag navigation was also checked. Physical touch devices and performance with real screenshots are still pending.
 

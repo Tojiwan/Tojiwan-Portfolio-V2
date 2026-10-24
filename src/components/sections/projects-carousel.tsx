@@ -69,9 +69,12 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                   <div          className                     = "projects-preview">
                   <div          className                     = "projects-previewFrame">
                   <div          className                     = "flex flex-wrap justify-between gap-2 border-b-2 border-black bg-(--panel) px-3 py-2 type-label uppercase">
-                  <span>Project preview</span><span className = "text-(--text-muted)">{project.screenshots?.length ? "01 / captures" : "Awaiting captures"}</span>
+                  <span>Project preview</span><span className = "text-(--text-muted)">{project.screenshots?.length ? `01 / ${String(project.screenshots.length).padStart(2, "0")}` : "Awaiting captures"}</span>
                       </div>
-                      <ProjectScreenshot key = {project.screenshots?.[0]?.src ?? project.slug} image = {project.screenshots?.[0] ?? placeholderScreenshots[0]} project = {project.title} />
+                      <button type="button" className="projects-coverButton" aria-label={`Open ${project.title} screenshot gallery`} aria-haspopup="dialog"
+                        onClick={(event) => { opener.current = event.currentTarget; setGallery(project); }}>
+                        <ProjectScreenshot key = {project.screenshots?.[0]?.src ?? project.slug} image = {project.screenshots?.[0] ?? placeholderScreenshots[0]} project = {project.title} />
+                      </button>
                     </div>
                     <div className = "mt-8 border-t border-(--line-muted) pt-4">
                     <h4  className = "type-label uppercase">Key deliverables</h4>

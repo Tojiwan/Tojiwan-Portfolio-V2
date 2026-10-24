@@ -14,7 +14,8 @@ export function ProjectScreenshot({ image, project, gallery = false }: {
   const [failed, setFailed] = useState(false);
 
   return (
-    <div className={gallery ? "projects-galleryImage" : "projects-coverImage"}>
+    <div className={gallery ? "projects-galleryImage" : "projects-coverImage"}
+      style={!gallery && image.src ? { aspectRatio: `${image.width} / ${image.height}` } : undefined}>
       {image.src && !failed ? (
         <Image
           src={image.src}

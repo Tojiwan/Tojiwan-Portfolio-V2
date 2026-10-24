@@ -47,7 +47,7 @@ async (page, url = "http://localhost:3025") => {
 
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    const trigger = page.getByRole("button", { name: "Preview gallery", exact: true });
+    const trigger = page.getByRole("button", { name: "Gallery", exact: true });
     await trigger.click();
     const dialog = page.locator("dialog[open]");
     await dialog.waitFor();
@@ -66,6 +66,32 @@ async (page, url = "http://localhost:3025") => {
     check(await trigger.evaluate((el) => el === document.activeElement), "Focus did not return to Preview");
     check(await page.evaluate(() => document.body.style.overflow !== "hidden"), "Scroll lock not restored");
   }
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  for (const [project, count] of [["Shop.Co", 5], ["Ramen Makimura Website", 9], ["Vehiserive", 4], ["Dental Clinic Management System", 7]]) {
+    await page.getByRole("navigation", { name: "Choose a project" }).getByRole("button", { name: new RegExp(project.replaceAll(".", "\\.")) }).click();
+    const cover = page.getByRole("button", { name: `Open ${project} screenshot gallery`, exact: true });
+    await cover.click();
+    const dialog = page.locator("dialog[open]");
+    await dialog.waitFor();
+    const selectors = dialog.getByRole("navigation", { name: "Choose a screenshot" }).getByRole("button");
+    check(await selectors.count() === count, `Wrong image count for ${project}`);
+    for (let i = 0; i < count; i++) {
+      await selectors.nth(i).click();
+      await page.waitForFunction(() => {
+        const image = document.querySelector("dialog .swiper-slide-active img");
+        return image?.complete && image.naturalWidth > 0;
+      });
+      const image = dialog.locator(".swiper-slide-active img");
+      check(!!await image.getAttribute("alt"), "Missing image alt text");
+      check(await image.evaluate((el) => getComputedStyle(el).objectFit === "contain"), "Gallery crops screenshot");
+      const href = await dialog.getByRole("link", { name: /Open full-size image/ }).getAttribute("href");
+      const response = await page.request.get(new URL(href, url).href);
+      check(response.ok() && response.headers()["content-type"].startsWith("image/"), `Broken original image: ${href}`);
+    }
+    await page.keyboard.press("Escape");
+    await page.locator("dialog").waitFor({ state: "detached" });
+    check(await cover.evaluate((el) => el === document.activeElement), "Cover focus did not return");
+  }
   check(errors.length === 0, errors.join("\n"));
-  return "PASS: layouts, targets, keyboard navigation, boundaries, password, modal focus and scroll lock";
+  return "PASS: layouts, targets, keyboard navigation, password, modal focus, scroll lock, and all 25 real screenshots";
 }
