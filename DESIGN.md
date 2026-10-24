@@ -248,7 +248,14 @@ Square geometry with zero border radius — every corner is a right angle (`roun
 - **Variants:** standard (theme-aware via `bg-white` alias) and forced-dark (`#0b0f14` body, `#e6edf3` text, `#2a3340` hairlines) for terminal-true content.
 - **Hero windows** run their own franchised tokens (darker cards, hotter cyan, IBM Plex labels) — keep changes inside that franchise.
 
-### Navigation
+### Project terminals (2026-10-23 branch redesign)
+- One full-width project terminal is visible at a time. At 1024px+, information occupies the left 7/12 and preview the right 5/12; smaller screens follow title/description/focus, preview, actions/access, then technologies.
+- Project titles use Courier Prime 700 at `clamp(1.875rem, 3.5vw, 3rem)` (30–48px), a section-specific display role for the larger reference layout.
+- Named project buttons, previous/next controls, and a counter drive Swiper React without autoplay or looping. Inactive project slides are inert. Arrow/Home/End navigation is scoped to the focused carousel.
+- Preview opens a separate native dialog with manual screenshot navigation, focus cycling/return, Escape close, and scroll locking. Static cover previews avoid nested swipe areas. Placeholder slots are explicitly labelled, never presented as real work.
+- Traffic-light colors retain the documented TerminalWindow exception. Styles are scoped with the `projects-` prefix in `src/components/sections/projects.css`.
+
+### Site navigation
 - **Header:** 64px sticky chrome strip, 2px ink bottom border. Logo = 40px robot-terminal mark + "Tojiwan" wordmark + 10px uppercase sub-line.
 - **Links:** RollingLink — label copies roll vertically (out rises 100%, incoming drops from −100%), 0.3s `cubic-bezier(0.338, 0.015, 0.395, 0.959)`, suspended entirely under reduced motion; external links always `_blank` + `noopener noreferrer`.
 - **Actions:** "Get in touch" primary slab; 44×44 square theme toggle (cross-rotating Sun/Moon icons, 16px, aria-pressed, persists via `localStorage["tojiwan-theme"]` + pre-paint script).
