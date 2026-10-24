@@ -9,6 +9,7 @@ Updated: 2026-10-24. Full completion and verification checklist: `checklist.md`.
 - [x] Match the reference gallery: desktop side arrows, mobile controls below the image, horizontal screenshot selectors, clickable covers, and full-size image access.
 - [x] Fit landscape covers naturally on mobile and contain gallery images without cropping.
 - [x] Verify every optimized screenshot and original-file link, navigation, modal focus/scroll lock, and both themes. Local production checks passed at 320–1440px, plus 390×440, 393×852, and 852×393 on 2026-10-24.
+- [x] Fix dev-only gallery auto-close: StrictMode effect replay fired `close()` and unmounted the modal. Dialog now survives replay and both entry points verified on dev (2026-10-24).
 - [x] Lint and production build pass; `scripts/check-projects.mjs` now covers all 25 screenshots. Browser console has only the expected local Speed Insights 404; no JavaScript runtime errors observed.
 - [ ] Owner screenshot/caption review, physical iPhone/Safari swiping and full-size zoom, and deployed performance measurement with real assets before merge.
 

@@ -21,9 +21,10 @@ export default function ProjectGallery({ project, onClose }: { project: Project;
   useEffect(() => {
     const element = dialog.current!;
     const overflow = document.body.style.overflow;
-    element.showModal();
+    if (!element.open) element.showModal();
     document.body.style.overflow = "hidden";
-    return () => { element.close(); document.body.style.overflow = overflow; };
+    // No element.close() here: during StrictMode effect replay it fires onClose and unmounts the gallery before the replay.
+    return () => { document.body.style.overflow = overflow; };
   }, []);
 
   useEffect(() => {

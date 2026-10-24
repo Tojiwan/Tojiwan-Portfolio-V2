@@ -9,7 +9,7 @@ and deployment are not verified unless explicitly noted. See `TO-DO.md` for work
 - [x] Owner approved the `projects-terminal/` reference layouts: information left, preview right on desktop; stacked mobile layout.
 - [x] Owner approved one project at a time plus a separate gallery modal, Swiper React, no autoplay/loop, and labelled placeholders pending assets.
 - [x] Implement project navigation, large terminal layout, and placeholder covers.
-- [x] Implement modal screenshot navigation, Escape/close, focus trapping/return, and background scroll locking.
+- [x] Implement modal screenshot navigation, Escape/close, focus trapping/return, and background scroll locking (gallery now also stays open through dev StrictMode effect replay; Escape still closes, 2026-10-24).
 - [x] Verify keyboard navigation, mouse drag, 44px project targets, inactive slides, reduced motion, both themes, and 320–1440px layouts (2026-10-23).
 - [x] Run lint/build and local production browser checks; reusable self-check at `scripts/check-projects.mjs`.
 - [ ] Check physical-device swiping and performance after adding real screenshots.
