@@ -60,6 +60,9 @@ export const projects: Project[] = [
     slug        : "n8n-slug",
     file        : "facebook_rag.n8n",
     title       : "Facebook RAG Chatbot",
+    screenshots: [
+      { src: "/Facebook-RAG-Agent/facebook-RAG-Chatbot.png", title: "Messenger AI workflow", alt: "n8n Facebook Messenger workflow with webhook routing, an AI agent, chat memory, and connected tools", width: 1874, height: 931 },
+    ],
     focus       : "AI integration and RAG workflows",
     deliverables: [
       "Facebook page integration through the Meta API",
@@ -69,13 +72,16 @@ export const projects: Project[] = [
     category   : "AI Chatbot",
     status     : "Company Project",
     description: 
-      "An n8n workflow that answers questions on a company Facebook page using company information and AI-generated replies. It connects the Meta API, OpenAI, and Supabase to support automated conversations.",
+      "Contributed to building an n8n workflow for a company Facebook page, helping connect the Meta API, OpenAI, and Supabase to support AI-generated replies based on company information.",
     stack: ["JavaScript", "n8n", "Meta API", "Custom API", "Supabase", "PostgreSQL", "OpenAI API"],
   },
   {
     slug        : "budget-tracker-slug",
     file        : "budget_tracker.n8n",
     title       : "Telegram Budget Tracker",
+    screenshots: [
+      { src: "/Telegram-Budget-Tracker/telegram-budget-tracker.png", title: "Budget tracking workflow", alt: "n8n Telegram workflow routing budget, spending, balance, and expense updates through Google Sheets and bot replies", width: 1875, height: 939 },
+    ],
     focus       : "Telegram integration and n8n workflows",
     deliverables: [
       "Expense logging through Telegram conversations",
@@ -92,6 +98,9 @@ export const projects: Project[] = [
     slug        : "one-pampanga-chatbot-slug",
     file        : "pampanga_rag.php",
     title       : "One Pampanga RAG Chatbot",
+    screenshots: [
+      { src: "/One-Pampanga-RAG-Chatbot/one-pampanga-bot.png", title: "One Pampanga chatbot workflow", alt: "n8n One Pampanga chatbot workflow connecting a webhook and AI agent to OpenAI, Postgres memory, Supabase vector storage, and messaging tools", width: 1875, height: 929 },
+    ],
     focus       : "Business-specific RAG chatbots",
     deliverables: [
       "Laravel jobs using MySQL business data",
@@ -132,9 +141,9 @@ export const projects: Project[] = [
     stack: ["Nuxt.js", "Tailwind CSS", "Firebase Authentication", "TypeScript", "JavaScript"],
   },
   {
-    slug        : "vehiserive-slug",
+    slug        : "vehiserve-slug",
     file        : "motor_pool_system.php",
-    title       : "Vehiserive",
+    title       : "Vehiserve",
     screenshots: [
       { src: "/Vehiserve/home-page.png", title: "Motor pool overview", alt: "Vehiserve management overview with request actions and vehicle selection", width: 1864, height: 932 },
       { src: "/Vehiserve/calendar-page.png", title: "Vehicle calendar", alt: "Monthly vehicle calendar showing available dates", width: 1873, height: 929 },
@@ -175,7 +184,7 @@ export const projects: Project[] = [
     category   : "Web Development",
     status     : "Web Application",
     description:
-      "A web-based dental clinic management system for managing patients, appointments, and dental records across clinic branches. It brings interactive dental charting, digital forms, patient accounts, and dashboards with branch and timeframe filters into one application, aiming to replace paper records and manual appointment tracking.",
+      "Contributed to building a web-based dental clinic management system for patients, appointments, and dental records across multiple branches. Helped develop features including interactive dental charting, digital forms, patient accounts, and dashboards to support day-to-day clinic operations.",
     stack: ["Laravel 12", "PHP", "Livewire", "Laravel Backpack", "MySQL"],
   },
 ];

@@ -43,7 +43,7 @@ Confirmed functionality:
 Constraints and explicitly undecided facts:
 
 - Real project screenshots await owner input; the Projects branch includes an accessible gallery with explicitly labelled placeholder slots.
-- Vehiserive details are owner-managed and deferred (spelling of the name also unconfirmed).
+- Vehiserve details are owner-managed and deferred (spelling confirmed by the owner on 2026-10-28).
 - Live URLs beyond the Shop.Co demo are unverified; add only verified links.
 - Production `SITE_URL` value is not yet recorded.
 - Vercel Speed Insights is mounted but data collection has not been verified in production.
@@ -62,7 +62,7 @@ Binding by owner decision (preserved verbatim, not expanded):
 
 ## Evidence on Hand
 
-- Six real projects in `src/data/projects.ts`: Shop.Co (live Shopify demo + public demo password + Figma design credit), Facebook RAG Chatbot and One Pampanga RAG Chatbot (company project, on hold), Telegram Budget Tracker, Ramen Makimura Website (internship contribution), Vehiserive (DHVSU capstone).
+- Seven real projects in `src/data/projects.ts`: Shop.Co (live Shopify demo + public demo password + Figma design credit), Facebook RAG Chatbot and One Pampanga RAG Chatbot, Telegram Budget Tracker, Ramen Makimura Website (internship contribution), Vehiserve (DHVSU capstone), and Dental Clinic Management System.
 - Real experience records in `src/data/skills.ts`: Freelance Shopify Developer (Jan–Apr 2026); Tigernethost OPC (Web Developer & AI Automation Specialist, Jun–Dec 2025); Tigernethost OPC internship (Feb–May 2025).
 - CV PDF: `public/files/Peralta, Jake Andrei R. (RESUME).pdf`.
 - Five real portraits: `public/Profile_Avatar/pfp-*_result.webp`.

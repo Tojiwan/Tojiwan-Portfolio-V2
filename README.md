@@ -57,8 +57,8 @@ Set `SITE_URL` to the full deployed origin, including `https://`, in your hostin
 
 ## Remaining work
 
-- Projects redesign is implemented on `projects-section-slider`: one large terminal at a time, information left / preview right on desktop, and a separate screenshot-gallery modal. Swiper React provides manual navigation without autoplay or looping. Dental Clinic, Ramen Makimura, Vehiserve, and Shop.Co now use 25 supplied screenshots; the three remaining projects retain labelled placeholders. Owner review and deployed performance checks remain pending before merge.
-- Vehiserive includes a Motor Pool Management System summary; further details and personal-contribution claims remain owner-managed. Confirm its spelling.
+- Projects use one large terminal at a time, information left / preview right on desktop, and a separate screenshot-gallery modal. Swiper React provides manual navigation without autoplay or looping. All seven projects now use 28 supplied screenshots, including the three n8n workflow captures added on 2026-10-28. Physical-device review and deployed performance checks remain pending.
+- Vehiserve includes a Motor Pool Management System summary; further details and personal-contribution claims remain owner-managed. Spelling confirmed by the owner on 2026-10-28.
 - Add verified live project URLs where available.
 - Confirm remaining content claims and review project slugs; project file labels are now distinct.
 - Investigate the mobile LCP delay and unused JavaScript reported by PageSpeed Insights; verify whether inactive portraits can be deferred further.
@@ -67,7 +67,7 @@ Set `SITE_URL` to the full deployed origin, including `https://`, in your hostin
 
 ## Project galleries
 
-Current captures live under `public/Dental-Clinic/`, `public/Ramen-Makimura/`, `public/Vehiserve/`, and `public/Shop.Co/`. Add a `screenshots` array to the matching project in `src/data/projects.ts`. Each entry has `src` (public URL), `title` (visible caption), `alt` (descriptive alternative text), `width`, and `height` (actual image dimensions). The first entry becomes the clickable cover. Keep the array absent until real assets are available; three explicitly labelled placeholder slots appear automatically.
+Current captures live under `public/Dental-Clinic/`, `public/Ramen-Makimura/`, `public/Vehiserve/`, `public/Shop.Co/`, `public/Facebook-RAG-Agent/`, `public/One-Pampanga-RAG-Chatbot/`, and `public/Telegram-Budget-Tracker/`. Add a `screenshots` array to the matching project in `src/data/projects.ts`. Each entry has `src` (public URL), `title` (visible caption), `alt` (descriptive alternative text), `width`, and `height` (actual image dimensions). The first entry becomes the clickable cover. Keep the array absent until real assets are available; three explicitly labelled placeholder slots appear automatically.
 
 The gallery component loads on demand when Preview gallery is opened. It renders the current and adjacent screenshots, uses a native modal dialog, locks background scrolling, and restores focus on close. No new project outcomes or deliverables are invented from the layout references.
 

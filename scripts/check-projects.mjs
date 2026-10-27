@@ -67,7 +67,7 @@ async (page, url = "http://localhost:3025") => {
     check(await page.evaluate(() => document.body.style.overflow !== "hidden"), "Scroll lock not restored");
   }
   await page.setViewportSize({ width: 1440, height: 1000 });
-  for (const [project, count] of [["Shop.Co", 5], ["Ramen Makimura Website", 9], ["Vehiserive", 4], ["Dental Clinic Management System", 7]]) {
+  for (const [project, count] of [["Shop.Co", 5], ["Facebook RAG Chatbot", 1], ["Telegram Budget Tracker", 1], ["One Pampanga RAG Chatbot", 1], ["Ramen Makimura Website", 9], ["Vehiserve", 4], ["Dental Clinic Management System", 7]]) {
     await page.getByRole("navigation", { name: "Choose a project" }).getByRole("button", { name: new RegExp(project.replaceAll(".", "\\.")) }).click();
     const cover = page.getByRole("button", { name: `Open ${project} screenshot gallery`, exact: true });
     await cover.click();
@@ -93,5 +93,5 @@ async (page, url = "http://localhost:3025") => {
     check(await cover.evaluate((el) => el === document.activeElement), "Cover focus did not return");
   }
   check(errors.length === 0, errors.join("\n"));
-  return "PASS: layouts, targets, keyboard navigation, password, modal focus, scroll lock, and all 25 real screenshots";
+  return "PASS: layouts, targets, keyboard navigation, password, modal focus, scroll lock, and all 28 real screenshots";
 }

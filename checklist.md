@@ -1,10 +1,14 @@
 # Portfolio Checklist — Done + Remaining
 
-Updated: 2026-10-24. Historical verification dates are retained below.
+Updated: 2026-10-28. Historical verification dates are retained below.
 Implementation status is based on source review. Content accuracy, browser behavior,
 and deployment are not verified unless explicitly noted. See `TO-DO.md` for work order.
 
 ## Active — Projects & Contributions redesign
+
+- [x] Lint, production build, and expanded browser self-check pass for all 28 screenshots and original-file links (2026-10-28).
+
+- [x] Connect the Facebook RAG Chatbot, Telegram Budget Tracker, and One Pampanga RAG Chatbot workflow screenshots with captions, alt text, and measured dimensions (2026-10-28). All seven projects now have real covers and galleries: 28 screenshots total.
 
 - [x] Owner approved the `projects-terminal/` reference layouts: information left, preview right on desktop; stacked mobile layout.
 - [x] Owner approved one project at a time plus a separate gallery modal, Swiper React, no autoplay/loop, and labelled placeholders pending assets.
@@ -46,12 +50,14 @@ and deployment are not verified unless explicitly noted. See `TO-DO.md` for work
 ## Remaining — Launch priorities
 
 ### 1. Project evidence and final content
-Real screenshots for four projects are connected; remaining automation/chatbot captures and further Vehiserive details await owner input.
+- [x] Revise Dental Clinic and Facebook RAG Chatbot descriptions to emphasize contributions and helping build the projects; omit discontinued-status wording from public copy per owner preference (2026-10-28).
+Real screenshots for all seven projects are connected; further Vehiserve details await owner input.
 - [x] Use owner-supplied assets in `public/Dental-Clinic/`, `public/Ramen-Makimura/`, `public/Vehiserve/`, and `public/Shop.Co/`, with captions and descriptive alt text.
 - [x] Replace gallery placeholders for the four supplied project sets.
-- [ ] Supply assets for the three remaining automation/chatbot projects.
+- [x] Supply and connect assets for all three automation/chatbot projects (2026-10-28).
 - [ ] Add verified live URLs where available; source links are optional and should appear only when provided.
-- [ ] Expand Vehiserive with its purpose, features, and personal contribution; confirm its spelling.
+- [x] Correct project name and slug to Vehiserve (owner confirmed, 2026-10-28).
+- [ ] Expand Vehiserve with its purpose, features, and personal contribution.
 - [ ] Review repeated project filenames and placeholder-like slug names.
 - [ ] Confirm skills, role titles, dates, company/project descriptions, availability, and service scope with the owner.
 - [x] Replace generic About copy with personalized introduction and AI-tool usage.

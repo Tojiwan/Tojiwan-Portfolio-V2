@@ -1,8 +1,12 @@
 # To Do — Prioritized Work Order
 
-Updated: 2026-10-24. Full completion and verification checklist: `checklist.md`.
+Updated: 2026-10-28. Full completion and verification checklist: `checklist.md`.
 
 ## Current task — Real project screenshot galleries
+
+- [x] Lint, production build, and expanded browser self-check pass for all 28 screenshots and original-file links (2026-10-28).
+
+- [x] Connect the three supplied n8n workflow captures for Facebook RAG Chatbot, Telegram Budget Tracker, and One Pampanga RAG Chatbot as covers/gallery images with captions, alt text, and measured dimensions (2026-10-28). All seven projects now have real screenshots: 28 total.
 
 - [x] Inspect supplied Dental Clinic (7), Ramen Makimura (9), Vehiserve (4), and Shop.Co (5) captures and read actual dimensions.
 - [x] Connect all 25 images with captions, alt text, measured dimensions, and cover ordering.
@@ -27,7 +31,9 @@ Updated: 2026-10-24. Full completion and verification checklist: `checklist.md`.
 
 ## Latest implementation update
 
-- Four project galleries now use supplied screenshots: Dental Clinic, Ramen Makimura, Vehiserve, and Shop.Co. The three automation/chatbot projects still use labelled placeholders; further Vehiserive contribution details remain owner-managed.
+- Owner confirmed Dental Clinic Management System and Facebook RAG Chatbot are discontinued; public descriptions focus on contributions and helping build the projects, per owner preference (2026-10-28).
+
+- All seven project galleries now use supplied screenshots; further Vehiserve contribution details remain owner-managed. Owner confirmed the spelling “Vehiserve” on 2026-10-28.
 - Owner confirmed the current CV. Hero cycles through all five supplied portraits in the left preview panel, starting with pfp-1, on mouse hover or click/tap/keyboard activation.
 - Timezone wording is clarified as UTC+8 (Philippine Time).
 - Theme palette/focus/shared shadows, header sizing, About tab keyboard support, and mobile-menu Escape behavior are implemented.
@@ -42,9 +48,10 @@ Updated: 2026-10-24. Full completion and verification checklist: `checklist.md`.
 ## Project evidence — supplied assets connected; remaining content
 
 - [x] Connect supplied screenshots for four projects, with descriptive captions and alt text.
-- [ ] Supply screenshots for Facebook RAG Chatbot, Telegram Budget Tracker, and One Pampanga RAG Chatbot, plus any further verified demo URLs.
+- [x] Supply and connect screenshots for Facebook RAG Chatbot, Telegram Budget Tracker, and One Pampanga RAG Chatbot.
+- [ ] Supply any further verified demo URLs.
 - [x] Keep demo/design links conditional on their corresponding URLs; `liveUrl` is no longer part of the project model.
-- [ ] Expand Vehiserive's summary and verify project names, contribution details, and repeated file labels.
+- [ ] Expand Vehiserve's summary and verify contribution details and repeated file labels.
 - [x] Provide the main hero portrait and confirm the current CV.
 - [x] Add Shop.Co demo access, password reveal, and original Figma design credit.
 
@@ -99,4 +106,4 @@ Updated: 2026-10-24. Full completion and verification checklist: `checklist.md`.
 1. Review the site in both themes at mobile/tablet/desktop widths (see README).
 2. Confirm portrait selection/crop and footer styling.
 3. Supply the Education ASCII reference location if a different design is wanted.
-4. Review the four populated galleries; supply remaining automation/chatbot screenshots and further Vehiserve contribution details when ready.
+4. Review all seven populated galleries and supply further Vehiserve contribution details when ready.
