@@ -21,7 +21,9 @@ and deployment are not verified unless explicitly noted. See `TO-DO.md` for work
 - [x] Match gallery reference with desktop side arrows, mobile horizontal selectors, uncropped images, clickable covers, and full-size links.
 - [x] Local production checks on 2026-10-24: all 25 optimized images load; original-file links return images; keyboard navigation, focus cycling/return, and scroll locking pass. Both themes checked at 320–1440px and short/landscape 390×440, 393×852, 852×393 viewports. Lint/build pass.
 - [ ] Owner review of captions/screenshots and real-device Safari/full-size zoom testing before publishing.
-- [ ] Owner review on `projects-section-slider` before any push or merge.
+- [x] Owner review on `projects-section-slider` before any push or merge.
+- [ ] Change avart_preview.img design (about section), into like school id vibe design? this is for the Bio.md (about section). 
+- [ ] Add maybe a description after the "Education" on education.md (about section) that sumps up both of the grade 11-12 & college. Then use the same avatar_preview.img same with the bio.md
 
 ## Existing implementation
 
