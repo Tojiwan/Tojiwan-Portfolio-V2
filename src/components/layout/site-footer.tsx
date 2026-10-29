@@ -1,3 +1,5 @@
+import ScrambledText from "@/components/react-bits/ScrambledText";
+
 const COPYRIGHT_YEAR = 2026;
 
 const wordmark = `████████╗ ██████╗      ██╗██╗██╗    ██╗ █████╗ ███╗   ██╗
@@ -14,10 +16,10 @@ return (
     <div    className = "mx-auto grid max-w-[1280px] gap-8 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.65fr)_minmax(0,1.2fr)_minmax(0,1.8fr)]">
         <div>
             <p className = "font-display text-sm font-bold text-black">TOJIWAN</p>
-            <p className = "mt-1 font-mono text-xs leading-5 text-(--text-muted)">
+            <ScrambledText className = "mt-1 font-mono text-xs leading-5 text-(--text-muted)">
                 Jake Andrei R. Peralta. Web development, Shopify storefronts,
                 and automation from Pampanga, Philippines.
-            </p>
+            </ScrambledText>
             <p className = "type-label mt-2 inline-block text-(--accent-strong) uppercase">
                 Status: Open to work
             </p>

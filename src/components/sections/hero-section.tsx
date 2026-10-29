@@ -4,6 +4,7 @@ import { TechBadge }                                 from "@/components/ui/tech-
 import { Reveal }                                    from "@/components/ui/reveal";
 import { HeroPortrait }                              from "@/components/sections/hero-portrait";
 import { HeroHeading } from "./hero-heading";
+import ScrambledText from "@/components/react-bits/ScrambledText";
 
 export function HeroSection() {
   return (
@@ -23,10 +24,10 @@ export function HeroSection() {
             <TechBadge label     = "Shopify" />
             <TechBadge label     = "AI Automation" />
             </div>
-            <p className = "hero-description">
+            <ScrambledText className = "hero-description">
               I build responsive websites, high-converting Shopify storefronts,
               and smart automations that make everyday work easier.
-            </p>
+            </ScrambledText>
             <div        className = "hero-actions">
             <ActionLink href      = "#projects">View Projects <ArrowUpRight size = {18} aria-hidden     = "true" /></ActionLink>
             <ActionLink href      = "/files/Jake-Peralta-Resume.pdf" variant     = "secondary" download = "Jake-Peralta-Resume.pdf">

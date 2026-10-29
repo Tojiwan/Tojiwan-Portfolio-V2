@@ -57,6 +57,14 @@ Set `SITE_URL` to the full deployed origin, including `https://`, in your hostin
 
 ## Interactive background
 
+The TOJIWAN intro uses a top-down pixel scan followed by scattered dissolution and an overlay fade. It holds for at least 1.1 seconds, then dissolves for 450ms and fades for 240ms; the four-second asset timeout is unchanged. The loading bar still reflects real successful asset readiness, not the animation clock.
+
+Intro progress counts successful assets only: all four required font faces must be loaded for the font milestone, and the hero image must decode with valid dimensions. Errors or the four-second timeout allow exit without forcing the bar full. Failure-path regression checks: `scripts/check-intro-progress.mjs` (port 3032).
+
+Page intro (2026-10-30): a pixel TOJIWAN wordmark and segmented loading bar appear once per tab session. The bar tracks font and hero-image readiness, with a four-second maximum wait. Text and entrance animations wait for the overlay to exit. Reduced motion skips it, and the overlay is hidden without JavaScript. Use a fresh tab session or clear `tojiwan-intro-seen` in session storage to replay it. Test with `scripts/check-page-intro.mjs` on port 3031.
+
+Long-description animation (2026-10-29): a local scramble-only adaptation of React Bits ScrambledText adds a first-visible decode, pointer scramble, and click wave to hero, About/Education, project, and experience copy. It reuses GSAP and its SplitText/ScrambleText plugins, inherits existing typography, and disables effects under reduced motion. Check with `scripts/check-scrambled-text.mjs` on port 3031.
+
 Heading animation update (2026-10-29): section headings, project titles, skill-group titles, and About/Education panel headings reuse TextType with the hero's fade and gliding bar cursor. They type once on first visibility, keep their fonts/colors, and reserve final text space. About tabs retain animation state; reduced motion shows full text without typing.
 
 React Bits CursorGrid is copied locally into `src/components/react-bits/` (JavaScript + CSS; upstream license included). It requires no additional package. `src/components/layout/site-background.jsx` supplies theme colors and the 34px grid settings. A fixed viewport-sized canvas sits behind the content without intercepting input; reduced motion and missing/lost WebGL use the static CSS grid. Ambient and intro animations are off, pixel ratio is capped at 1.5, and drawing pauses when idle or hidden.

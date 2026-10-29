@@ -11,6 +11,7 @@ import { placeholderScreenshots, type Project }               from "@/data/proje
 import { DemoPassword }                                       from "@/components/ui/demo-password";
 import { TechBadge }                                          from "@/components/ui/tech-badge";
 import { TypedHeading } from "@/components/ui/typed-heading";
+import ScrambledText from "@/components/react-bits/ScrambledText";
 import { ProjectScreenshot }                                  from "./project-screenshot";
 import "./projects.css";
 import "swiper/css";
@@ -58,7 +59,7 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                 <div className = "projects-summary">
                 <p   className = "type-label w-fit border border-(--accent-strong) px-2 py-1 text-(--accent-strong) uppercase">{project.category}</p>
                 <h3  id        = {`project-${project.slug}`} className = "projects-projectTitle"><TypedHeading text={project.title} /></h3>
-                <p   className = "type-body mt-4">{project.description}</p>
+                <ScrambledText className="type-body mt-4">{project.description}</ScrambledText>
                 <dl  className = "projects-focus">
                 <dt  className = "type-label text-(--text-muted) uppercase">Focus</dt>
                 <dd  className = "mt-2 text-sm leading-6 font-bold">{project.focus}</dd>

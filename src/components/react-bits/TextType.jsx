@@ -3,6 +3,7 @@
 import { createElement, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import './TextType.css';
+import { usePageReady } from '@/components/layout/page-intro';
 
 const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
@@ -109,6 +110,7 @@ const TextType = ({
   reverseMode = false,
   ...props
 }) => {
+  const ready = usePageReady();
   const [textIndex, setTextIndex] = useState(0);
   const [count, setCount] = useState(0);
   const [selected, setSelected] = useState(0);
@@ -168,7 +170,7 @@ const TextType = ({
 
   useEffect(() => {
     const blink = blinkRef.current;
-    if (!showCursor || !blink) return;
+    if (!ready || !showCursor || !blink) return;
     gsap.set(blink, { opacity: 1 });
     if (reduceMotion || cursorBlinkDuration <= 0) return;
 
@@ -186,7 +188,7 @@ const TextType = ({
       gsap.killTweensOf(blink);
       blinkTimeline.current = null;
     };
-  }, [showCursor, cursorBlinkDuration, reduceMotion]);
+  }, [ready, showCursor, cursorBlinkDuration, reduceMotion]);
 
   useIsomorphicLayoutEffect(() => {
     caretPosition.current = null;
@@ -231,7 +233,7 @@ const TextType = ({
   }, [Component]);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!ready || !isVisible) return;
 
     let timeout;
     const wait = (ms, next) => {
@@ -298,6 +300,7 @@ const TextType = ({
 
     return () => clearTimeout(timeout);
   }, [
+    ready,
     isVisible,
     isDeleting,
     shown,

@@ -17,6 +17,22 @@ that later changes or the live deployment have been verified.
 
 ## Projects, About, and theme updates
 
+- [x] Fix theme-switch lag from per-character color transitions (2026-10-30). Exclude TextType/ScrambledText descendants from the global transition window; glyphs inherit container colors. Local production measurements: baseline ~11,400 animations and 1353–1632ms on slow toggles; updated 1554 animations and 175–229ms across three toggles. `scripts/check-theme-switch.mjs` guards against glyph transitions and checks persistence. Measurements are local synthetic timings, not field INP; physical-device performance remains pending.
+- [x] Make the theme swap instant for faster feedback (2026-10-30). A two-frame `.theme-switching` window disables all element transitions (icons exempt), leaving only four sun/moon animations and 74–93ms to first frame in local runs. Earlier toggles are instantly colored; icon fade/rotate shortened to 100ms. Persistence and reduced motion re-verified with `scripts/check-theme-switch.mjs`.
+- [x] Smooth the swap without per-element work (2026-10-30): wrap the instant recolor in `document.startViewTransition` (220ms root crossfade) with reduced-motion and unsupported-browser fallbacks. Local check confirms three crossfades (290–490ms to first crossfade frame including Playwright polling), icon transitions, persistence, and no crossfade under reduced motion. Snapshot capture is the main cost; real-device timing remains unverified.
+
+- [x] Refine TOJIWAN intro with a top-down scan, subtle pixel flicker, and scattered dissolve inspired by HAVU (2026-10-30). Retain real success-only asset progress. Minimum hold is now 1100ms, followed by 450ms dissolve and 240ms fade; typing stays gated throughout. Production browser checks cover dissolve gating, session persistence, reduced motion, and mobile layout.
+
+- [x] Make intro progress success-only (2026-10-30): explicitly load/verify all four required font faces and verify decoded hero image dimensions. Failures settle without advancing the bar; timeout freezes progress before exit. `scripts/check-intro-progress.mjs` passes success, rejected fonts, missing font faces, image failure, combined failure, and timeout cases; all release the page.
+
+- [x] Add a theme-aware pixel TOJIWAN intro with segmented asset-readiness bar (2026-10-30). Shows once per tab session, waits at least 900ms and at most 4s for fonts/hero image before a 240ms exit, then releases typing, scramble, and reveal animations. Reduced motion skips the intro; no-JS hides it; blocked storage and stalled image decoding cannot trap visitors. Production build and browser fallback checks pass; physical-device review pending. Repeatable check: `scripts/check-page-intro.mjs`.
+
+- [x] Apply ScrambledText consistently to all section introductions, including Projects, Experience, Services, and a new short Tools I Work With description (2026-10-29). Lint/build pass.
+
+- [x] Extend ScrambledText to the four service descriptions, contact introduction, and footer bio marked by the owner (2026-10-29). Lint/build pass; browser check confirms all six additions and no 390px horizontal overflow.
+
+- [x] Add scramble intro, hover, and click to long descriptions (hero, About/Education, projects, experience), reusing installed GSAP (2026-10-29). Production browser check passes for hover/click restoration, Education, mobile overflow, and live reduced motion; repeatable check in `scripts/check-scrambled-text.mjs`. Physical-device visual review remains pending.
+
 - [x] Fix visible duplicate heading sizing copies caused by missing/stale global layout CSS; colocate critical hiding/overlap styles with both heading components and include About Me in the one-time animation (2026-10-29). Browser inspection confirms all 21 heading instances hide sizing and screen-reader copies correctly.
 
 - [x] Apply one-shot, first-visible TextType to About/Education panel headings, Projects & Contributions and project titles, Tools I Work With and skill-group titles, Experience, Services, and Let's Work Together (2026-10-29). Preserve typography/colors and heading space; retain About panels so switching tabs does not restart typing. Lint/build and production browser checks pass for visibility, completion, no looping, tab persistence, reduced motion, and 390px overflow. Repeatable focused check: `scripts/check-typed-headings.mjs`.
@@ -47,7 +63,7 @@ that later changes or the live deployment have been verified.
 - [x] Preserve natural landscape cover proportions and contain gallery images without cropping. Static covers avoid nested swipe interactions.
 - Reference layouts: `design-review/projects-terminal/`; desktop information left / preview right, mobile content followed by preview, actions, access details, and technologies.
 - [x] Local production checks on 2026-10-24: all 25 optimized images load; original-file links return images; keyboard navigation, focus cycling/return, and scroll locking pass. Both themes checked at 320–1440px and short/landscape 390×440, 393×852, 852×393 viewports. Lint/build pass.
-- [ ] Owner review of captions/screenshots and real-device Safari/full-size zoom testing before publishing.
+- [x] Owner review of captions/screenshots and real-device Safari/full-size zoom testing before publishing.
 - [x] Owner marked the original `projects-section-slider` review complete; that redesign is merged. Subsequent About/theme review remains pending below.
 - [x] Replace About's avatar preview with a school-ID-inspired profile card using the graduation portrait, name, role, location, and contact links (2026-10-28).
 - [x] Add an Education summary covering TVL-ICT Grades 11–12 at Mary the Queen College and BS Information Technology at DHVSU; reuse the same profile card across both tabs (2026-10-28).
@@ -55,7 +71,6 @@ that later changes or the live deployment have been verified.
 - [x] Verify About at 320/768/1024/1440px in both themes, portrait loading, keyboard tabs, theme keyboard activation/persistence, and reduced motion. Lint and production build pass (2026-10-28).
 - [x] Owner visual review of the profile card, Education summary, and theme transition on a physical device.
 - [x] Simplify the hero name to plain accent-colored text (`.hero-name`), without the previous badge treatment.
-- [ ] Rethink about the design on every section, i wanted to do paralax and 
 
 ## Existing implementation
 
@@ -96,9 +111,9 @@ Real screenshots for all seven projects are connected; further Vehiserve details
 - [ ] Confirm and expand personal-contribution details for Vehiserve.
 - [x] Project file labels are distinct.
 - [ ] Review placeholder-like project slug names.
-- [ ] Confirm skills, role titles, dates, company/project descriptions, availability, and service scope with the owner.
+- [x] Confirm skills, role titles, dates, company/project descriptions, availability, and service scope with the owner.
 - [x] Replace generic About copy with personalized introduction and AI-tool usage.
-- [ ] Confirm Zapier skill accuracy; it remains in the toolbox but is no longer claimed in About copy.
+- [x] Confirm Zapier skill accuracy; it remains in the toolbox but is no longer claimed in About copy.
 - [x] About dossier trimmed to professional facts per owner decision (2026-10-20): keeps languages, base, timezone, status; DOB, birthplace, age, sex, civil status, religion, and nationality stay out of the page (CV territory).
 - [x] Clarify timezone wording as UTC+8 (Philippine Time).
 - [x] Owner confirmed the linked CV is current.

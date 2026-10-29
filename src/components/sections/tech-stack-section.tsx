@@ -26,7 +26,6 @@ const skillIcons: Record<string, string> = {
   Supabase                : "supabase",
   "Shopify Liquid"        : "shopify",
   n8n                     : "n8n",
-  Zapier                  : "zapier",
   Git                     : "git",
   Postman                 : "postman",
   "Laravel Herd"          : "laravel-herd",
@@ -47,6 +46,7 @@ export function TechStackSection() {
         <SectionHeading
           kicker="Toolbox"
           title="Tools I Work With"
+          description="The tools I use to build websites, customize storefronts, and connect automated workflows."
         />
       </div>
       <Reveal className="mt-6">

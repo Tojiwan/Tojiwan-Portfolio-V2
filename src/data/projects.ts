@@ -184,7 +184,7 @@ export const projects: Project[] = [
     category   : "Web Development",
     status     : "Web Application",
     description:
-      "Contributed to building a web-based dental clinic management system for patients, appointments, and dental records across multiple branches. Helped develop features including interactive dental charting, digital forms, patient accounts, and dashboards to support day-to-day clinic operations.",
+      "Contributed to building a web-based dental clinic management system for patients, appointments, and dental records across multiple branches before the project was discontinued. Helped develop features including interactive dental charting, digital forms, patient accounts, and dashboards to support day-to-day clinic operations.",
     stack: ["Laravel 12", "PHP", "Livewire", "Laravel Backpack", "MySQL"],
   },
 ];

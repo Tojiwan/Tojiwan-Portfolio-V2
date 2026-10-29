@@ -4,12 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { Sun, Moon }                   from "lucide-react";
 
 const STORAGE_KEY = "tojiwan-theme";
-const SWITCH_MS   = 180;
 
 export function ThemeToggle() {
   // Matches the served render (light default) so hydration never mismatches.
   const [theme, setTheme] = useState<"dark" | "light">("light");
-  const switchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const frame = useRef(0);
 
   useEffect(() => {
     // One-time client sync after mount: pick up the stored theme the
@@ -18,29 +17,35 @@ export function ThemeToggle() {
     setTheme(
       document.documentElement.classList.contains("dark") ? "dark" : "light"
     );
-    return () => {
-      if (switchTimer.current) clearTimeout(switchTimer.current);
-    };
+    return () => cancelAnimationFrame(frame.current);
   }, []);
 
   const toggle = () => {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
     const root = document.documentElement;
-    // The class lets one CSS rule fade every surface for the length of a
-    // single swap; only toggles trigger it.
-    root.classList.add("theme-switching");
-    root.classList.toggle("dark", next === "dark");
-    try {
-      localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      // Storage unavailable (private mode) — theme still applies live.
+    const swap = () => {
+      // Suppress ambient transitions for the swap frame; icons keep their
+      // own short fade/rotate.
+      root.classList.add("theme-switching");
+      root.classList.toggle("dark", next === "dark");
+      cancelAnimationFrame(frame.current);
+      frame.current = requestAnimationFrame(() => {
+        frame.current = requestAnimationFrame(() => root.classList.remove("theme-switching"));
+      });
+      try {
+        localStorage.setItem(STORAGE_KEY, next);
+      } catch {
+        // Storage unavailable (private mode) — theme still applies live.
+      }
+    };
+    // Compositor crossfade of old/new snapshots: smooth without
+    // animating 12k nodes. Falls back to an instant swap.
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches && document.startViewTransition) {
+      document.startViewTransition(swap);
+    } else {
+      swap();
     }
-    if (switchTimer.current) clearTimeout(switchTimer.current);
-    switchTimer.current = setTimeout(
-      () => root.classList.remove("theme-switching"),
-      SWITCH_MS
-    );
   };
 
   // Both icons stay mounted and are shown by CSS via the root theme class,

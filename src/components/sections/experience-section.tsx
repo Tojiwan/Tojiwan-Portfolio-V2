@@ -1,4 +1,5 @@
 import { SectionHeading } from "@/components/ui/section-heading";
+import ScrambledText from "@/components/react-bits/ScrambledText";
 import { Reveal }         from "@/components/ui/reveal";
 import { experience }     from "@/data/skills";
 
@@ -29,7 +30,7 @@ export function ExperienceSection() {
                     {e.period}
                   </span>
                 </div>
-                <p className = "type-body mt-3 font-mono text-(--text)">{e.summary}</p>
+                <ScrambledText className="type-body mt-3 font-mono text-(--text)">{e.summary}</ScrambledText>
                 <p className = "type-label mt-3 min-w-0 text-(--text-muted)">
                   stack: {e.tags.join(" · ")}
                 </p>

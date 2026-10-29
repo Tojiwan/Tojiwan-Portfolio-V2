@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/ui/reveal";
 import { TypedHeading } from "@/components/ui/typed-heading";
+import ScrambledText from "@/components/react-bits/ScrambledText";
 
 export function SectionHeading({
   kicker,
@@ -31,7 +32,7 @@ export function SectionHeading({
             <TypedHeading text={title} />
           </h2>
           {description ? (
-            <p className="type-body mt-3 font-mono text-(--text-muted)">{description}</p>
+            <ScrambledText className="type-body mt-3 font-mono text-(--text-muted)">{description}</ScrambledText>
           ) : null}
         </div>
       </div>

@@ -231,8 +231,31 @@ h3 {
   body, header, footer, .brutal-panel, button, a, input, textarea {
     transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, translate 180ms ease, outline-color 180ms ease;
   }
+  /* Skip ambient recolour transitions for the single frame that swaps themes;
+     the sun/moon icons keep their short fade and rotate. */
+  .theme-switching,
+  .theme-switching * {
+    transition: none !important;
+  }
+  .theme-switching .theme-toggle-icon {
+    transition: opacity 100ms ease-out, rotate 100ms ease-out !important;
+  }
   .typewriter {
     animation: type-in 0.9s steps(15, end) both;
+  }
+}
+
+/* Theme crossfade uses browser view-transition snapshots, so the motion
+   runs off the main thread instead of on ~12k recoloring nodes. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+  animation-timing-function: ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
   }
 }
 
@@ -527,25 +550,12 @@ h3 {
 
 /* ==== Motion refinements ==== */
 
-/* Theme swap: ThemeToggle opens one bounded fade window so every surface
-   (including those with no ambient transition) recolors together. */
-@media (prefers-reduced-motion: no-preference) {
-  .theme-switching :where(body, header, footer, section, div, p, h1, h2, h3, span, a, button, input, textarea, li, dt, dd, img) {
-    transition:
-      background-color 180ms ease-out,
-      border-color 180ms ease-out,
-      color 180ms ease-out;
-  }
-}
-
-/* Theme toggle icons track the root theme class (right at first paint) and
-   cross-rotate on toggle via their own transition. This rule beats the
-   .theme-switching window by source order so the icons keep their spin. */
+/* Keep theme feedback on the small icons rather than animating the page. */
 .theme-toggle-icon {
   position: absolute;
   inset: 0;
   margin: auto;
-  transition: opacity 180ms ease-out, rotate 180ms ease-out;
+  transition: opacity 100ms ease-out, rotate 100ms ease-out;
 }
 :root.dark .theme-toggle-icon--sun,
 :root:not(.dark) .theme-toggle-icon--moon {

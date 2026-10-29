@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TypedHeading } from "@/components/ui/typed-heading";
+import ScrambledText from "@/components/react-bits/ScrambledText";
 import { Reveal }         from "@/components/ui/reveal";
 import { cn }             from "@/lib/utils";
 
@@ -111,23 +112,23 @@ export function AboutSection() {
                     <TypedHeading text="A little about me." />
                   </h3>
                   <div className = "type-body mt-3 space-y-4 font-mono text-(--text)">
-                    <p>
+                    <ScrambledText>
                       Hi! I&apos;m Jake Andrei Peralta, a web developer based in
                       Pampanga, Philippines.
-                    </p>
-                    <p>
+                    </ScrambledText>
+                    <ScrambledText>
                       I build websites, work on Shopify storefronts, and connect
                       tools through automation. I like figuring out how things
                       work and turning what I learn into something useful.
-                    </p>
-                    <p>
+                    </ScrambledText>
+                    <ScrambledText>
                       I also use AI tools like ChatGPT and OpenCode to explore
                       ideas, work through problems, and keep learning as I build.
-                    </p>
-                    <p>
+                    </ScrambledText>
+                    <ScrambledText>
                       Still learning, still building, and always looking for ways
                       to improve.
-                    </p>
+                    </ScrambledText>
                   </div>
                   <dl   className   = "mt-5 grid grid-cols-[max-content_minmax(0,1fr)] gap-x-3 gap-y-1 font-mono text-sm sm:gap-x-6">
                   <dt   className   = "type-label text-(--text-muted)">languages</dt>
@@ -149,20 +150,20 @@ export function AboutSection() {
                     <TypedHeading text="Education." />
                   </h3>
                   <div className="type-body mt-3 space-y-4 font-mono text-(--text)">
-                    <p>
+                    <ScrambledText>
                       My path into technology began with the TVL-ICT strand at
                       Mary the Queen College, where I completed Grades 11 and 12
                       from 2019 to 2021. I continued that direction at Don Honorio
                       Ventura State University, earning a Bachelor of Science in
                       Information Technology between 2021 and 2025.
-                    </p>
-                    <p>
+                    </ScrambledText>
+                    <ScrambledText>
                       From senior high school through college, that focus on ICT
                       and information technology formed the foundation for the
                       web development and automation work I pursue today. I keep
                       building on that foundation through hands-on projects and
                       continued learning.
-                    </p>
+                    </ScrambledText>
                   </div>
                   <ul  className = "mt-5 space-y-3">
                   <li  className = "border-2 border-black bg-(--surface-muted) p-3 shadow-[3px_3px_0_var(--shadow-color)]">
