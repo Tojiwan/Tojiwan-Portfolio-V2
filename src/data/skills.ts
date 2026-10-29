@@ -16,7 +16,7 @@ export const skillGroups: SkillGroup[] = [
     id         : "frameworks",
     title      : "Frameworks & Animation",
     description: "Component-based apps with smooth, purposeful motion.",
-    skills     : ["React", "Next.js", "Nuxt.js", "Motion (Framer Motion)"],
+    skills     : ["React", "Next.js", "Nuxt.js", "Motion (Framer Motion)", "React Bits"],
   },
   {
     id         : "backend",

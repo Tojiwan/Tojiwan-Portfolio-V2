@@ -19,6 +19,7 @@ const skillIcons: Record<string, string> = {
   "Next.js"               : "nextjs",
   "Nuxt.js"               : "nuxt",
   "Motion (Framer Motion)": "motion",
+  "React Bits"            : "react-bits",
   PHP                     : "php-mono",
   Laravel                 : "laravel",
   MySQL                   : "mysql-wordmark",
@@ -116,7 +117,7 @@ export function TechStackSection() {
                           alt=""
                           width={48}
                           height={48}
-                          className={`h-12 w-12 object-contain motion-safe:transition-transform motion-safe:group-hover:-translate-y-1 ${s === "Next.js" || s === "ChatGPT" || s === "OpenCode" ? "dark:invert" : s === "Motion (Framer Motion)" ? "brightness-50 dark:brightness-100" : s === "React" || s === "MySQL" ? "dark:brightness-150" : ""}`}
+                          className={`h-12 w-12 object-contain motion-safe:transition-transform motion-safe:group-hover:-translate-y-1 ${s === "React Bits" ? "invert dark:invert-0" : s === "Next.js" || s === "ChatGPT" || s === "OpenCode" ? "dark:invert" : s === "Motion (Framer Motion)" ? "brightness-50 dark:brightness-100" : s === "React" || s === "MySQL" ? "dark:brightness-150" : ""}`}
                         />
                       ) : (
                         // Data fallback: a skill added without an icon mapping

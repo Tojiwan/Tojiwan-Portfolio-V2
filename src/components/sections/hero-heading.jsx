@@ -4,10 +4,11 @@ import TextType from '@/components/react-bits/TextType';
 
 export function HeroHeading() {
   return (
-    <h1 id="hero-heading" className="hero-heading hero-heading-layout">
-      <span className="hero-heading-measure" aria-hidden="true">Hi, I&apos;m Tojiwan.</span>
+    <h1 id="hero-heading" className="hero-heading hero-heading-layout" style={{ display: 'grid' }}>
+      <span className="hero-heading-measure" aria-hidden="true" style={{ visibility: 'hidden', gridArea: '1 / 1', paddingRight: '.15em' }}>Hi, I&apos;m Tojiwan.</span>
       <TextType
         as="span"
+        style={{ gridArea: '1 / 1', paddingRight: '.15em' }}
         className="hero-typed-heading"
         text="Hi, I'm Tojiwan."
         typingSpeed={80}

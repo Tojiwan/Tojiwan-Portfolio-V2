@@ -190,7 +190,7 @@ The palette is a graphite paper-and-console set with exactly one accent family (
 
 ## Layout
 
-**Heading animation update (2026-10-29):** requested section headings, project titles, skill-group titles, and About/Education panel headings use the hero's 80ms-per-character TextType fade and accent bar cursor, once on first visibility. Fonts and text colors are inherited; final heading space is reserved. About panels stay mounted to avoid replay on tab switches. Reduced motion skips typing. The About Me section label remains static.
+**Heading animation update (2026-10-29):** requested section headings (including About Me), project titles, skill-group titles, and About/Education panel headings use the hero's 80ms-per-character TextType fade and accent bar cursor, once on first visibility. Fonts and text colors are inherited; final heading space is reserved. About panels stay mounted to avoid replay on tab switches. Reduced motion skips typing. Critical sizing-copy hiding and grid overlap styles live on the components so stale global CSS cannot expose duplicate headings.
 
 **Background update (2026-10-28):** the owner approved replacing the static page grid with React Bits CursorGrid: 34px cells, cyan highlights, 90px cursor radius, click pulses, theme-aware neutral grid lines at 0.29 opacity, and a fixed viewport-sized canvas behind all content. Static 34px CSS grid is retained for reduced motion and unavailable/lost WebGL. No intro or ambient animation; idle/hidden rendering pauses. This supersedes the older 20px background specification below.
 

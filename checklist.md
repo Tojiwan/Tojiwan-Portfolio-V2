@@ -17,6 +17,8 @@ that later changes or the live deployment have been verified.
 
 ## Projects, About, and theme updates
 
+- [x] Fix visible duplicate heading sizing copies caused by missing/stale global layout CSS; colocate critical hiding/overlap styles with both heading components and include About Me in the one-time animation (2026-10-29). Browser inspection confirms all 21 heading instances hide sizing and screen-reader copies correctly.
+
 - [x] Apply one-shot, first-visible TextType to About/Education panel headings, Projects & Contributions and project titles, Tools I Work With and skill-group titles, Experience, Services, and Let's Work Together (2026-10-29). Preserve typography/colors and heading space; retain About panels so switching tabs does not restart typing. Lint/build and production browser checks pass for visibility, completion, no looping, tab persistence, reduced motion, and 390px overflow. Repeatable focused check: `scripts/check-typed-headings.mjs`.
 
 - [x] Integrate React Bits CursorGrid as a fixed whole-page background, with 34px cells, cyan highlights, click pulses, and theme-aware grid colors. No added dependencies; source and license are local (2026-10-28).

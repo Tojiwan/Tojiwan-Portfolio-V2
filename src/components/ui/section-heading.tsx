@@ -28,7 +28,7 @@ export function SectionHeading({
         </div>
         <div className={cn("max-w-2xl", align === "center" && "mx-auto text-center")}>
           <h2 className="type-headline mt-4 font-display text-black">
-            {title === "About Me" ? title : <TypedHeading text={title} />}
+            <TypedHeading text={title} />
           </h2>
           {description ? (
             <p className="type-body mt-3 font-mono text-(--text-muted)">{description}</p>

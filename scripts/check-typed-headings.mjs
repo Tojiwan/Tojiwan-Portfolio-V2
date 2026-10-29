@@ -3,6 +3,14 @@
 async page => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto('http://localhost:3031');
+  const duplicates = await page.locator('.typed-heading-layout, .hero-heading-layout').evaluateAll(els => els.filter(el => {
+    const measure = el.querySelector('[class$="heading-measure"]');
+    const sr = el.querySelector('.text-type__sr');
+    return getComputedStyle(measure).visibility !== 'hidden' ||
+      getComputedStyle(el).display !== 'grid' ||
+      getComputedStyle(sr).clip !== 'rect(0px, 0px, 0px, 0px)';
+  }).map(el => el.textContent));
+  if (duplicates.length) throw Error(`Visible duplicate headings: ${duplicates.join(', ')}`);
   const bio = page.locator('#about-panel-bio .text-type');
   const text = el => [...el.querySelectorAll('.text-type__char')].map(c => c.textContent).join('');
   if (await bio.evaluate(text) !== '') throw Error('Offscreen heading started early');

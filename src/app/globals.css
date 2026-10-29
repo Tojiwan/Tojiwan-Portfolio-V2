@@ -404,12 +404,6 @@ h3 {
   letter-spacing: -.065em;
   white-space: normal;
 }
-.hero-heading-layout { display: grid; }
-.hero-heading-layout > span { grid-area: 1 / 1; padding-right: .15em; }
-.hero-heading-measure { visibility: hidden; }
-.typed-heading-layout { display: grid; }
-.typed-heading-layout > span { grid-area: 1 / 1; padding-right: .15em; min-width: 0; }
-.typed-heading-measure { visibility: hidden; }
 .hero-typed-heading .text-type__char:nth-child(n + 9) { color: var(--accent-strong); }
 .hero-identity { flex-wrap: wrap; font-size: .9375rem; font-weight: 600; }
 .hero-identity > span { color: var(--accent); }
