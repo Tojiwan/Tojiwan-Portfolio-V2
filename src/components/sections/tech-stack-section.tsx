@@ -4,6 +4,7 @@ import Image              from "next/image";
 import { useState }       from "react";
 import { FileText }       from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { TypedHeading } from "@/components/ui/typed-heading";
 import { Reveal }         from "@/components/ui/reveal";
 import { skillGroups }    from "@/data/skills";
 
@@ -99,7 +100,7 @@ export function TechStackSection() {
           {skillGroups.map((g, i) => (
             <div key={g.id} role="tabpanel" id={`tool-panel-${g.id}`} aria-labelledby={`tool-tab-${g.id}`} tabIndex={0} hidden={selected !== i} className="min-w-0 p-5 sm:p-6 md:min-h-[360px]">
               <p className="font-mono text-[11px] font-bold tracking-wider text-(--text-muted) uppercase">{"// Active file: "}{g.id}.md</p>
-              <h3 className="type-title mt-3 font-display text-black">{g.title}</h3>
+              <h3 className="type-title mt-3 font-display text-black"><TypedHeading text={g.title} /></h3>
               <p className="type-body mt-2 font-mono text-(--text)">{g.description}</p>
               <ul className="mt-6 grid grid-cols-3 items-start gap-x-4 gap-y-6 sm:grid-cols-4 lg:grid-cols-6">
                 {g.skills.map((s) => {

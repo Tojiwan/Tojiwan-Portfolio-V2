@@ -1,4 +1,3 @@
-.projects-projectNames { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .projects-projectName { min-height: 44px; padding: 8px 12px; border: 1px solid var(--line-muted); background: var(--surface); font-family: var(--font-terminal); font-size: 12px; text-align: left; }
 .projects-projectName[aria-current="true"] { border-color: var(--text); background: var(--panel); box-shadow: inset 0 -3px var(--accent); }
 .projects-projectName:hover { border-color: var(--text); }
@@ -29,7 +28,7 @@
 .projects-button:active, .projects-iconButton:active { box-shadow: none; transform: translate(2px, 2px); }
 .projects-button[aria-disabled="true"], .projects-iconButton[aria-disabled="true"] { opacity: 0.45; cursor: default; }
 .projects-access { border: 2px dashed var(--color-black); padding: 16px; margin-top: 24px; background: var(--surface-muted); }
-.projects-navigation { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 20px; padding-right: 8px; }
+.projects-navigation { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; padding-right: 8px; }
 .projects-dialog { position: fixed; inset: 0; margin: auto; padding: 0; width: min(1100px, calc(100% - 32px)); max-width: none; height: min(850px, calc(100dvh - 32px)); max-height: calc(100dvh - 32px); overflow: auto; border: 2px solid var(--color-black); background: var(--surface); color: var(--text); box-shadow: 8px 8px 0 var(--shadow-color); }
 .projects-dialog[open] { display: grid; grid-template-rows: auto auto minmax(180px, 1fr) auto auto; }
 .projects-dialog > .projects-titlebar { position: sticky; top: 0; z-index: 2; }
@@ -51,8 +50,6 @@
   .projects-galleryNext { justify-self: end; }
   .projects-galleryFooter .projects-button { font-size: 12px; padding: 8px 12px; }
   .projects-carousel { display: flex; flex-direction: column; }
-  .projects-projectNames { display: none; }
-  .projects-navigation { order: -1; margin-top: 0; margin-bottom: 20px; }
   .projects-terminal > .projects-titlebar { flex-wrap: nowrap; gap: 8px; padding: 10px 12px; }
   .projects-terminal > .projects-titlebar .type-label { font-size: 11px; }
   .projects-terminal .projects-status { flex-basis: auto; font-size: 11px; white-space: nowrap; }

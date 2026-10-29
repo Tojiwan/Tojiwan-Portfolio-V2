@@ -1,26 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   FileText,
   GraduationCap,
   GitBranch,
-  Mail,
-  CodeXml,
-  Share2,
 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { TypedHeading } from "@/components/ui/typed-heading";
 import { Reveal }         from "@/components/ui/reveal";
-import { AsciiPortrait }  from "@/components/sections/ascii-portrait";
 import { cn }             from "@/lib/utils";
 
 type Tab = "bio" | "education";
 
 export function AboutSection() {
-  const [tab, setTab] = useState<Tab>("bio");
+  const [tab, setTab]           = useState<Tab>("bio");
+  const [swaying, setSwaying]   = useState(false);
 
   return (
-    <section        id     = "about" aria-labelledby    = "about-heading" tabIndex = {-1} className = "scroll-mt-20 focus:outline-none">
+    <section        id     = "about" aria-labelledby    = "about-heading" tabIndex = {-1} className = "scroll-mt-20 focus:outline-none focus-visible:outline-none">
     <div            id     = "about-heading">
     <SectionHeading kicker = "Developer overview" title = "About Me" />
       </div>
@@ -106,15 +105,10 @@ export function AboutSection() {
 
             {/* Content */}
             <div className = "border-b-2 border-black p-5 sm:p-6 lg:border-b-0">
-              {tab === "bio" ? (
-                <div role      = "tabpanel" id = "about-panel-bio" aria-labelledby = "about-tab-bio" tabIndex = {0}>
+                <div hidden={tab !== "bio"} role = "tabpanel" id = "about-panel-bio" aria-labelledby = "about-tab-bio" tabIndex = {0}>
                 <p   className = "mb-2 font-mono text-[11px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">{"// Active file: bio.md"}</p>
                 <h3  className = "type-title font-display text-black">
-                    A little about me.
-                    <span
-                      aria-hidden = "true"
-                      className   = "terminal-caret ml-2 inline-block h-5 w-0.5 translate-y-1 bg-(--accent-soft)"
-                    />
+                    <TypedHeading text="A little about me." />
                   </h3>
                   <div className = "type-body mt-3 space-y-4 font-mono text-(--text)">
                     <p>
@@ -149,19 +143,30 @@ export function AboutSection() {
                     </dd>
                   </dl>
                 </div>
-              ) : (
-                <div role      = "tabpanel" id = "about-panel-education" aria-labelledby = "about-tab-education" tabIndex = {0}>
+                <div hidden={tab !== "education"} role = "tabpanel" id = "about-panel-education" aria-labelledby = "about-tab-education" tabIndex = {0}>
                 <p   className = "mb-2 font-mono text-[11px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">{"// Active file: education.md"}</p>
                 <h3  className = "type-title font-display text-black">
-                    Education.
-                    <span
-                      aria-hidden = "true"
-                      className   = "terminal-caret ml-2 inline-block h-5 w-0.5 translate-y-1 bg-(--accent-soft)"
-                    />
+                    <TypedHeading text="Education." />
                   </h3>
-                  <ul  className = "mt-3 space-y-3">
+                  <div className="type-body mt-3 space-y-4 font-mono text-(--text)">
+                    <p>
+                      My path into technology began with the TVL-ICT strand at
+                      Mary the Queen College, where I completed Grades 11 and 12
+                      from 2019 to 2021. I continued that direction at Don Honorio
+                      Ventura State University, earning a Bachelor of Science in
+                      Information Technology between 2021 and 2025.
+                    </p>
+                    <p>
+                      From senior high school through college, that focus on ICT
+                      and information technology formed the foundation for the
+                      web development and automation work I pursue today. I keep
+                      building on that foundation through hands-on projects and
+                      continued learning.
+                    </p>
+                  </div>
+                  <ul  className = "mt-5 space-y-3">
                   <li  className = "border-2 border-black bg-(--surface-muted) p-3 shadow-[3px_3px_0_var(--shadow-color)]">
-                  <div className = "flex items-start justify-between gap-2">
+                  <div className = "flex flex-wrap items-start justify-between gap-2">
                   <p   className = "text-sm font-bold">
                           Bachelor of Science in Information Technology
                         </p>
@@ -174,7 +179,7 @@ export function AboutSection() {
                       </p>
                     </li>
                     <li  className = "border-2 border-black bg-(--surface-muted) p-3 shadow-[3px_3px_0_var(--shadow-color)]">
-                    <div className = "flex items-start justify-between gap-2">
+                    <div className = "flex flex-wrap items-start justify-between gap-2">
                     <p   className = "text-sm font-bold">
                           TVL-ICT · Grades 11 & 12
                         </p>
@@ -188,42 +193,29 @@ export function AboutSection() {
                     </li>
                   </ul>
                 </div>
-              )}
             </div>
 
-            {/* Avatar preview */}
-            <div  className = "p-4 sm:p-5">
-            <div  className = "border-2 border-black bg-[#0b0f14] text-[#e6edf3] shadow-[4px_4px_0_var(--shadow-color)]">
-            <div  className = "flex items-center gap-2 border-b border-[#2a3340] px-3 py-2">
-            <span className = "flex shrink-0 gap-1.5" aria-hidden = "true">
-            <span className = "h-2.5 w-2.5 rounded-full border border-black bg-[#ff5f57]" />
-            <span className = "h-2.5 w-2.5 rounded-full border border-black bg-[#febc2e]" />
-            <span className = "h-2.5 w-2.5 rounded-full border border-black bg-[#28c840]" />
-                  </span>
-                  <span className = "mx-auto min-w-0 truncate font-mono text-[11px] font-bold tracking-[0.12em] uppercase">
-                    Avatar_preview.img
-                  </span>
+            {/* One shared profile card stays mounted across both tabs. */}
+            <div className={cn("about-id-zone", swaying && "is-swaying")} onMouseEnter={() => setSwaying(true)} onAnimationEnd={() => setSwaying(false)}>
+              <div className="about-id-holder">
+              <div className="about-id-lanyard" aria-hidden="true"><span>TOJIWAN</span></div>
+              <div className="about-id-card" data-profile-card>
+                <div className="about-id-slot" aria-hidden="true" />
+                <div className="about-id-clip" aria-hidden="true"><span /></div>
+                <div className="about-id-label"><span>Developer</span><span>profile.id</span></div>
+                <Image src="/Profile_Avatar/pfp-1.webp" alt="Jake Peralta in graduation attire"
+                  width={1500} height={2000} sizes="(min-width: 640px) 280px, 75vw"
+                  className="about-id-photo" />
+                <div className="about-id-name">
+                  <p>Jake Andrei<br />Peralta</p>
+                  <span>Tojiwan</span>
                 </div>
-                <AsciiPortrait
-                  variant   = {tab === "education" ? "cap" : "jp"}
-                  label     = {tab === "education" ? "ASCII graduation cap" : "ASCII art JP monogram"}
-                  className = "m-3"
-                />
-                <div className = "border-t border-[#2a3340] p-3">
-                <p   className = "text-center font-mono text-[11px] font-bold tracking-[0.12em] text-(--accent-soft) uppercase">{"// My_Contact_List"}</p>
-                <div className = "mt-2 grid grid-cols-3 gap-2">
-                    {[
-                      { label: "Email", href: "mailto:andreiperalta13@gmail.com", icon: Mail },
-                      { label: "LinkedIn", href: "https://www.linkedin.com/in/jake-andrei-peralta-454154390", icon: Share2 },
-                      { label: "GitHub", href: "https://github.com/Tojiwan", icon: CodeXml },
-                    ].map(({ label, href, icon: Icon }) => (
-                      <a    key  = {label} href     = {href} target = {href.startsWith("https:") ? "_blank" : undefined} rel = {href.startsWith("https:") ? "noopener noreferrer" : undefined} className = "flex min-h-11 items-center justify-center gap-1 border border-[#2a3340] bg-[#11161d] px-1 font-mono text-[11px] font-bold hover:border-(--accent-soft)">
-                      <Icon size = {12} aria-hidden = "true" />{label}
-                      </a>
-                    ))}
+                <div className="about-id-details">
+                  <p>Web Developer &amp;<br />Automation Specialist</p>
+                  <p>Pampanga,<br />Philippines</p>
+                </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
           <div  className = "flex flex-wrap items-center gap-3 border-t-2 border-black bg-(--panel) px-3 py-1.5 font-mono text-[11px] font-bold">

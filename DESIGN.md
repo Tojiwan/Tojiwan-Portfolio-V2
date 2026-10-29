@@ -190,6 +190,10 @@ The palette is a graphite paper-and-console set with exactly one accent family (
 
 ## Layout
 
+**Heading animation update (2026-10-29):** requested section headings, project titles, skill-group titles, and About/Education panel headings use the hero's 80ms-per-character TextType fade and accent bar cursor, once on first visibility. Fonts and text colors are inherited; final heading space is reserved. About panels stay mounted to avoid replay on tab switches. Reduced motion skips typing. The About Me section label remains static.
+
+**Background update (2026-10-28):** the owner approved replacing the static page grid with React Bits CursorGrid: 34px cells, cyan highlights, 90px cursor radius, click pulses, theme-aware neutral grid lines at 0.29 opacity, and a fixed viewport-sized canvas behind all content. Static 34px CSS grid is retained for reduced motion and unavailable/lost WebGL. No intro or ambient animation; idle/hidden rendering pauses. This supersedes the older 20px background specification below.
+
 A single-page vertical console scroll. Content runs in a `max-w-7xl` (1280px) container with 16px side padding (24px at sm+), sections separated by generous vertical rhythm and `scroll-mt-20` so they land under the sticky 64px header strip. The body prints a 20px × 20px graph-paper grid behind everything: 1px lines at ~4.5% black (light) or ~5% white (dark), visible through every transparent gap. Container queries drive dispositioning: `.hero-intro` is a size container and the display scales at 10.5cqi (9.5cqi under 640px); the footer ASCII wordmark scales on its own container at `clamp(6px, 2.8cqi, 12px)`.
 
 - **Hero:** two-column grid — portrait window (0.8fr) beside intro window (1.2fr) at lg+, 28px gap, both full-height slabs; stacks on mobile, splits portrait/intro side-by-side on md–lg with the availability rail relocating.
@@ -261,8 +265,9 @@ Square geometry with zero border radius — every corner is a right angle (`roun
 - **Actions:** "Get in touch" primary slab; 44×44 square theme toggle (cross-rotating Sun/Moon icons, 16px, aria-pressed, persists via `localStorage["tojiwan-theme"]` + pre-paint script).
 - **Mobile:** menu expands as a bordered panel by height+opacity (0.22s expo-out, instant under reduced motion); items gain 2px outlines on hover; Escape closes and refocuses the trigger.
 
-### ASCII Portrait (signature sub-component inside About)
-- **Anatomy:** black (#000/#0b0f14) 2px-bordered figure containing a hand-built 5×7-scaled glyph canvas (`JP` monogram or graduation cap) at 8–9px mono, with teal corner brackets (#2dd4bf/70%) and an `IntersectionObserver`-paused code-rain canvas (`rgba(52, 211, 153, 0.09)`, katakana + 0/1); variant switches with the About tab. Frozen entirely under reduced motion.
+### About profile card (owner-approved, 2026-10-28)
+- Hanging-ID-inspired, theme-aware card shared across Bio and Education: cyan stitched-style lanyard anchored to the top of the terminal body, rectangular slot and metal-style clip, large graduation portrait, bold uppercase name, Tojiwan alias, and compact role/location details. Contact buttons are removed. Square 2px edges and hard token-based shadows preserve the terminal identity; the card remains stationary (2026-10-28).
+- The card stays mounted across tab changes. Education introduces the TVL-ICT and BS Information Technology progression before the individual school records. The previous ASCII preview is no longer used in About.
 
 ### Footer
 Panel strip with 2px ink top border; four columns at lg (identity + `Status: Open to work` accent line, section links, Resources/résumé + back-to-top, and the Tojiwan ASCII block wordmark in `--text` scaled by content query), then a second 2px-divided legal bar. Everything is plain mono text — no windows, no slabs — with underline-on-hover as the only link affordance.
@@ -272,9 +277,9 @@ Kicker capsule (Window White, 2px border, Slab-SM, 8px square cyan LED + 11px up
 
 ### Motion primitives
 - **Reveal:** sections rise 16px into view, 0.45s expo-out (`cubic-bezier(0.16, 1, 0.3, 1)`), once, −80px margin, per-item stagger delays capped at 0.2s; section headings ride the same reveal.
-- **Console boot:** the hero's decorative `<hello_world />` types in once — clip-path steps(15), 0.9s — the page's one authored focal moment.
+- **Console boot:** the hero's decorative `<hello_world />` types in once — clip-path steps(15), 0.9s. The greeting heading itself uses React Bits TextType (2026-10-28): it types "Hi, I'm Tojiwan." once with fade-in characters and an accent bar cursor, name color unchanged (`--accent-strong` from "Tojiwan" onward); reduced motion types instantly and the hidden measure line reserves the heading's final width so nothing shifts.
 - **Press feedback:** ambient 180ms transitions govern slabs, buttons, links, inputs and textareas — hover fills, focus slabs, press translations all glide inside that budget.
-- **Theme swap:** the toggle opens one 220ms fade window (`html.theme-switching`) so backgrounds, text, borders, slab shadows, outlines and the graph paper recolor together; toggle icons cross-rotate 150ms while tracking the root theme class.
+- **Theme swap:** the toggle opens a 180ms fade window (`html.theme-switching`) for background, text, and border colors; sun/moon icons fade and rotate 30 degrees over the same 180ms. The button stays in place, and reduced-motion preferences make transitions effectively immediate (2026-10-28).
 - **Panel language:** the mobile menu expands by height+opacity (0.22s expo-out) so its push is part of the gesture; tab panels quick-fade 160ms when a swap brings them back.
 - **Caret:** About heading carets blink stepped on/off (1.06s), like a real cursor — never a fade.
 - **Reduced motion:** the kill-switch — animations clamp to 0.01ms, reveals/rolls/menus render final state instantly, hover lifts disabled, carets and the typewriter render static.

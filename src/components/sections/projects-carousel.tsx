@@ -10,6 +10,7 @@ import type { Swiper as SwiperInstance }                      from "swiper";
 import { placeholderScreenshots, type Project }               from "@/data/projects";
 import { DemoPassword }                                       from "@/components/ui/demo-password";
 import { TechBadge }                                          from "@/components/ui/tech-badge";
+import { TypedHeading } from "@/components/ui/typed-heading";
 import { ProjectScreenshot }                                  from "./project-screenshot";
 import "./projects.css";
 import "swiper/css";
@@ -29,14 +30,11 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
 
   return (
     <div className  = "projects-carousel mt-6 min-w-0">
-    <nav aria-label = "Choose a project" className = "projects-projectNames">
-        {projects.map((project, index) => (
-          <button key       = {project.slug} type           = "button" aria-current = {index === active ? "true" : undefined}
-                  onClick   = {() => goTo(index)} className = "projects-projectName">
-          <span   className = "text-(--text-muted)">{String(index + 1).padStart(2, "0")}</span> {project.title}
-          </button>
-        ))}
-      </nav>
+    <div    className = "projects-navigation">
+      <button type      = "button" className   = "projects-button" aria-label = "Previous project" aria-disabled         = {active === 0} onClick = {() => goTo(Math.max(0, active - 1))}><ArrowLeft size                   = {18} aria-hidden                               = "true" /><span className = "hidden sm:inline">Previous</span></button>
+      <p      aria-live = "polite" aria-atomic = "true" className             = "type-label text-center"><span className = "block text-(--text-muted)">Project {String(active + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span><span className = "mt-1 block">{projects[active].title}</span></p>
+      <button type      = "button" className   = "projects-button" aria-label = "Next project" aria-disabled             = {active === projects.length - 1} onClick = {() => goTo(Math.min(projects.length - 1, active + 1))}><span className = "hidden sm:inline">Next</span><ArrowRight size = {18} aria-hidden         = "true" /></button>
+      </div>
 
       <div role      = "region" aria-roledescription = "carousel" aria-label = "Project terminals" tabIndex = {0}
            onKeyDown = {(event) => {
@@ -59,7 +57,7 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                 <div className = "projects-projectBody">
                 <div className = "projects-summary">
                 <p   className = "type-label w-fit border border-(--accent-strong) px-2 py-1 text-(--accent-strong) uppercase">{project.category}</p>
-                <h3  id        = {`project-${project.slug}`} className = "projects-projectTitle">{project.title}</h3>
+                <h3  id        = {`project-${project.slug}`} className = "projects-projectTitle"><TypedHeading text={project.title} /></h3>
                 <p   className = "type-body mt-4">{project.description}</p>
                 <dl  className = "projects-focus">
                 <dt  className = "type-label text-(--text-muted) uppercase">Focus</dt>
@@ -110,11 +108,6 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-      <div    className = "projects-navigation">
-      <button type      = "button" className   = "projects-button" aria-label = "Previous project" aria-disabled         = {active === 0} onClick                                                                                                                       = {() => goTo(Math.max(0, active - 1))}><ArrowLeft size                   = {18} aria-hidden                               = "true" /><span className = "hidden sm:inline">Previous</span></button>
-      <p      aria-live = "polite" aria-atomic = "true" className             = "type-label text-center"><span className = "block text-(--text-muted)">Project {String(active + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span><span className = "mt-1 block">{projects[active].title}</span></p>
-      <button type      = "button" className   = "projects-button" aria-label = "Next project" aria-disabled             = {active === projects.length - 1} onClick                                                                                                     = {() => goTo(Math.min(projects.length - 1, active + 1))}><span className = "hidden sm:inline">Next</span><ArrowRight size = {18} aria-hidden         = "true" /></button>
       </div>
       {gallery && <ProjectGallery project={gallery} onClose={() => { setGallery(null); opener.current?.focus({ preventScroll: true }); }} />}
     </div>

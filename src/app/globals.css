@@ -109,16 +109,25 @@ html {
 }
 
 body {
+  isolation: isolate;
   background-color: var(--canvas);
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
-  background-size: 20px 20px;
   color: var(--text);
   font-family: "Courier Prime", "IBM Plex Mono", ui-monospace, monospace;
 }
 
-.dark body {
+.site-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--canvas);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.dark .site-background {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
@@ -245,6 +254,52 @@ h3 {
   position: relative;
 }
 
+.site-background:has(.cursor-grid[data-ready="true"]) { background-image: none; }
+
+.about-id-zone { position: relative; z-index: 0; }
+.about-id-holder { position: relative; min-width: 0; padding: 100px 20px 28px; }
+.about-id-lanyard {
+  position: absolute; top: -36px; left: 50%; transform: translateX(-50%);
+  width: 36px; height: 158px; border-inline: 2px solid var(--color-black);
+  background: var(--accent); color: var(--ink); z-index: 1;
+}
+.about-id-lanyard::before { content: ""; position: absolute; inset: 0 3px; border-inline: 1px dashed var(--ink); opacity: .45; }
+.about-id-lanyard span { display: block; width: fit-content; margin: 40px auto 12px; writing-mode: vertical-rl; font-family: var(--font-terminal); font-size: 10px; font-weight: 600; letter-spacing: .15em; }
+@media (min-width: 1024px) {
+  .about-id-lanyard { top: -80px; height: 202px; border-top: 2px solid var(--color-black); }
+  .about-id-lanyard span { margin-top: 84px; }
+}
+.about-id-card { position: relative; max-width: 320px; margin-inline: auto; padding: 12px; border: 2px solid var(--color-black); background: var(--surface); color: var(--text); box-shadow: 5px 5px 0 var(--shadow-color); }
+.about-id-slot { width: 68px; height: 12px; margin: 4px auto 20px; border: 2px solid var(--color-black); background: var(--canvas); }
+.about-id-clip { position: absolute; z-index: 2; top: -15px; left: 50%; transform: translateX(-50%); width: 26px; height: 43px; border: 2px solid var(--color-black); background: var(--panel); box-shadow: inset 3px 0 0 var(--surface), 2px 2px 0 var(--shadow-color); }
+.about-id-clip span { display: block; width: 10px; height: 10px; margin: 6px auto; border: 1px solid var(--color-black); background: var(--surface-muted); }
+.about-id-label { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; font-family: var(--font-terminal); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.about-id-label span:first-child { color: var(--accent-strong); }
+.about-id-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid var(--color-black); }
+.about-id-name { padding-block: 14px 12px; }
+.about-id-name p { font-size: clamp(1.5rem, 2.2vw, 2rem); line-height: 1.05; font-weight: 700; text-transform: uppercase; letter-spacing: -.02em; }
+.about-id-name > span { display: block; margin-top: 8px; color: var(--accent-strong); font-family: var(--font-terminal); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.about-id-details { display: grid; grid-template-columns: minmax(0, 1fr) auto; border-top: 2px solid var(--color-black); font-size: 12px; line-height: 1.5; }
+.about-id-details p { padding-top: 10px; }
+.about-id-details p + p { margin-left: 10px; padding-left: 10px; border-left: 1px solid var(--color-black); font-size: 11px; }
+@media (prefers-reduced-motion: no-preference) {
+  .about-id-zone.is-swaying .about-id-holder { animation: about-id-sway 2.4s ease-in-out 1; transform-origin: 50% 0; }
+}
+@keyframes about-id-sway {
+  0%   { transform: rotate(0deg); }
+  15%  { transform: rotate(3deg); }
+  35%  { transform: rotate(-2.6deg); }
+  55%  { transform: rotate(1.8deg); }
+  75%  { transform: rotate(-1deg); }
+  90%  { transform: rotate(.4deg); }
+  100% { transform: rotate(0deg); }
+}
+@media (max-width: 359px) {
+  .about-id-holder { padding-inline: 16px; }
+  .about-id-details { grid-template-columns: 1fr; }
+  .about-id-details p + p { margin: 8px 0 0; padding: 8px 0 0; border-left: 0; border-top: 1px solid var(--line-muted); }
+}
+
 .portrait-corner {
   position: absolute;
   width: 12px;
@@ -349,11 +404,13 @@ h3 {
   letter-spacing: -.065em;
   white-space: normal;
 }
-.hero-name { color: var(--accent-strong); }
-.hero-heading-typing { display: inline-block; white-space: nowrap; }
-@media (prefers-reduced-motion: no-preference) {
-  .hero-heading-typing { animation: type-in 1.2s steps(15, end) both; }
-}
+.hero-heading-layout { display: grid; }
+.hero-heading-layout > span { grid-area: 1 / 1; padding-right: .15em; }
+.hero-heading-measure { visibility: hidden; }
+.typed-heading-layout { display: grid; }
+.typed-heading-layout > span { grid-area: 1 / 1; padding-right: .15em; min-width: 0; }
+.typed-heading-measure { visibility: hidden; }
+.hero-typed-heading .text-type__char:nth-child(n + 9) { color: var(--accent-strong); }
 .hero-identity { flex-wrap: wrap; font-size: .9375rem; font-weight: 600; }
 .hero-identity > span { color: var(--accent); }
 .hero-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
@@ -479,11 +536,11 @@ h3 {
 /* Theme swap: ThemeToggle opens one bounded fade window so every surface
    (including those with no ambient transition) recolors together. */
 @media (prefers-reduced-motion: no-preference) {
-  .theme-switching :where(body, header, footer, section, div, p, h1, h2, h3, span, a, button, input, textarea, li, dt, dd) {
+  .theme-switching :where(body, header, footer, section, div, p, h1, h2, h3, span, a, button, input, textarea, li, dt, dd, img) {
     transition:
-      background-color 160ms ease-out,
-      border-color 160ms ease-out,
-      color 160ms ease-out;
+      background-color 180ms ease-out,
+      border-color 180ms ease-out,
+      color 180ms ease-out;
   }
 }
 
@@ -494,7 +551,7 @@ h3 {
   position: absolute;
   inset: 0;
   margin: auto;
-  transition: opacity 150ms ease, rotate 150ms ease;
+  transition: opacity 180ms ease-out, rotate 180ms ease-out;
 }
 :root.dark .theme-toggle-icon--sun,
 :root:not(.dark) .theme-toggle-icon--moon {
@@ -504,7 +561,7 @@ h3 {
 :root.dark .theme-toggle-icon--moon,
 :root:not(.dark) .theme-toggle-icon--sun {
   opacity: 0;
-  rotate: -90deg;
+  rotate: -30deg;
 }
 
 /* Console caret: a real cursor blinks stepped on/off, it does not fade. */

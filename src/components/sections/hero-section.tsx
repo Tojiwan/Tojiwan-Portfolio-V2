@@ -3,6 +3,7 @@ import { ActionLink }                                from "@/components/ui/actio
 import { TechBadge }                                 from "@/components/ui/tech-badge";
 import { Reveal }                                    from "@/components/ui/reveal";
 import { HeroPortrait }                              from "@/components/sections/hero-portrait";
+import { HeroHeading } from "./hero-heading";
 
 export function HeroSection() {
   return (
@@ -15,9 +16,7 @@ export function HeroSection() {
       <Reveal className = "min-w-0 lg:col-start-2 lg:row-start-1">
       <div    className = "hero-intro">
       <p      className = "hero-location"><MapPin size = {14} aria-hidden        = "true" /> Pampanga, Philippines <span>UTC+8</span></p>
-      <h1     id        = "hero-heading" className     = "hero-heading">
-      <span   className = "hero-heading-typing">Hi,     I&apos;m <span className = "hero-name">Tojiwan.</span></span>
-            </h1>
+            <HeroHeading />
             <p         className = "hero-identity">Jake Andrei R. Peralta <span aria-hidden = "true">/</span> Developer</p>
             <div       className = "hero-skills">
             <TechBadge label     = "Web Development" accent />

@@ -55,6 +55,16 @@ Set `SITE_URL` to the full deployed origin, including `https://`, in your hostin
 - These are single-run lab results using an emulated Moto G Power and slow 4G. The report has insufficient real-user data; automated accessibility scores do not replace manual testing.
 - `PRODUCT.md` and `DESIGN.md` document product context and the design system. Local `design-review/` reports and screenshots record the improvement workflow; they are excluded from Git.
 
+## Interactive background
+
+Heading animation update (2026-10-29): section headings, project titles, skill-group titles, and About/Education panel headings reuse TextType with the hero's fade and gliding bar cursor. They type once on first visibility, keep their fonts/colors, and reserve final text space. About tabs retain animation state; reduced motion shows full text without typing.
+
+React Bits CursorGrid is copied locally into `src/components/react-bits/` (JavaScript + CSS; upstream license included). It requires no additional package. `src/components/layout/site-background.jsx` supplies theme colors and the 34px grid settings. A fixed viewport-sized canvas sits behind the content without intercepting input; reduced motion and missing/lost WebGL use the static CSS grid. Ambient and intro animations are off, pixel ratio is capped at 1.5, and drawing pauses when idle or hidden.
+
+The hero greeting uses React Bits TextType (also vendored there). It types "Hi, I'm Tojiwan." once in the existing Courier Prime display style, keeps "Tojiwan." in the same accent color, and falls back to instant full text under reduced motion. This variant needs gsap, which was added as a dependency. Domain lint rules skip `src/components/react-bits/` (upstream style).
+
+Run `scripts/check-background.mjs` through Playwright MCP against a local production server on port 3028 to check interaction, fallback, and idle behavior. Physical-device and deployed performance verification remain pending.
+
 ## Remaining work
 
 - Projects use one large terminal at a time, information left / preview right on desktop, and a separate screenshot-gallery modal. Swiper React provides manual navigation without autoplay or looping. All seven projects now use 28 supplied screenshots, including the three n8n workflow captures added on 2026-10-28. Physical-device review and deployed performance checks remain pending.

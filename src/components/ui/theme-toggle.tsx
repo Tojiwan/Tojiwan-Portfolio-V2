@@ -52,7 +52,7 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       aria-pressed={theme === "dark"}
-      className="relative inline-flex h-11 w-11 shrink-0 items-center justify-center border-2 border-black bg-white text-black shadow-[3px_3px_0_var(--shadow-color)] transition-all hover:bg-(--surface-muted) hover:shadow-[2px_2px_0_var(--shadow-color)] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2"
+      className="relative inline-flex h-11 w-11 shrink-0 items-center justify-center border-2 border-black bg-white text-black shadow-[3px_3px_0_var(--shadow-color)] hover:bg-(--surface-muted) active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2"
     >
       <Sun size={16} aria-hidden="true" className="theme-toggle-icon theme-toggle-icon--sun" />
       <Moon size={16} aria-hidden="true" className="theme-toggle-icon theme-toggle-icon--moon" />

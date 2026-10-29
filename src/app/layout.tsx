@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteBackground } from "@/components/layout/site-background";
 
 const title = "Tojiwan — Web Developer & Automation Specialist";
 const description =
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="flex min-h-full flex-col font-mono text-(--text)">
+        <SiteBackground />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:border-2 focus:border-black focus:bg-(--accent) focus:px-3 focus:py-2 focus:font-bold focus:text-[#111821]"
