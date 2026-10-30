@@ -17,7 +17,6 @@ type Tab = "bio" | "education";
 
 export function AboutSection() {
   const [tab, setTab]           = useState<Tab>("bio");
-  const [swaying, setSwaying]   = useState(false);
 
   return (
     <section        id     = "about" aria-labelledby    = "about-heading" tabIndex = {-1} className = "scroll-mt-20 focus:outline-none focus-visible:outline-none">
@@ -197,25 +196,30 @@ export function AboutSection() {
             </div>
 
             {/* One shared profile card stays mounted across both tabs. */}
-            <div className={cn("about-id-zone", swaying && "is-swaying")} onMouseEnter={() => setSwaying(true)} onAnimationEnd={() => setSwaying(false)}>
+            <div className="about-id-zone">
               <div className="about-id-holder">
-              <div className="about-id-lanyard" aria-hidden="true"><span>TOJIWAN</span></div>
               <div className="about-id-card" data-profile-card>
-                <div className="about-id-slot" aria-hidden="true" />
-                <div className="about-id-clip" aria-hidden="true"><span /></div>
-                <div className="about-id-label"><span>Developer</span><span>profile.id</span></div>
-                <Image src="/Profile_Avatar/pfp-1.webp" alt="Jake Peralta in graduation attire"
-                  width={1500} height={2000} sizes="(min-width: 640px) 280px, 75vw"
-                  className="about-id-photo" />
+                <div className="about-id-label"><span><span className="about-profile-status" aria-hidden="true" />PROFILE.SYS</span><span>ID/001</span></div>
+                <div className="about-profile-portrait">
+                  <Image src="/Profile_Avatar/pfp-1.webp" alt="Jake Peralta in graduation attire"
+                    width={1500} height={2000} sizes="(min-width: 640px) 280px, 75vw"
+                    className="about-id-photo" />
+                  <span className="about-profile-corner about-profile-corner--tl" aria-hidden="true" />
+                  <span className="about-profile-corner about-profile-corner--br" aria-hidden="true" />
+                  <span className="about-profile-caption">PORTRAIT_01</span>
+                </div>
                 <div className="about-id-name">
-                  <p>Jake Andrei<br />Peralta</p>
-                  <span>Tojiwan</span>
+                  <div className="about-profile-micro">IDENTITY / 001</div>
+                  <p>Jake Andrei Peralta</p>
+                  <span>@Tojiwan</span>
                 </div>
-                <div className="about-id-details">
-                  <p>Web Developer &amp;<br />Automation Specialist</p>
-                  <p>Pampanga,<br />Philippines</p>
-                </div>
-                  </div>
+                <p className="about-profile-role">Web Developer · Shopify · Automation</p>
+                <dl className="about-id-details">
+                  <div><dt className="about-profile-micro">Location</dt><dd>Pampanga, PH</dd></div>
+                  <div><dt className="about-profile-micro">System status</dt><dd className="about-profile-active"><span className="about-profile-status" aria-hidden="true" />Active</dd></div>
+                </dl>
+                <div className="about-profile-footer"><span>C:/portfolio/identity</span><span aria-hidden="true">EOF ■</span></div>
+              </div>
                 </div>
             </div>
           </div>
