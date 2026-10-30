@@ -115,6 +115,8 @@ components:
 
 # Design System: Tojiwan Portfolio
 
+**Responsive refinement (2026-10-31):** connect all four identity borders using `--accent-strong`; scale the name with its container (12–17px) to fit a single line at tested 320–1920px widths. Suppress focus outlines only on section anchor destinations, retaining keyboard outlines for controls and tab panels.
+
 **About profile revision (2026-10-30):** `PROFILE.SYS` replaces the hanging badge. A top-aligned bordered file panel holds a square framed portrait, `ID/001` metadata, a blue-accented identity block with the name and `@TOJIWAN`, a secondary role line, and compact location/status details above a file-path footer. Existing fonts, theme tokens, and hard shadow remain; hover uses a restrained lift. Lanyard, clip, and sway are removed. This supersedes earlier hanging-card guidance.
 
 ## Overview

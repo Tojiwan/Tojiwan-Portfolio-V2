@@ -212,6 +212,11 @@ h3 {
   outline-offset: 2px;
 }
 
+/* Anchor destinations receive focus for navigation, not a section-wide ring. */
+section[tabindex="-1"]:focus {
+  outline: none;
+}
+
 /* Existing black/white utilities are the site's ink/surface aliases. */
 .brutal-panel {
   box-shadow: 4px 4px 0 var(--shadow-color);
@@ -414,8 +419,9 @@ h3 {
 }
 
 .about-id-name {
-  padding: 5px 0 5px 5px;
-  border-left: 3px solid var(--accent-strong);
+  container-type: inline-size;
+  padding: 8px;
+  border: 2px solid var(--accent-strong);
   margin-top: 8px;
   margin-bottom: 8px;
 }
@@ -431,7 +437,7 @@ h3 {
 
 .about-id-name p {
   margin-top: 4px;
-  font-size: 1.5rem;
+  font-size: clamp(12px, 6.3cqi, 17px);
   line-height: 1.15;
   font-weight: 700;
   text-transform: uppercase;

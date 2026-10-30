@@ -2,6 +2,8 @@
 
 About profile update (2026-10-30): the shared `PROFILE.SYS` panel replaces the hanging ID badge with a square framed portrait, terminal-style identity metadata, and a compact status/file footer. It remains mounted across both About tabs and stacks below the text on mobile.
 
+Responsive refinement (2026-10-31): the identity block uses a connected blue frame and a container-scaled, single-line name. Section anchor targets suppress the section-wide focus ring; interactive controls retain keyboard focus indicators.
+
 Jake Andrei R. Peralta's portfolio for web development, Shopify, and automation work. Built with Next.js 16, TypeScript, Tailwind CSS, and Motion.
 
 **Live site:** [tojiwan-portfolio-v2.vercel.app](https://tojiwan-portfolio-v2.vercel.app/)
