@@ -4,7 +4,7 @@ import { useEffect, useRef, useState }          from "react";
 import { Send, Share2, CodeXml, AtSign, Phone } from "lucide-react";
 import { SectionHeading }                       from "@/components/ui/section-heading";
 import { TerminalWindow }                       from "@/components/ui/terminal-window";
-import { RollingLink }                          from "@/components/ui/rolling-link";
+import ScrambledText from "@/components/react-bits/ScrambledText";
 import { Reveal }                               from "@/components/ui/reveal";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mljgaana";
@@ -120,16 +120,16 @@ export function ContactSection() {
       <div            className = "mt-6 grid items-start gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
       <Reveal         className = "h-full min-w-0">
       <TerminalWindow file      = "transmit_console.exe" status = "Online form" className = "h-full min-w-0">
-      <p              id        = "contact-form-note" className = "type-body mb-5 font-mono text-(--text)">
-              Fill out the form below and it will land in my inbox. Prefer email?{" "}
-              <RollingLink
+      <div            id        = "contact-form-note" className = "type-body mb-5 font-mono text-(--text)">
+              <ScrambledText className="inline">Fill out the form below and it will land in my inbox. Prefer email?</ScrambledText>{" "}
+              <a
                 href      = "mailto:andreiperalta13@gmail.com"
                 className = "font-bold underline underline-offset-4"
               >
                 Email me directly
-              </RollingLink>
+              </a>
               .
-            </p>
+            </div>
             {status === "succeeded" ? (
               <div
                 ref       = {successRef}
