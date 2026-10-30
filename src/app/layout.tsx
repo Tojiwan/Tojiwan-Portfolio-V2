@@ -47,6 +47,10 @@ export const viewport: Viewport = {
 //  dark console class only when the visitor's stored preference says so.
 const themeInitScript = `(function(){try{if(localStorage.getItem('tojiwan-theme')==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})();`;
 
+// Hide the intro before paint on repeat loads so it cannot flash while React
+// hydrates. The key must match sessionKey in page-intro.tsx.
+const introInitScript = `(function(){try{if(sessionStorage.getItem('tojiwan-intro-seen')){document.documentElement.classList.add('intro-seen')}}catch(e){}})();`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
@@ -59,6 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <link rel="preload" href="/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/IBM_Plex_Mono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: introInitScript }} />
       </head>
       <body className="flex min-h-full flex-col font-mono text-(--text)">
         <SiteBackground />

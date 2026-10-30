@@ -10,12 +10,14 @@ that later changes or the live deployment have been verified.
 
 1. Review the shared About profile card, portrait crop, Education summary, theme transition, and footer styling.
 2. Review screenshots and captions in all seven galleries; test physical iPhone/Safari swiping, closing, scrolling, and full-size zoom.
-3. Confirm final content: Vehiserve contributions, project labels, skills (including Zapier), experience, services, availability, and any additional demo URLs.
+3. Confirm final content: Vehiserve contributions, project labels, skills, experience, services, availability, and any additional demo URLs.
 4. Complete the full-site accessibility, responsive, link, contrast, and console checks below.
 5. Verify deployment configuration, contact delivery, Speed Insights, and performance with real assets.
 6. Reconcile design/build documentation with final choices. Commit or push only when requested by the owner.
 
 ## Projects, About, and theme updates
+
+- [x] Apply code-review fixes 1–8 (2026-10-30). Hide the intro before paint on repeat loads (`.intro-seen`) and from first paint under reduced motion; release the page if readiness throws; swallow skipped view-transition `AbortError`s; catch clipboard failures and reveal the demo password for manual copy; restore 24px demo-password targets and hover; ignore touch `pointermove` in ScrambledText. #7 was resolved by removing Zapier from the toolbox and deleting its unused icon. `check-page-intro` now verifies the pre-paint class/display, `check-intro-progress` adds an API-error release case, `check-theme-switch` adds rapid toggles with no `unhandledrejection`, and `check-scrambled-text` verifies touch does not scramble. Lint/build pass. The three check scripts are no longer ignored; include them in the commit.
 
 - [x] Fix theme-switch lag from per-character color transitions (2026-10-30). Exclude TextType/ScrambledText descendants from the global transition window; glyphs inherit container colors. Local production measurements: baseline ~11,400 animations and 1353–1632ms on slow toggles; updated 1554 animations and 175–229ms across three toggles. `scripts/check-theme-switch.mjs` guards against glyph transitions and checks persistence. Measurements are local synthetic timings, not field INP; physical-device performance remains pending.
 - [x] Make the theme swap instant for faster feedback (2026-10-30). A two-frame `.theme-switching` window disables all element transitions (icons exempt), leaving only four sun/moon animations and 74–93ms to first frame in local runs. Earlier toggles are instantly colored; icon fade/rotate shortened to 100ms. Persistence and reduced motion re-verified with `scripts/check-theme-switch.mjs`.
@@ -113,7 +115,7 @@ Real screenshots for all seven projects are connected; further Vehiserve details
 - [ ] Review placeholder-like project slug names.
 - [x] Confirm skills, role titles, dates, company/project descriptions, availability, and service scope with the owner.
 - [x] Replace generic About copy with personalized introduction and AI-tool usage.
-- [x] Confirm Zapier skill accuracy; it remains in the toolbox but is no longer claimed in About copy.
+- [x] Zapier was removed from the toolbox and its unused icon deleted (2026-10-30); Judge.me, Xendit, PayMongo, Klaviyo, and n8n are the current Shopify/automation tools.
 - [x] About dossier trimmed to professional facts per owner decision (2026-10-20): keeps languages, base, timezone, status; DOB, birthplace, age, sex, civil status, religion, and nationality stay out of the page (CV territory).
 - [x] Clarify timezone wording as UTC+8 (Philippine Time).
 - [x] Owner confirmed the linked CV is current.

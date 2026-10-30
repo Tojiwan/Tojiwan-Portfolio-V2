@@ -26,15 +26,15 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     id         : "shopify-automation",
-    title      : "Shopify & Automation",
+    title      : "Shopify Plugins/Tools & Automation",
     description: "Storefront customization and connected automated workflows.",
-    skills     : ["Shopify Liquid", "n8n", "Zapier"],
+    skills     : ["Shopify Liquid", "Judge.me", "Xendit", "PayMongo", "Klaviyo", "n8n"],
   },
   {
     id         : "tools",
     title      : "Development & Design Tools",
     description: "Daily workflow, testing, local development, and design handoff.",
-    skills     : ["Git", "Postman", "Laravel Herd", "Docker", "Figma", "Canva", "ChatGPT", "OpenCode"],
+    skills     : ["Git", "Postman", "Laravel Herd", "Docker", "Figma", "Canva", "ChatGPT", "OpenCode", "Claude"],
   },
 ];
 

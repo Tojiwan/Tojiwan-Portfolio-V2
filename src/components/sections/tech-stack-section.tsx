@@ -25,7 +25,12 @@ const skillIcons: Record<string, string> = {
   MySQL                   : "mysql-wordmark",
   Supabase                : "supabase",
   "Shopify Liquid"        : "shopify",
+  "Judge.me"              : "judge-me",
+  Xendit                  : "xendit",
+  PayMongo                : "paymongo",
+  Klaviyo                 : "klaviyo",
   n8n                     : "n8n",
+  Claude                  : "claude",
   Git                     : "git",
   Postman                 : "postman",
   "Laravel Herd"          : "laravel-herd",
@@ -117,7 +122,7 @@ export function TechStackSection() {
                           alt=""
                           width={48}
                           height={48}
-                          className={`h-12 w-12 object-contain motion-safe:transition-transform motion-safe:group-hover:-translate-y-1 ${s === "React Bits" ? "invert dark:invert-0" : s === "Next.js" || s === "ChatGPT" || s === "OpenCode" ? "dark:invert" : s === "Motion (Framer Motion)" ? "brightness-50 dark:brightness-100" : s === "React" || s === "MySQL" ? "dark:brightness-150" : ""}`}
+                          className={`h-12 w-12 object-contain motion-safe:transition-transform motion-safe:group-hover:-translate-y-1 ${s === "React Bits" ? "invert dark:invert-0" : s === "Next.js" || s === "ChatGPT" || s === "OpenCode" || s === "Klaviyo" ? "dark:invert" : s === "Motion (Framer Motion)" ? "brightness-50 dark:brightness-100" : s === "React" || s === "MySQL" ? "dark:brightness-150" : ""}`}
                         />
                       ) : (
                         // Data fallback: a skill added without an icon mapping

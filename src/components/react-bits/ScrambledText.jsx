@@ -55,6 +55,7 @@ export default function ScrambledText({ children, className = '' }) {
           return Math.hypot(event.clientX - rect.x - rect.width / 2, event.clientY - rect.y - rect.height / 2);
         };
         const move = event => {
+          if (event.pointerType === 'touch') return;
           cancelAnimationFrame(frame);
           frame = requestAnimationFrame(() => {
             chars.forEach((char, i) => {

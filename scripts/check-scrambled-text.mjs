@@ -13,6 +13,11 @@ async page => {
   await page.mouse.move(0, 0);
   await page.waitForTimeout(1400);
   if (!await hero.evaluate(settled)) throw Error('Hover did not restore text');
+  await hero.evaluate((el, point) => {
+    el.dispatchEvent(new PointerEvent('pointermove', { pointerType: 'touch', clientX: point.x, clientY: point.y, bubbles: true }));
+  }, { x: box.x + 30, y: box.y + 10 });
+  await page.waitForTimeout(250);
+  if (!await hero.evaluate(settled)) throw Error('Touch pointermove scrambled text');
   await hero.dispatchEvent('click', { clientX: box.x + 30, clientY: box.y + 10, button: 0 });
   await page.waitForFunction(() => [...document.querySelectorAll('.hero-description span[style*="visibility"]')].some(s => s.textContent !== s.nextElementSibling.textContent));
   await page.waitForTimeout(2000);
@@ -25,5 +30,5 @@ async page => {
   if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw Error('Mobile overflow');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.waitForFunction(() => !document.querySelector('.scrambled-text [aria-hidden] span'));
-  return 'PASS: hover, click, text restoration, Education, mobile overflow, live reduced motion';
+  return 'PASS: hover, touch guard, click, text restoration, Education, mobile overflow, live reduced motion';
 }

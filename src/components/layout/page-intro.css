@@ -1,4 +1,5 @@
 .page-intro { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; background-color: var(--canvas); background-image: radial-gradient(color-mix(in srgb, var(--text) 18%, transparent) .6px, transparent .6px); background-size: 12px 12px; color: var(--text); transition: opacity 240ms ease; }
+.intro-seen .page-intro { display: none; }
 .page-intro.is-leaving { opacity: 0; }
 .page-intro-content { width: min(780px, 86vw); text-align: center; }
 .page-intro-wordmark { display: block; width: 100%; overflow: visible; }
@@ -14,4 +15,4 @@
 @keyframes intro-pixel-scan { 0%, 24%, 48% { opacity: 0; } 12%, 36% { opacity: .2; } 65% { opacity: .55; } 100% { opacity: 1; } }
 @keyframes intro-scanline { 0% { opacity: 0; transform: translateY(-.2px); } 10%, 85% { opacity: .35; } 100% { opacity: 0; transform: translateY(7px); } }
 @keyframes intro-pixel-dissolve { 0% { opacity: 1; } 40% { opacity: .18; } 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .page-intro .page-intro-wordmark rect { animation: none; } .page-intro .intro-scanline { display: none; } .page-intro { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .page-intro .page-intro-wordmark rect { animation: none; } .page-intro .intro-scanline { display: none; } .page-intro { display: none; transition: none; } }

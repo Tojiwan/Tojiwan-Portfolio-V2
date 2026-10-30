@@ -68,7 +68,8 @@ export function PageIntro({ children }: { children: ReactNode }) {
       await wait(240);
       finish();
     }
-    void start();
+    // The overlay must never outlive an unexpected readiness error.
+    void start().catch(finish);
     return () => {
       live = false;
       document.body.style.overflow = previousOverflow;

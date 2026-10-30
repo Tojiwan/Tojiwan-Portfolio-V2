@@ -42,7 +42,10 @@ export function ThemeToggle() {
     // Compositor crossfade of old/new snapshots: smooth without
     // animating 12k nodes. Falls back to an instant swap.
     if (!matchMedia("(prefers-reduced-motion: reduce)").matches && document.startViewTransition) {
-      document.startViewTransition(swap);
+      const transition = document.startViewTransition(swap);
+      // A newer toggle skips this transition; swallow the cancelled promises.
+      void transition.ready.catch(() => undefined);
+      void transition.finished.catch(() => undefined);
     } else {
       swap();
     }
