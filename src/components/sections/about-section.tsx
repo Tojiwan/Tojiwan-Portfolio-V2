@@ -147,7 +147,7 @@ export function AboutSection() {
                 <div hidden={tab !== "education"} role = "tabpanel" id = "about-panel-education" aria-labelledby = "about-tab-education" tabIndex = {0}>
                 <p   className = "mb-2 font-mono text-[11px] font-bold tracking-[0.12em] text-(--text-muted) uppercase">{"// Active file: education.md"}</p>
                 <h3  className = "type-title font-display text-black">
-                    <TypedHeading text="Education." />
+                    <TypedHeading text="How I Got Here." />
                   </h3>
                   <div className="type-body mt-3 space-y-4 font-mono text-(--text)">
                     <ScrambledText>
