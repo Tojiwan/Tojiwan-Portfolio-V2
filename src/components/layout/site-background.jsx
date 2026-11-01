@@ -23,9 +23,10 @@ function snapshot() {
 
 export function SiteBackground() {
   const mode = useSyncExternalStore(subscribe, snapshot, () => 'static');
+  const isLargeScreen = typeof window !== 'undefined' && window.innerWidth >= 1024;
   return (
     <div className="site-background" aria-hidden="true">
-      {mode !== 'static' && (
+      {mode !== 'static' && isLargeScreen && (
         <CursorGrid
           cellSize={34}
           color="#0ea5e9"
