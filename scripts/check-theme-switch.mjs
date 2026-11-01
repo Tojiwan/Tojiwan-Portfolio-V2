@@ -1,8 +1,8 @@
-// Run with Playwright MCP against a production server on port 3032.
+// Run with Playwright MCP after navigating to the production server (fine pointer).
 // eslint-disable-next-line @typescript-eslint/no-unused-expressions -- MCP invokes this function.
 async page => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
-  await page.goto('http://localhost:3032');
+  await page.goto(new URL(page.url()).origin);
   await page.locator('.page-intro').waitFor({ state: 'detached' });
   await page.waitForTimeout(1800);
   const pseudoCount = () => page.evaluate(() => document.getAnimations().filter(animation => String(animation.effect.pseudoElement || '').includes('view-transition')).length);

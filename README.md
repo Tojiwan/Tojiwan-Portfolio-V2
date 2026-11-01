@@ -1,5 +1,7 @@
 # Tojiwan Portfolio
 
+Touch performance update (2026-11-01): scramble characters are created on demand and released when offscreen or after touch effects finish. Intro/hover/tap effects remain. Phones/tablets switch themes without full-page snapshot crossfades; desktop retains the crossfade. Production browser regression scripts include `scripts/check-touch-interactions.mjs` and `scripts/check-touch-performance.mjs` (navigate to the production URL first).
+
 About profile update (2026-10-30): the shared `PROFILE.SYS` panel replaces the hanging ID badge with a square framed portrait, terminal-style identity metadata, and a compact status/file footer. It remains mounted across both About tabs and stacks below the text on mobile.
 
 Responsive refinement (2026-10-31): the identity block uses a connected blue frame and a container-scaled, single-line name. Section anchor targets suppress the section-wide focus ring; interactive controls retain keyboard focus indicators.

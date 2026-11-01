@@ -1,8 +1,8 @@
-// Run with Playwright MCP against the production server on port 3031.
+// Run with Playwright MCP after navigating to the production server.
 // eslint-disable-next-line @typescript-eslint/no-unused-expressions -- MCP invokes this function.
 async page => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
-  await page.goto('http://localhost:3031');
+  await page.goto(new URL(page.url()).origin);
   const hero = page.locator('.hero-description.scrambled-text');
   const settled = el => [...el.querySelectorAll('[aria-hidden] span[style*="visibility"]')].every(s => s.textContent === s.nextElementSibling.textContent);
   await page.waitForFunction(() => document.querySelector('.hero-description [aria-hidden] span[style*="visibility"]'));

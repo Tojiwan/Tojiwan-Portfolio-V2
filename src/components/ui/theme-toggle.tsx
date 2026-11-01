@@ -39,9 +39,8 @@ export function ThemeToggle() {
         // Storage unavailable (private mode) — theme still applies live.
       }
     };
-    // Compositor crossfade of old/new snapshots: smooth without
-    // animating 12k nodes. Falls back to an instant swap.
-    if (!matchMedia("(prefers-reduced-motion: reduce)").matches && document.startViewTransition) {
+    // Desktop crossfades snapshots; touch devices avoid their capture/paint cost.
+    if (matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)").matches && document.startViewTransition) {
       const transition = document.startViewTransition(swap);
       // A newer toggle skips this transition; swallow the cancelled promises.
       void transition.ready.catch(() => undefined);

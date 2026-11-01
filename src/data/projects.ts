@@ -57,6 +57,31 @@ export const projects: Project[] = [
     designUrl   : "https://www.figma.com/design/IQvBFmtENrp2u4TvKWWb9e/E-commerce-Website-Template--Freebie---Community-?node-id=39-1402",
   },
   {
+    slug        : "luminore-slug",
+    file        : "e_commerce_web.liquid",
+    title       : "Luminore",
+    screenshots: [
+      { src: "/Luminore/hero-banner.png", title: "Storefront & hero", alt: "Luminore storefront with navigation, fashion hero, and brand strip", width: 1858, height: 932 },
+      { src: "/Luminore/new-arrivals.png", title: "New arrivals", alt: "Luminore new arrivals product cards with ratings and prices", width: 1854, height: 930 },
+      { src: "/Luminore/top-selling.png", title: "Top selling", alt: "Luminore top-selling products with view-product buttons", width: 1858, height: 930 },
+      { src: "/Luminore/category-testimonials.png", title: "Styles & testimonials", alt: "Luminore dress-style categories and customer testimonial section", width: 1788, height: 841 },
+      { src: "/Luminore/footer.png", title: "Newsletter & footer", alt: "Luminore newsletter signup and footer navigation", width: 1855, height: 930 },
+    ],
+    focus       : "Figma-to-Shopify implementation and responsive development",
+    deliverables: [
+      "Dawn Theme Fresh Design for a Jewelry E-commerce Storefront",
+      "Custom product pages, sliders, and collection browsing",
+      "Responsive layouts with Tailwind CSS",
+    ],
+    category   : "E-commerce",
+    status     : "Personal Project",
+    description: 
+      "A responsive Shopify storefront built from the “E-commerce Website Template (Freebie)” Figma design. I implemented the storefront using Liquid, Tailwind CSS, and JavaScript, with custom product pages, product sliders, and collection browsing.",
+    stack       : ["Liquid", "Tailwind CSS", "JavaScript", "Swiper.js"],
+    demoUrl     : "https://luminore-jewelry.myshopify.com",
+    demoPassword: "luminore"
+  },
+  {
     slug        : "n8n-slug",
     file        : "facebook_rag.n8n",
     title       : "Facebook RAG Chatbot",

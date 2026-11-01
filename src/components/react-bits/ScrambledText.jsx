@@ -24,29 +24,51 @@ export default function ScrambledText({ children, className = '' }) {
     document.fonts.ready.then(() => {
       if (!live) return;
       media.add('(prefers-reduced-motion: no-preference)', () => {
-        const split = SplitText.create(text, { type: 'chars', smartWrap: true, aria: 'none' });
-        const chars = split.chars;
-        const originals = chars.map(char => char.textContent);
-        const glyphs = chars.map((char, i) => {
-          const sizer = document.createElement('span');
-          const glyph = document.createElement('span');
-          sizer.textContent = originals[i];
-          sizer.style.visibility = 'hidden';
-          glyph.textContent = originals[i];
-          glyph.style.cssText = 'position:absolute;top:0;left:50%;transform:translateX(-50%);white-space:pre';
-          char.replaceChildren(sizer, glyph);
-          return glyph;
-        });
+        let split;
+        let chars = [];
+        let originals = [];
+        let glyphs = [];
+        let release;
+        const touch = window.matchMedia('(hover: none), (pointer: coarse)');
+        const reset = () => {
+          release?.kill();
+          gsap.killTweensOf(glyphs);
+          split?.revert();
+          split = undefined;
+          chars = [];
+          glyphs = [];
+        };
+        const prepare = () => {
+          if (split) return;
+          split = SplitText.create(text, { type: 'chars', smartWrap: true, aria: 'none' });
+          chars = split.chars;
+          originals = chars.map(char => char.textContent);
+          glyphs = chars.map((char, i) => {
+            const sizer = document.createElement('span');
+            const glyph = document.createElement('span');
+            sizer.textContent = originals[i];
+            sizer.style.visibility = 'hidden';
+            glyph.textContent = originals[i];
+            glyph.style.cssText = 'position:absolute;top:0;left:50%;transform:translateX(-50%);white-space:pre';
+            char.replaceChildren(sizer, glyph);
+            return glyph;
+          });
+        };
         const scramble = (i, duration, delay = 0) => gsap.to(glyphs[i], {
           duration, delay, overwrite: true, ease: 'none',
           scrambleText: { text: originals[i], chars: '.:', speed: 0.5 },
         });
         const observer = new IntersectionObserver(([entry]) => {
-          if (!entry.isIntersecting || !entry.intersectionRect.width || !entry.intersectionRect.height) return;
-          observer.disconnect();
+          if (!entry.isIntersecting || !entry.intersectionRect.width || !entry.intersectionRect.height) {
+            reset();
+            return;
+          }
           if (introduced.current) return;
+          prepare();
           introduced.current = true;
           glyphs.forEach((_, i) => scramble(i, 0.3 + 0.9 * i / glyphs.length));
+          // Touch screens keep plain text after the effect, not thousands of idle glyph nodes.
+          if (touch.matches) release = gsap.delayedCall(1.3, reset);
         }, { threshold: 0.1 });
         observer.observe(root);
         let frame = 0;
@@ -58,6 +80,7 @@ export default function ScrambledText({ children, className = '' }) {
           if (event.pointerType === 'touch') return;
           cancelAnimationFrame(frame);
           frame = requestAnimationFrame(() => {
+            prepare();
             chars.forEach((char, i) => {
               const distance = distanceFrom(char, event);
               if (distance < 100) scramble(i, Math.max(0.1, 1.2 * (1 - distance / 100)));
@@ -66,7 +89,11 @@ export default function ScrambledText({ children, className = '' }) {
         };
         const click = event => {
           if (event.button !== 0) return;
-          chars.forEach((char, i) => scramble(i, 0.6, distanceFrom(char, event) / 1100));
+          release?.kill();
+          prepare();
+          const delays = chars.map(char => distanceFrom(char, event) / 1100);
+          chars.forEach((_, i) => scramble(i, 0.6, delays[i]));
+          if (touch.matches) release = gsap.delayedCall(0.7 + Math.max(0, ...delays), reset);
         };
         root.addEventListener('pointermove', move);
         root.addEventListener('click', click);
@@ -75,8 +102,7 @@ export default function ScrambledText({ children, className = '' }) {
           cancelAnimationFrame(frame);
           root.removeEventListener('pointermove', move);
           root.removeEventListener('click', click);
-          gsap.killTweensOf(glyphs);
-          split.revert();
+          reset();
         };
       });
     });
