@@ -3,7 +3,7 @@
 import { useSyncExternalStore } from 'react';
 import CursorGrid from '@/components/react-bits/CursorGrid';
 
-const motionQuery = '(prefers-reduced-motion: reduce)';
+const motionQuery = '(prefers-reduced-motion: reduce), (max-width: 1023px), (hover: none), (pointer: coarse)';
 
 function subscribe(update) {
   const observer = new MutationObserver(update);
@@ -23,10 +23,9 @@ function snapshot() {
 
 export function SiteBackground() {
   const mode = useSyncExternalStore(subscribe, snapshot, () => 'static');
-  const isLargeScreen = typeof window !== 'undefined' && window.innerWidth >= 1024;
   return (
     <div className="site-background" aria-hidden="true">
-      {mode !== 'static' && isLargeScreen && (
+      {mode !== 'static' && (
         <CursorGrid
           cellSize={34}
           color="#0ea5e9"

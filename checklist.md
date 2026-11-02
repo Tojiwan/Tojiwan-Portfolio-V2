@@ -17,6 +17,8 @@ that later changes or the live deployment have been verified.
 
 ## Projects, About, and theme updates
 
+- [x] 2026-11-02: add all 19 supplied Luminoré screenshots with device labels and measured image dimensions, replacing missing paths. Make the cursor grid desktop-only with live responsive media queries; retain static grid on mobile/touch devices.
+
 - [x] 2026-11-01: reduce mobile scramble DOM and bypass touch theme snapshots. Production build/lint, desktop scramble/theme regressions, touch tap/text restoration, reduced motion, and 390/768/820/1024px layout checks pass. Physical iPhone 13 Safari and deployed RUM remain pending.
 
 ### Touch performance measurements — 2026-11-01
@@ -28,10 +30,10 @@ Chromium production build, coarse pointer, DPR 3, 4× CPU throttle, 4-second scr
 | Baseline at 390px | 13,548 DOM nodes; scroll p95 375ms; theme samples 1,511/483/954ms | Reference |
 | Lazy scramble preparation + offscreen/touch cleanup | ~1,586 nodes; theme 274–347ms | Keep: removes idle character DOM while preserving effects |
 | Also skip snapshot crossfade on touch | 390px repeat: ~1,587 nodes; scroll p95 160ms; theme 179/166/132ms (earlier run 57–90ms) | Keep: significant reduction, timings remain noisy |
-| Static CSS grid on touch | Scroll p95 111ms; theme 118–168ms, overlapping final variant's run-to-run range | Reverted: no reliable additional gain |
+| Static CSS grid on touch | Scroll p95 111ms; theme 118–168ms, overlapping final variant's run-to-run range | Reverted as inconclusive, then re-adopted 2026-11-02 at owner request |
 | Final 820px tablet check | ~1,592 nodes; scroll p95 180ms; theme 207/50/115ms; no page overflow | Physical tablet verification pending |
 
-One existing missing image was observed during profiling: `/Luminore/hero-banner.png` returns 404. The in-progress project-data edits were left intact.
+One missing image was observed during profiling: `/Luminore/hero-banner.png` returned 404. Resolved 2026-11-02 by replacing the five unused paths with the supplied 19-image desktop/tablet/mobile set.
 
 - [x] 2026-10-31: connect the profile identity frame and fit the name on one line. Fix the global focus rule overriding section anchor outline suppression. Browser checks at 320, 390, 768, 1024, 1440, and 1920px in both themes found no page overflow. Checked mobile menu, About/toolbox tabs, all seven project slides, gallery navigation/close, invalid-email validation, and retained keyboard control outlines. Physical iPhone/Safari recheck and actual form delivery remain pending.
 

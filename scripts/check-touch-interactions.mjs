@@ -9,6 +9,8 @@ async page => {
     await mobile.goto(origin);
     await mobile.locator('.page-intro').waitFor({ state: 'detached' });
     await mobile.waitForTimeout(1800);
+    if (await mobile.locator('.cursor-grid').count()) throw Error('Touch device mounted animated cursor grid');
+    if (!await mobile.locator('.site-background').evaluate(e => getComputedStyle(e).backgroundImage !== 'none')) throw Error('Static grid missing');
     if (await mobile.locator('*').count() > 3000) throw Error('Idle touch DOM exceeds 3,000-node regression budget');
     const hero = mobile.locator('.hero-description.scrambled-text');
     await hero.scrollIntoViewIfNeeded();

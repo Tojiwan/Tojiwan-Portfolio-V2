@@ -1,5 +1,7 @@
 # Tojiwan Portfolio
 
+Update (2026-11-02): Luminoré includes 19 desktop/tablet/mobile gallery screenshots. The animated cursor grid is desktop-only (1024px+, fine pointer with hover); mobile/tablet touch devices use the static CSS grid, including after resize.
+
 Touch performance update (2026-11-01): scramble characters are created on demand and released when offscreen or after touch effects finish. Intro/hover/tap effects remain. Phones/tablets switch themes without full-page snapshot crossfades; desktop retains the crossfade. Production browser regression scripts include `scripts/check-touch-interactions.mjs` and `scripts/check-touch-performance.mjs` (navigate to the production URL first).
 
 About profile update (2026-10-30): the shared `PROFILE.SYS` panel replaces the hanging ID badge with a square framed portrait, terminal-style identity metadata, and a compact status/file footer. It remains mounted across both About tabs and stacks below the text on mobile.

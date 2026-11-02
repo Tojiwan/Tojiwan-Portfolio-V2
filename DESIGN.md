@@ -115,7 +115,9 @@ components:
 
 # Design System: Tojiwan Portfolio
 
-**Touch performance (2026-11-01):** preserve scramble intro and tap interactions, but keep idle touch copy as plain text and release offscreen character wrappers. Full-page theme snapshot crossfades apply only to fine-pointer hover devices; touch switches immediately with the existing icon animation. The interactive grid remains unchanged after a static-grid experiment showed no reliable timing improvement.
+**Background update (2026-11-02):** per owner request, mobile widths and touch devices use the static CSS grid. Mount CursorGrid only at 1024px+ with a fine pointer, hover, and no reduced-motion preference; media-query changes update this live. This supersedes the earlier decision to retain the animated grid on touch.
+
+**Touch performance (2026-11-01):** preserve scramble intro and tap interactions, but keep idle touch copy as plain text and release offscreen character wrappers. Full-page theme snapshot crossfades apply only to fine-pointer hover devices; touch switches immediately with the existing icon animation. The grid follows the 2026-11-02 background update.
 
 **Responsive refinement (2026-10-31):** connect all four identity borders using `--accent-strong`; scale the name with its container (12–17px) to fit a single line at tested 320–1920px widths. Suppress focus outlines only on section anchor destinations, retaining keyboard outlines for controls and tab panels.
 
@@ -206,7 +208,7 @@ The palette is a graphite paper-and-console set with exactly one accent family (
 
 **Heading animation update (2026-10-29):** requested section headings (including About Me), project titles, skill-group titles, and About/Education panel headings use the hero's 80ms-per-character TextType fade and accent bar cursor, once on first visibility. Fonts and text colors are inherited; final heading space is reserved. About panels stay mounted to avoid replay on tab switches. Reduced motion skips typing. Critical sizing-copy hiding and grid overlap styles live on the components so stale global CSS cannot expose duplicate headings.
 
-**Background update (2026-10-28):** the owner approved replacing the static page grid with React Bits CursorGrid: 34px cells, cyan highlights, 90px cursor radius, click pulses, theme-aware neutral grid lines at 0.29 opacity, and a fixed viewport-sized canvas behind all content. Static 34px CSS grid is retained for reduced motion and unavailable/lost WebGL. No intro or ambient animation; idle/hidden rendering pauses. This supersedes the older 20px background specification below.
+**Background update (2026-10-28):** the owner approved replacing the static page grid with React Bits CursorGrid: 34px cells, cyan highlights, 90px cursor radius, click pulses, theme-aware neutral grid lines at 0.29 opacity, and a fixed viewport-sized canvas behind all content. Static 34px CSS grid is retained for reduced motion, mobile/touch widths (2026-11-02), and unavailable/lost WebGL. No intro or ambient animation; idle/hidden rendering pauses. This supersedes the older 20px background specification below.
 
 A single-page vertical console scroll. Content runs in a `max-w-7xl` (1280px) container with 16px side padding (24px at sm+), sections separated by generous vertical rhythm and `scroll-mt-20` so they land under the sticky 64px header strip. The body prints a 20px × 20px graph-paper grid behind everything: 1px lines at ~4.5% black (light) or ~5% white (dark), visible through every transparent gap. Container queries drive dispositioning: `.hero-intro` is a size container and the display scales at 10.5cqi (9.5cqi under 640px); the footer ASCII wordmark scales on its own container at `clamp(6px, 2.8cqi, 12px)`.
 

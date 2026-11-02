@@ -1,6 +1,7 @@
 // Run with Playwright MCP browser_run_code_unsafe against a local server.
 // eslint-disable-next-line @typescript-eslint/no-unused-expressions -- MCP invokes this function with its Page instance.
-async (page, url = "http://localhost:3028") => {
+async page => {
+  const url = new URL(page.url()).origin;
   const check = (condition, message) => { if (!condition) throw new Error(message); };
   await page.addInitScript(() => {
     window.gridDraws = 0;
@@ -11,11 +12,13 @@ async (page, url = "http://localhost:3028") => {
     };
   });
   await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto(url);
   const grid = page.locator('.cursor-grid[data-ready="true"]');
   await grid.waitFor();
   for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: 900 });
+    await grid.waitFor({ state: width < 1024 ? 'detached' : 'visible' });
     check(await page.locator('.site-background').evaluate(el => {
       const r = el.getBoundingClientRect();
       return r.width === document.documentElement.clientWidth && r.height === innerHeight && getComputedStyle(el).pointerEvents === 'none';
