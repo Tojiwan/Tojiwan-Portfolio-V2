@@ -24,6 +24,7 @@ const skillIcons: Record<string, string> = {
   Laravel                 : "laravel",
   MySQL                   : "mysql-wordmark",
   Supabase                : "supabase",
+  Firebase                : "firebase",
   "Shopify Liquid"        : "shopify",
   "Judge.me"              : "judge-me",
   Xendit                  : "xendit",

@@ -22,7 +22,7 @@ export const skillGroups: SkillGroup[] = [
     id         : "backend",
     title      : "Backend & Data",
     description: "Application features, data storage, and service integration.",
-    skills     : ["PHP", "Laravel", "MySQL", "Supabase"],
+    skills     : ["PHP", "Laravel", "MySQL", "Supabase", "Firebase"],
   },
   {
     id         : "shopify-automation",
