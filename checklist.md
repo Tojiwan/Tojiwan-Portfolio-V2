@@ -160,7 +160,8 @@ Real screenshots for all seven projects are connected; further Vehiserve details
 - [x] Add toolbox ArrowUp/ArrowDown/Home/End handling, managed tab stops, and tab/panel associations.
 - [x] Make About title/path labels reflect the selected file.
 - [x] Add Escape handling to the mobile menu, restoring focus when dismissed from navigation.
-- [x] Contact form connected to Formspree with validation, sending/success/error feedback, spam honeypot, and direct-email fallback.
+- [x] Contact form posts to `/api/contact` with server-side validation, sending/success/error feedback, spam honeypot, and direct-email fallback; the route forwards to Formspree.
+- [ ] Publish the Vercel WAF rate-limit rule for `POST /api/contact` (3 requests per 10 minutes per IP, 429). Formspree's 20/minute form limit remains the fallback.
 - [x] Test a real submission and verify inbox delivery (localhost test on 2026-10-16; owner confirmed with screenshots).
 - [ ] Check the free-plan submission usage.
 

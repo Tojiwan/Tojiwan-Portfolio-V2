@@ -47,9 +47,23 @@ External website links open in a new tab. Section links navigate within the page
 
 Set `SITE_URL` to the full deployed origin, including `https://`, in your hosting environment before building. Social image URLs use this value. If omitted, the site uses `VERCEL_PROJECT_PRODUCTION_URL` on Vercel or `http://localhost:3000` locally. Rebuild after changing it.
 
+Optional server-only overrides are listed in `.env.example`. The Formspree endpoint is not a secret; overriding it is only for configuration.
+
+## Contact form rate limit
+
+The browser posts to `/api/contact`, which validates the fields, checks the honeypot, and forwards the message to Formspree. Add a Vercel WAF rate-limit rule for `POST /api/contact`: **3 requests per 10 minutes per IP**, action **429**. Publish the rule in the Vercel project's Firewall settings; firewall rules are deployment configuration and are not stored in this repository. WAF counters are tracked per region.
+
+With a linked Vercel project, the CLI equivalent is:
+
+```bash
+vercel firewall rules add --ai "Rate limit POST /api/contact to 3 requests per 10 minutes per IP"
+```
+
+Formspree still enforces its own **20 posts per minute per form** limit as a second layer. The form already displays the 429 message.
+
 ## Features and integrations
 
-- The contact form sends through Formspree with validation, sending/success/error feedback, and a spam honeypot. Direct email and profile links are also available. The owner confirmed a successful localhost submission and inbox delivery from the 2026-10-16 test.
+- The contact form posts to `/api/contact` with server-side validation, sending/success/error feedback, and a spam honeypot. The route forwards to Formspree, so the form ID is no longer called directly by the browser. Direct email and profile links are also available. The owner confirmed a successful localhost submission and inbox delivery from the 2026-10-16 test.
 - Hero portraits use all five `public/Profile_Avatar/pfp-*.webp` images in original color, starting with pfp-1. Mouse entry or click/tap/keyboard activation advances the image and wraps after pfp-5; a mouse click within 350ms of hover is ignored to avoid a double advance. Edit `src/components/sections/hero-portrait.tsx` to change them.
 - The hero name is static; the `<hello_world />` boot line uses a typewriter animation with a reduced-motion fallback.
 - Courier Prime and IBM Plex Mono are self-hosted as preloaded WOFF2 fonts; portrait assets are compressed WebP images.

@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteBackground } from "@/components/layout/site-background";
 import { PageIntro } from "@/components/layout/page-intro";
+import { Analytics } from "@vercel/analytics/next"
 
 const title = "Tojiwan — Web Developer & Automation Specialist";
 const description =
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="flex min-h-full flex-col font-mono text-(--text)">
         <SiteBackground />
+        <Analytics />
         <PageIntro>
         <a
           href="#main"

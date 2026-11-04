@@ -7,7 +7,7 @@ import { TerminalWindow }                       from "@/components/ui/terminal-w
 import ScrambledText from "@/components/react-bits/ScrambledText";
 import { Reveal }                               from "@/components/ui/reveal";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/mljgaana";
+const CONTACT_ENDPOINT = "/api/contact";
 
 type FormStatus = "idle" | "submitting" | "succeeded" | "error";
 
@@ -74,7 +74,7 @@ export function ContactSection() {
       return;
     }
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch(CONTACT_ENDPOINT, {
         method : "POST",
         headers: { Accept: "application/json" },
         body   : data,
