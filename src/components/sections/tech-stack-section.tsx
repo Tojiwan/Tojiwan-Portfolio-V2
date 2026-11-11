@@ -34,6 +34,7 @@ const skillIcons: Record<string, string> = {
   Claude                  : "claude",
   Git                     : "git",
   Postman                 : "postman",
+  "Cloudfare Pages"       : "cf-pages",
   "Laravel Herd"          : "laravel-herd",
   Docker                  : "docker",
   Figma                   : "figma",

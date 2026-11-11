@@ -34,7 +34,7 @@ export const skillGroups: SkillGroup[] = [
     id         : "tools",
     title      : "Development & Design Tools",
     description: "Daily workflow, testing, local development, and design handoff.",
-    skills     : ["Git", "Postman", "Laravel Herd", "Docker", "Figma", "Canva", "ChatGPT", "OpenCode", "Claude"],
+    skills     : ["Git", "Postman", "Laravel Herd", "Docker", "Figma", "Canva", "ChatGPT", "OpenCode", "Claude", "Cloudfare Pages"],
   },
 ];
 
