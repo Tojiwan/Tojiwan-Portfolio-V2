@@ -31,50 +31,6 @@ export const placeholderScreenshots: ProjectScreenshot[] = [
 
 export const projects: Project[] = [
   {
-    slug        : "shop-co-slug",
-    file        : "e_commerce_web.liquid",
-    title       : "Shop.Co",
-    // screenshots: [
-    //   { src: "/Shop.Co/hero-banner.png", title: "Storefront & hero", alt: "Shop.Co storefront with navigation, fashion hero, and brand strip", width: 1858, height: 932 },
-    //   { src: "/Shop.Co/new-arrivals.png", title: "New arrivals", alt: "Shop.Co new arrivals product cards with ratings and prices", width: 1854, height: 930 },
-    //   { src: "/Shop.Co/top-selling.png", title: "Top selling", alt: "Shop.Co top-selling products with view-product buttons", width: 1858, height: 930 },
-    //   { src: "/Shop.Co/category-testimonials.png", title: "Styles & testimonials", alt: "Shop.Co dress-style categories and customer testimonial section", width: 1788, height: 841 },
-    //   { src: "/Shop.Co/footer.png", title: "Newsletter & footer", alt: "Shop.Co newsletter signup and footer navigation", width: 1855, height: 930 },
-    // ],
-    screenshots: [
-      { src: "/Shop.Co/Desktop-1920x1080/header.png", title: "Desktop", alt: "Shop.Co storefront with navigation, fashion hero, and brand strip", width: 1858, height: 932 },
-      { src: "/Shop.Co/Desktop-1920x1080/product-slider.png", title: "Desktop", alt: "Shop.Co new arrivals product cards with ratings and prices", width: 1858, height: 932 },
-      { src: "/Shop.Co/Desktop-1920x1080/collections.png", title: "Desktop", alt: "Shop.Co top-selling collections with view-collection buttons", width: 1858, height: 932 },
-      { src: "/Shop.Co/Desktop-1920x1080/review&newsletter.png", title: "Desktop", alt: "Shop.Co reviews and newsletter signup", width: 1858, height: 932 },
-      { src: "/Shop.Co/Desktop-1920x1080/footer.png", title: "Desktop", alt: "Shop.Co footer with navigation and social links", width: 1858, height: 932 },
-      
-      { src: "/Shop.Co/tablet-screen-930x1291/header.png", title: "Tablet", alt: "Shop.Co header with navigation and brand strip", width: 930, height: 1291 },
-      { src: "/Shop.Co/tablet-screen-930x1291/product-slider.png", title: "Tablet", alt: "Shop.Co new arrivals product cards with ratings and prices", width: 930, height: 1291 },
-      { src: "/Shop.Co/tablet-screen-930x1291/collections.png", title: "Tablet", alt: "Shop.Co top-selling collections with view-collection buttons", width: 930, height: 1291 },
-      { src: "/Shop.Co/tablet-screen-930x1291/footer&review.png", title: "Tablet", alt: "Shop.Co footer with navigation and social links", width: 930, height: 1291 },   
-      
-      { src: "/Shop.Co/mobile-screen-438x891/header.png", title: "Mobile", alt: "Shop.Co storefront with navigation, fashion hero, and brand strip", width: 438, height: 891 },
-      { src: "/Shop.Co/mobile-screen-438x891/product-slider.png", title: "Mobile", alt: "Shop.Co new arrivals product cards with ratings and prices", width: 438, height: 891 },
-      { src: "/Shop.Co/mobile-screen-438x891/collections.png", title: "Mobile", alt: "Shop.Co top-selling collections with view-collection buttons",width: 438, height: 891 },
-      { src: "/Shop.Co/mobile-screen-438x891/reviews.png", title: "Mobile", alt: "Shop.Co reviews and newsletter signup", width: 438, height: 891 },
-      { src: "/Shop.Co/mobile-screen-438x891/footer.png", title: "Mobile", alt: "Shop.Co footer with navigation and social links", width: 438, height: 891 },
-    ],
-    focus       : "Figma-to-Shopify implementation and responsive development",
-    deliverables: [
-      "Figma-to-Shopify storefront implementation",
-      "Custom product pages, sliders, and collection browsing",
-      "Responsive layouts with Tailwind CSS",
-    ],
-    category   : "E-commerce",
-    status     : "Personal Project",
-    description: 
-      "A responsive Shopify storefront built from the “E-commerce Website Template (Freebie)” Figma design. I implemented the storefront using Liquid, Tailwind CSS, and JavaScript, with custom product pages, product sliders, and collection browsing.",
-    stack       : [ "Dawn Theme", "Liquid", "Tailwind CSS", "JavaScript", "Swiper.js"],
-    demoUrl     : "https://shopco-9844.myshopify.com",
-    demoPassword: "steusk",
-    designUrl   : "https://www.figma.com/design/IQvBFmtENrp2u4TvKWWb9e/E-commerce-Website-Template--Freebie---Community-?node-id=39-1402",
-  },
-  {
     slug        : "luminore-slug",
     file        : "e_commerce_web.liquid",
     title       : "Luminoré",
@@ -113,6 +69,69 @@ export const projects: Project[] = [
     stack       : ["Dawn Theme", "Liquid", "Tailwind CSS", "JavaScript", "Swiper.js"],
     demoUrl     : "https://luminore-jewelry.myshopify.com",
     demoPassword: "luminore"
+  },
+  {
+    slug        : "shop-co-slug",
+    file        : "e_commerce_web.liquid",
+    title       : "Shop.Co",
+    screenshots: [
+      { src: "/Shop.Co/Desktop-1920x1080/header.png", title: "Desktop", alt: "Shop.Co storefront with navigation, fashion hero, and brand strip", width: 1858, height: 932 },
+      { src: "/Shop.Co/Desktop-1920x1080/product-slider.png", title: "Desktop", alt: "Shop.Co new arrivals product cards with ratings and prices", width: 1858, height: 932 },
+      { src: "/Shop.Co/Desktop-1920x1080/collections.png", title: "Desktop", alt: "Shop.Co top-selling collections with view-collection buttons", width: 1858, height: 932 },
+      { src: "/Shop.Co/Desktop-1920x1080/review&newsletter.png", title: "Desktop", alt: "Shop.Co reviews and newsletter signup", width: 1858, height: 932 },
+      { src: "/Shop.Co/Desktop-1920x1080/footer.png", title: "Desktop", alt: "Shop.Co footer with navigation and social links", width: 1858, height: 932 },
+      
+      { src: "/Shop.Co/tablet-screen-930x1291/header.png", title: "Tablet", alt: "Shop.Co header with navigation and brand strip", width: 930, height: 1291 },
+      { src: "/Shop.Co/tablet-screen-930x1291/product-slider.png", title: "Tablet", alt: "Shop.Co new arrivals product cards with ratings and prices", width: 930, height: 1291 },
+      { src: "/Shop.Co/tablet-screen-930x1291/collections.png", title: "Tablet", alt: "Shop.Co top-selling collections with view-collection buttons", width: 930, height: 1291 },
+      { src: "/Shop.Co/tablet-screen-930x1291/footer&review.png", title: "Tablet", alt: "Shop.Co footer with navigation and social links", width: 930, height: 1291 },   
+      
+      { src: "/Shop.Co/mobile-screen-438x891/header.png", title: "Mobile", alt: "Shop.Co storefront with navigation, fashion hero, and brand strip", width: 438, height: 891 },
+      { src: "/Shop.Co/mobile-screen-438x891/product-slider.png", title: "Mobile", alt: "Shop.Co new arrivals product cards with ratings and prices", width: 438, height: 891 },
+      { src: "/Shop.Co/mobile-screen-438x891/collections.png", title: "Mobile", alt: "Shop.Co top-selling collections with view-collection buttons",width: 438, height: 891 },
+      { src: "/Shop.Co/mobile-screen-438x891/reviews.png", title: "Mobile", alt: "Shop.Co reviews and newsletter signup", width: 438, height: 891 },
+      { src: "/Shop.Co/mobile-screen-438x891/footer.png", title: "Mobile", alt: "Shop.Co footer with navigation and social links", width: 438, height: 891 },
+    ],
+    focus       : "Figma-to-Shopify implementation and responsive development",
+    deliverables: [
+      "Figma-to-Shopify storefront implementation",
+      "Custom product pages, sliders, and collection browsing",
+      "Responsive layouts with Tailwind CSS",
+    ],
+    category   : "E-commerce",
+    status     : "Personal Project",
+    description: 
+      "A responsive Shopify storefront built from the “E-commerce Website Template (Freebie)” Figma design. I implemented the storefront using Liquid, Tailwind CSS, and JavaScript, with custom product pages, product sliders, and collection browsing.",
+    stack       : [ "Dawn Theme", "Liquid", "Tailwind CSS", "JavaScript", "Swiper.js"],
+    demoUrl     : "https://shopco-9844.myshopify.com",
+    demoPassword: "shopco",
+    designUrl   : "https://www.figma.com/design/IQvBFmtENrp2u4TvKWWb9e/E-commerce-Website-Template--Freebie---Community-?node-id=39-1402",
+  },
+  {
+    slug       : "calle-cafe-qr-menu",
+    file       : "calle_cafe_qr.tsx",
+    title      : "Calle Café QR Menu", 
+    screenshots: [
+      { src: "/Calle Cafe/Macbook-Air.png", title: "Desktop · Matcha Drinks", alt: "Calle Café Desktop Matcha Drinks", width: 2772, height: 1592 },
+      { src: "/Calle Cafe/Macbook-Air-Snacks.webp", title: "Desktop · Snacks", alt: "Calle Café Desktop Snacks", width: 2772, height: 1592 },
+      { src: "/Calle Cafe/Macbook-Air-Weekend-Cocktail.webp", title: "Desktop · Weekend Cocktails", alt: "Calle Café Desktop Weekend Cocktails", width: 2772, height: 1592 },
+      { src: "/Calle Cafe/iPad-PRO-11-Drinks.webp", title: "Tablet · Drinks", alt: "Calle Café tablet Drinks", width: 1280, height: 1774 },
+      { src: "/Calle Cafe/iPad-PRO-11-Weekend-Cocktail.webp", title: "Tablet · Weekend Cocktails", alt: "Calle Café tablet Weekend Cocktails", width: 1280, height: 1774 },
+      { src: "/Calle Cafe/iPhone-14-PRO-Snacks.webp", title: "Mobile · Snacks", alt: "Calle Café mobile Snacks", width: 802, height: 1634 },
+      { src: "/Calle Cafe/iPhone-14-PRO-Weekend-Cocktail.webp", title: "Mobile · Weekend Cocktails", alt: "Calle Café mobile Weekend Cocktails", width: 802, height: 1634 },
+      { src: "/Calle Cafe/calle-menu-qr.png", title: "QR Code", alt: "Calle Café QR Code", width: 1024, height: 1024 }
+    ],
+    focus       : "Mobile-first QR-based digital café menu",
+    deliverables: [
+      "QR-accessible digital menu optimized for mobile devices",
+      "Interactive product sliders with categorized menu items",
+      "Responsive interface with smooth animations and intuitive navigation",
+    ],
+    category   : "Web Development",
+    status     : "Personal Project",
+    description: 
+      "Designed and developed a mobile-first digital menu for Calle Café, allowing customers to browse drinks, snacks, and weekend cocktails through a QR code. Features interactive product sliders, organized menu categories, and a responsive interface for a seamless browsing experience.",
+    stack: [ "JavaScript", "TypeScript", "Next.js", "Tailwind CSS", "Swiper.js", "Cloudflare Pages"],
   },
   {
     slug        : "n8n-slug",
